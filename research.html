@@ -1,3 +1,212 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Scientific Research | Le Van Cuong</title><style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#243b53;background:#f4f7fa;line-height:1.65}header{background:#102a43;color:white;padding:22px}.container{width:min(1000px,calc(100% - 40px));margin:auto}a{color:#1f5f99}header a{color:white;text-decoration:none;font-weight:800}main{padding:65px 0}h1{color:#102a43;font-size:40px}.card{background:white;border:1px solid #d9e2ec;border-radius:10px;padding:25px;margin:18px 0}.note{background:#eaf2f8;border-left:4px solid #1f5f99;padding:16px}
-</style></head><body><header><div class="container"><a href="index.html">← LE VAN CUONG</a></div></header><main><div class="container"><h1>Scientific Research</h1><p>Selected research topics, conference activities, publications, and computational studies.</p><div class="note">Replace the sample blocks below with your real images, descriptions, certificates, drawings, reports, and links.</div><div class="card"><h2>Item 01</h2><p>Add the first item here.</p></div><div class="card"><h2>Item 02</h2><p>Add the second item here.</p></div><div class="card"><h2>Item 03</h2><p>Add the third item here.</p></div></div></main></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Scientific research by Le Van Cuong on reinforced-concrete durability, climate change, carbonation, chloride ingress, and probabilistic service-life assessment.">
+<meta name="theme-color" content="#26302c">
+<title>Scientific Research | Le Van Cuong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f3f0e8;--paper-deep:#e8e4da;--ink:#202522;--muted:#6d716c;
+  --sage:#7e8c7a;--steel:#627a8b;--line:#b8bbb5;--white:#fffdf7;
+  --dark:#26302c;--dark-deep:#1f2522;--serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Inter",Arial,sans-serif;--mono:"IBM Plex Mono",monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.75}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid #a9bdac;outline-offset:5px}
+.container{width:min(1180px,calc(100% - 8vw));margin:auto}
+header{position:sticky;top:0;z-index:10;background:rgba(38,48,44,.94);color:var(--white);border-bottom:1px solid rgba(255,255,255,.16);backdrop-filter:blur(16px)}
+.nav{height:84px;display:flex;align-items:center;justify-content:space-between}
+.brand{text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.32em}
+.links{display:flex;gap:clamp(22px,3vw,48px)}
+.links a{position:relative;text-decoration:none;font-size:.83rem}
+.links a::after{position:absolute;right:0;bottom:-8px;left:0;height:1px;content:"";background:#aebda9;transform:scaleX(0);transition:transform .2s ease}
+.links a:hover::after,.links a.active::after{transform:scaleX(1)}
+.menu{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);background:transparent;color:var(--white);font-size:1.25rem}
+.page-hero{padding:105px 0 96px;background:var(--dark);color:var(--white)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:90px;align-items:end}
+.kicker{margin:0 0 20px;color:#aebda9;font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+h1{max-width:800px;margin:0;font-family:var(--serif);font-size:clamp(4.5rem,8vw,7.8rem);font-weight:400;letter-spacing:-.06em;line-height:.82}
+.hero-copy{max-width:510px;margin:0;color:#c3cbc6}
+.metrics{background:var(--dark);color:var(--white);border-top:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15)}
+.metric-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.metric{padding:30px;border-right:1px solid rgba(255,255,255,.15)}
+.metric:last-child{border-right:0}
+.metric strong{display:block;font-family:var(--serif);font-size:3rem;font-weight:400;line-height:1}
+.metric span{color:#aeb7b1;font-family:var(--mono);font-size:.56rem;letter-spacing:.08em;text-transform:uppercase}
+.overview{padding:100px 0}
+.overview-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:90px}
+.overview-chart{margin-top:60px}
+.overview h2,.methods h2{margin:0;font-family:var(--serif);font-size:clamp(3.2rem,6vw,5.8rem);font-weight:400;letter-spacing:-.055em;line-height:.9}
+.overview-copy>p{margin-top:0;color:var(--muted)}
+.facts{margin-top:34px;border-top:1px solid var(--line)}
+.fact{padding:18px 0;display:grid;grid-template-columns:150px 1fr;gap:20px;border-bottom:1px solid var(--line)}
+.fact strong{font-family:var(--serif);font-size:1.25rem;font-weight:500}
+.fact span{color:var(--muted);font-size:.84rem}
+.scenario-chart{
+  position:relative;min-height:420px;overflow:hidden;border:1px solid rgba(98,122,139,.28);
+  background:
+    linear-gradient(rgba(98,122,139,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(98,122,139,.08) 1px,transparent 1px),
+    var(--paper-deep);
+  background-size:55px 55px;
+}
+.chart-line{position:absolute;left:9%;bottom:21%;width:77%;height:1px;transform-origin:left;border-top:2px solid}
+.chart-line::before,.chart-line::after{position:absolute;content:"";height:1px;border-top:inherit;transform-origin:left}
+.chart-line::before{width:48%;left:24%;transform:rotate(-10deg)}
+.chart-line::after{width:38%;left:59%;transform:rotate(-24deg)}
+.ssp126{bottom:38%;color:#728f78;transform:rotate(-3deg)}
+.ssp245{bottom:33%;color:#627a8b;transform:rotate(-7deg)}
+.ssp370{bottom:27%;color:#c69f5e;transform:rotate(-11deg)}
+.ssp585{bottom:21%;color:#bf6659;transform:rotate(-15deg)}
+.legend{position:absolute;top:24px;right:24px;display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:.56rem}
+.legend span{display:flex;align-items:center;gap:6px}.legend i{width:15px;height:2px;display:block}
+.legend .a{background:#728f78}.legend .b{background:#627a8b}.legend .c{background:#c69f5e}.legend .d{background:#bf6659}
+.chart-note{position:absolute;right:22px;bottom:18px;color:var(--muted);font-family:var(--mono);font-size:.56rem;letter-spacing:.08em}
+.methods{padding:100px 0;background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.methods-head{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px;margin-bottom:55px}
+.methods-head>p{margin:0;color:var(--muted)}
+.method-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.method{min-height:265px;padding:28px;border-right:1px solid var(--line)}
+.method:last-child{border-right:0}
+.method>span{color:var(--sage);font-family:var(--mono);font-size:.62rem}
+.method h3{margin:40px 0 14px;font-family:var(--serif);font-size:1.9rem;font-weight:500;line-height:1}
+.method p{margin:0;color:var(--muted);font-size:.82rem}
+.findings{padding:100px 0}
+.findings-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}
+.findings h2{margin:0;font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:400;letter-spacing:-.05em;line-height:.92}
+.finding-list{border-top:1px solid var(--line)}
+.finding{padding:22px 0;display:grid;grid-template-columns:50px 1fr;gap:18px;border-bottom:1px solid var(--line)}
+.finding span{color:var(--steel);font-family:var(--serif);font-size:1.5rem}.finding p{margin:0;color:var(--muted)}
+.conference{padding:88px 0;background:var(--dark-deep);color:var(--white)}
+.conference-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:end}
+.conference h2{margin:0;font-family:var(--serif);font-size:clamp(3rem,6vw,5.6rem);font-weight:400;letter-spacing:-.05em;line-height:.92}
+.conference p{margin:0;color:#bdc5c0}
+footer{padding:30px;background:var(--dark-deep);color:#aeb7b1;border-top:1px solid rgba(255,255,255,.14);text-align:center;font-size:.7rem}
+@media(max-width:900px){
+  .links{position:absolute;top:84px;right:0;left:0;padding:24px 8vw 30px;display:none;flex-direction:column;background:rgba(38,48,44,.99);border-bottom:1px solid rgba(255,255,255,.16)}
+  .links.open{display:flex}.menu{display:grid;place-items:center}
+  .hero-grid,.overview-grid,.methods-head,.findings-grid,.conference-grid{grid-template-columns:1fr;gap:38px}
+  .metric-grid,.method-grid{grid-template-columns:repeat(2,1fr)}
+  .metric:nth-child(2),.method:nth-child(2){border-right:0}.metric:nth-child(-n+2),.method:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.15)}
+}
+@media(max-width:600px){
+  .container{width:calc(100% - 32px)}.nav{height:72px}.links{top:72px;padding-right:16px;padding-left:16px}
+  .page-hero{padding:72px 0}.metric-grid,.method-grid{grid-template-columns:1fr}
+  .metric,.metric:nth-child(2),.method,.method:nth-child(2){border-right:0;border-bottom:1px solid rgba(255,255,255,.15)}
+  .metric:last-child,.method:last-child{border-bottom:0}
+  .overview,.methods,.findings{padding:72px 0}.scenario-chart{min-height:330px}
+  .fact{grid-template-columns:1fr;gap:4px}.conference{padding:72px 0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html" aria-label="Le Van Cuong — home">LE VAN CUONG</a>
+    <button class="menu" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+    <nav class="links" id="navLinks" aria-label="Main navigation">
+      <a href="index.html#about">About</a>
+      <a href="academic-projects.html">Projects</a>
+      <a class="active" href="research.html">Research</a>
+      <a href="awards.html">Awards</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container hero-grid">
+      <div><p class="kicker">03 / Scientific Research</p><h1>Concrete durability<br>under climate change.</h1></div>
+      <p class="hero-copy">Probabilistic assessment of how future CO₂ concentration, temperature, and relative humidity influence carbonation and chloride-induced corrosion in reinforced concrete across Vietnamese coastal climates.</p>
+    </div>
+  </section>
+
+  <section class="metrics" aria-label="Research scale">
+    <div class="container metric-grid">
+      <article class="metric"><strong>151</strong><span>Years · 1950–2100</span></article>
+      <article class="metric"><strong>100K</strong><span>Monte Carlo samples</span></article>
+      <article class="metric"><strong>04</strong><span>SSP scenarios</span></article>
+      <article class="metric"><strong>03</strong><span>Vietnamese locations</span></article>
+    </div>
+  </section>
+
+  <section class="overview">
+    <div class="container overview-grid">
+      <div>
+        <p class="kicker">Research question</p>
+        <h2>How does climate resolution change service-life predictions?</h2>
+      </div>
+      <div class="overview-copy">
+        <p>The study compares monthly and annual climate inputs in reinforced-concrete durability models, examining initiation probability under carbonation and chloride exposure across SSP1-2.6, SSP2-4.5, SSP3-7.0, and SSP5-8.5.</p>
+        <div class="facts">
+          <div class="fact"><strong>Climate variables</strong><span>Atmospheric CO₂ · temperature · relative humidity</span></div>
+          <div class="fact"><strong>Study locations</strong><span>Da Nang · Ninh Thuan · Hai Phong</span></div>
+          <div class="fact"><strong>Assessment</strong><span>Carbonation depth · chloride initiation · probability of depassivation</span></div>
+          <div class="fact"><strong>Computation</strong><span>Python · MATLAB · Monte Carlo simulation · artificial neural networks</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="container overview-chart">
+      <div class="scenario-chart" role="img" aria-label="Illustrative comparison of four SSP climate scenarios from 1950 to 2100">
+        <div class="chart-line ssp126"></div><div class="chart-line ssp245"></div><div class="chart-line ssp370"></div><div class="chart-line ssp585"></div>
+        <div class="legend"><span><i class="a"></i>SSP1-2.6</span><span><i class="b"></i>SSP2-4.5</span><span><i class="c"></i>SSP3-7.0</span><span><i class="d"></i>SSP5-8.5</span></div>
+        <span class="chart-note">Illustrative scenario trajectories · 1950—2100</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="methods">
+    <div class="container">
+      <div class="methods-head">
+        <div><p class="kicker">Research workflow</p><h2>From climate data to reliability.</h2></div>
+        <p>A structured workflow integrates climate processing, material models, uncertainty propagation, and surrogate modelling for long-term service-life assessment.</p>
+      </div>
+      <div class="method-grid">
+        <article class="method"><span>01</span><h3>Climate data</h3><p>Process historical and projected CO₂, temperature, and humidity data at monthly and annual resolution.</p></article>
+        <article class="method"><span>02</span><h3>Durability models</h3><p>Model carbonation and chloride ingress using climate-sensitive transport and material parameters.</p></article>
+        <article class="method"><span>03</span><h3>Uncertainty</h3><p>Propagate material and exposure uncertainty using Monte Carlo simulation and probabilistic indicators.</p></article>
+        <article class="method"><span>04</span><h3>ANN surrogate</h3><p>Prepare input–output datasets for neural-network prediction of long-term durability responses.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="findings">
+    <div class="container findings-grid">
+      <div><p class="kicker">Current observations</p><h2>What the comparison is showing.</h2></div>
+      <div class="finding-list">
+        <div class="finding"><span>01</span><p>Monthly climate inputs generally produce greater predicted deterioration than annual averages because seasonal extremes are retained.</p></div>
+        <div class="finding"><span>02</span><p>Chloride exposure governs early service-life risk in coastal conditions, while carbonation becomes increasingly important over longer periods.</p></div>
+        <div class="finding"><span>03</span><p>Differences between locations depend on the interaction of temperature and humidity rather than temperature alone.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="conference">
+    <div class="container conference-grid">
+      <div><p class="kicker">Research direction</p><h2>Prepared for academic discussion.</h2></div>
+      <p>The work is being developed toward conference presentation and publication, with ATCESD 2026 identified as a target academic venue.</p>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> Le Van Cuong · Civil Engineering Portfolio</footer>
+<script>
+const menuBtn=document.getElementById("menuBtn"),navLinks=document.getElementById("navLinks");
+const closeMenu=()=>{navLinks.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.setAttribute("aria-label","Open navigation")};
+menuBtn.addEventListener("click",()=>{const open=navLinks.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open));menuBtn.setAttribute("aria-label",open?"Close navigation":"Open navigation")});
+document.querySelectorAll("#navLinks a").forEach(link=>link.addEventListener("click",closeMenu));
+document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu()});
+document.getElementById("year").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
