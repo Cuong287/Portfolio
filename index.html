@@ -111,23 +111,58 @@ header{
 }
 .hero::before{
   position:absolute;
-  top:72px;
+  top:64px;
   bottom:62px;
   left:max(2vw,24px);
   width:4px;
   content:"";
   background:var(--sage);
 }
-.hero::after{
+.hero-section-label{
   position:absolute;
-  top:50%;
-  left:max(2vw,24px);
-  content:"01 / PORTFOLIO";
-  font-family:var(--mono);
-  font-size:.62rem;
-  letter-spacing:.14em;
-  transform:rotate(-90deg) translateX(-50%);
-  transform-origin:left top;
+  top:24px;
+  left:calc(max(2vw,24px) - 28px);
+  width:60px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1px;
+  text-align:center;
+  line-height:1;
+  pointer-events:none;
+}
+.hero-section-label .section-number,
+.section-label .section-number{
+  color:#d3a926;
+  font-family:var(--sans);
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:0;
+  line-height:1;
+}
+.hero-section-label .section-name,
+.section-label .section-name{
+  color:var(--steel);
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.12em;
+  line-height:1;
+  text-transform:uppercase;
+}
+.section-label{
+  display:flex;
+  align-items:baseline;
+  gap:7px;
+  white-space:nowrap;
+}
+.section-label .section-divider{
+  color:var(--steel);
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0;
+  line-height:1;
 }
 .hero-grid{
   display:grid;
@@ -484,8 +519,7 @@ footer{
   .links{top:72px;padding-right:16px;padding-left:16px}
   .brand{max-width:160px;font-size:.72rem;line-height:1.5}
   .hero{min-height:auto}
-  .hero::before{top:84px;bottom:50px;left:8px;width:3px}
-  .hero::after{display:none}
+  .hero::before,.hero-section-label{display:none}
   .hero-grid{padding:68px 0 70px}
   h1{font-size:clamp(4.3rem,22vw,6.2rem)}
   .lead{font-size:.94rem}
@@ -527,6 +561,10 @@ footer{
 
 <main>
   <section class="hero" id="home">
+    <div class="hero-section-label" aria-hidden="true">
+      <span class="section-number">01</span>
+      <span class="section-name">INTRO</span>
+    </div>
     <div class="container hero-grid">
       <div>
         <div class="eyebrow">Civil Engineering Portfolio</div>
@@ -547,7 +585,11 @@ footer{
 
   <section id="about">
     <div class="container">
-      <p class="section-kicker">02 / Profile</p>
+      <p class="section-kicker section-label">
+        <span class="section-number">02</span>
+        <span class="section-divider" aria-hidden="true">/</span>
+        <span class="section-name">PROFILE</span>
+      </p>
       <h2 class="section-title">About Me</h2>
       <p class="section-sub">Academic background, professional interests, and career direction in civil engineering.</p>
       <div class="about-grid">
@@ -568,7 +610,11 @@ footer{
 
   <section id="portfolio" class="portfolio-section">
     <div class="container">
-      <p class="section-kicker">EXPLORE MY WORK</p>
+      <p class="section-kicker section-label">
+        <span class="section-number">03</span>
+        <span class="section-divider" aria-hidden="true">/</span>
+        <span class="section-name">WORKS</span>
+      </p>
       <h2 class="section-title">Academic Journey &amp; Research</h2>
       <p class="section-sub">Explore my academic achievements, selected engineering projects, and ongoing research in structural and foundation engineering.</p>
       <div class="cards">
@@ -596,7 +642,11 @@ footer{
 
   <section class="contact" id="contact">
     <div class="container">
-      <p class="section-kicker">04 / Contact</p>
+      <p class="section-kicker section-label">
+        <span class="section-number">04</span>
+        <span class="section-divider" aria-hidden="true">/</span>
+        <span class="section-name">CONTACT</span>
+      </p>
       <h2 class="section-title">Let&apos;s build something that lasts.</h2>
       <div class="contact-grid">
         <div>
