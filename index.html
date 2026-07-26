@@ -296,6 +296,10 @@ section{padding:108px 0}
   font-size:1.2rem;
   font-weight:500;
 }
+.info span{
+  min-width:0;
+  overflow-wrap:break-word;
+}
 .about-notes{
   margin-top:clamp(44px,6vw,70px);
   display:grid;
@@ -342,10 +346,12 @@ section{padding:108px 0}
 }
 .gpa-value{
   color:var(--ink);
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:clamp(2rem,3.2vw,2.8rem);
-  font-weight:600;
-  letter-spacing:-.035em;
+  font-style:normal;
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+  letter-spacing:-.02em;
   line-height:1;
 }
 
@@ -606,11 +612,12 @@ footer{
       <p class="section-sub">Academic background, professional interests, and career direction in civil engineering.</p>
       <div class="about-grid">
         <div class="about-copy">
-          <p>I am a fourth-year Civil Engineering student at The University of Danang – University of Science and Technology, specializing in civil and industrial construction. My academic interests focus on reinforced concrete structures, foundation engineering, climate change, and the long-term durability of civil infrastructure.</p>
+          <p>I am a fourth-year Civil Engineering student specializing in civil and industrial construction. My academic interests focus on reinforced concrete structures, foundation engineering, climate change, and the long-term durability of civil infrastructure.</p>
           <p>Through structural and foundation design projects, scientific research, site visits, and an internship at DINCO E&amp;C, I have gained practical experience in structural analysis, foundation assessment, engineering programming, and technical data processing. I use engineering software such as ETABS, SAP2000, Revit, AutoCAD, PLAXIS, and Robot Structural Analysis, together with Python and MATLAB for numerical modelling and research.</p>
           <p>I aim to develop as a structural design engineer while continuing to pursue academic research, particularly in applying computational methods and climate data to assess the safety, performance, and long-term durability of civil engineering structures.</p>
         </div>
         <div class="info-list">
+          <div class="info"><b>University</b><span>The University of Danang – University of Science and Technology</span></div>
           <div class="info"><b>Primary interests</b><span>Structural Engineering, Foundation Engineering, Climate Change &amp; Structural Durability</span></div>
           <div class="info"><b>Location</b><span>Da Nang, Vietnam</span></div>
           <div class="info"><b>Career direction</b><span>Structural Design Engineer &amp; Researcher</span></div>
