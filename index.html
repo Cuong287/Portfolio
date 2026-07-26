@@ -344,8 +344,10 @@ section{padding:108px 0}
 }
 .card{
   position:relative;
-  min-height:330px;
+  min-height:360px;
   padding:30px;
+  display:flex;
+  flex-direction:column;
   overflow:hidden;
   border:0;
   border-right:1px solid var(--line);
@@ -400,12 +402,20 @@ section{padding:108px 0}
   letter-spacing:-.018em;
   white-space:nowrap;
 }
-.card p{position:relative;z-index:1;max-width:300px;color:var(--muted);font-size:.88rem}
+.card p{
+  position:relative;
+  z-index:1;
+  max-width:310px;
+  margin:0 0 28px;
+  color:var(--muted);
+  font-size:.88rem;
+  line-height:1.65;
+}
 .card a{
-  position:absolute;
+  position:relative;
   z-index:2;
-  bottom:28px;
-  left:30px;
+  align-self:flex-start;
+  margin-top:auto;
   padding-bottom:4px;
   border-bottom:1px solid var(--ink);
   text-decoration:none;
@@ -486,9 +496,16 @@ footer{
     border-left:0;
   }
   .cards{grid-template-columns:1fr}
-  .card{min-height:285px;border-right:0;border-bottom:1px solid var(--line)}
+  .card{min-height:300px;border-right:0;border-bottom:1px solid var(--line)}
   .card:last-child{border-bottom:0}
   .card h3{font-size:2rem}
+}
+
+@media(max-width:1100px) and (min-width:901px){
+  .card h3{
+    font-size:1.72rem;
+    white-space:normal;
+  }
 }
 
 @media(max-width:600px){
@@ -509,7 +526,6 @@ footer{
   .section-sub{margin-bottom:38px}
   .card{padding-right:24px;padding-left:24px}
   .card h3{font-size:1.85rem;white-space:normal}
-  .card a{left:24px}
   .info{grid-template-columns:1fr;gap:4px}
   .about-copy{font-size:.94rem;line-height:1.78}
   .about-note{padding-top:24px;padding-bottom:24px}
@@ -593,27 +609,27 @@ footer{
 
   <section id="portfolio" class="portfolio-section">
     <div class="container">
-      <p class="section-kicker">03 / Selected Work</p>
-      <h2 class="section-title">Portfolio</h2>
-      <p class="section-sub">Academic achievements, engineering design work, and scientific research.</p>
+      <p class="section-kicker">EXPLORE MY WORK</p>
+      <h2 class="section-title">Academic Journey &amp; Research</h2>
+      <p class="section-sub">Explore my academic achievements, selected engineering projects, and ongoing research in structural and foundation engineering.</p>
       <div class="cards">
         <article class="card">
           <div class="num">01 / PORTFOLIO</div>
-          <h3>Awards &amp; Certificates</h3>
-          <p>Academic awards, professional certificates, competitions, seminars, and training achievements.</p>
-          <a href="awards.html">View section</a>
+          <h3>Awards &amp; Recognition</h3>
+          <p>Academic scholarships, Mechanics Olympiad achievements, scientific research awards, certificates, and professional activities.</p>
+          <a href="awards.html">View Achievements</a>
         </article>
         <article class="card">
           <div class="num">02 / PORTFOLIO</div>
           <h3>Academic Projects</h3>
-          <p>Course projects involving structural design, foundation calculation, construction planning, and technical documentation.</p>
-          <a href="academic-projects.html">View section</a>
+          <p>Selected projects in reinforced concrete building design, foundation engineering, and modern construction technology.</p>
+          <a href="academic-projects.html">Explore Projects</a>
         </article>
         <article class="card">
           <div class="num">03 / PORTFOLIO</div>
           <h3>Scientific Research</h3>
-          <p>Research activities related to reinforced concrete durability, climate change, carbonation, and engineering computation.</p>
-          <a href="research.html">View section</a>
+          <p>Current research on climate-change impacts on carbonation and chloride-induced deterioration of reinforced concrete structures.</p>
+          <a href="research.html">View Research</a>
         </article>
       </div>
     </div>
