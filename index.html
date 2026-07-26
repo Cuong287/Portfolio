@@ -326,6 +326,28 @@ section{padding:108px 0}
   font-size:.91rem;
   line-height:1.72;
 }
+.gpa-display{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:3px;
+}
+.gpa-label{
+  color:var(--muted);
+  font-size:.76rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+.gpa-value{
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:clamp(2rem,3.2vw,2.8rem);
+  font-weight:600;
+  letter-spacing:-.035em;
+  line-height:1;
+}
 
 .portfolio-section{
   background:
@@ -596,8 +618,11 @@ footer{
       </div>
       <div class="about-notes">
         <div class="about-note">
-          <h3>Academic highlights</h3>
-          <p>GPA: 3.57/4.00 · Second Prize in Soil Mechanics – National Mechanics Olympiad · Third Prize in University Scientific Research</p>
+          <h3>Academic Performance</h3>
+          <div class="gpa-display">
+            <span class="gpa-label">Current GPA</span>
+            <strong class="gpa-value">3.60/4.00</strong>
+          </div>
         </div>
         <div class="about-note">
           <h3>Career objective</h3>
