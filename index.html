@@ -269,17 +269,25 @@ section{padding:108px 0}
   line-height:.92;
 }
 .section-sub{max-width:700px;margin:0 0 52px;color:var(--muted)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(46px,8vw,100px)}
-.about-grid>div:first-child{font-size:1.02rem}
-.about-grid>div:first-child p:first-child{margin-top:0}
+.about-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.18fr) minmax(340px,.82fr);
+  gap:clamp(46px,6vw,78px);
+  align-items:start;
+}
+.about-copy{font-size:.98rem;line-height:1.82}
+.about-copy p{margin:0 0 1.25rem}
+.about-copy p:last-child{margin-bottom:0}
 .info-list{display:grid;border-top:1px solid var(--line)}
 .info{
-  padding:20px 0;
+  padding:22px 0;
   display:grid;
-  grid-template-columns:150px 1fr;
-  gap:20px;
+  grid-template-columns:136px minmax(0,1fr);
+  gap:18px;
   border-bottom:1px solid var(--line);
   color:var(--muted);
+  font-size:.9rem;
+  line-height:1.65;
 }
 .info b{
   display:block;
@@ -287,6 +295,36 @@ section{padding:108px 0}
   font-family:var(--serif);
   font-size:1.2rem;
   font-weight:500;
+}
+.about-notes{
+  margin-top:clamp(44px,6vw,70px);
+  display:grid;
+  grid-template-columns:.88fr 1.12fr;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.about-note{
+  padding:28px clamp(24px,3vw,38px) 30px 0;
+}
+.about-note+ .about-note{
+  padding-right:0;
+  padding-left:clamp(24px,3vw,38px);
+  border-left:1px solid var(--line);
+}
+.about-note h3{
+  margin:0 0 10px;
+  color:var(--sage);
+  font-family:var(--sans);
+  font-size:.68rem;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.about-note p{
+  margin:0;
+  color:#3d4440;
+  font-size:.91rem;
+  line-height:1.72;
 }
 
 .portfolio-section{
@@ -440,6 +478,13 @@ footer{
   .hero-grid{grid-template-columns:1fr;gap:68px;padding:78px 0}
   .portrait{width:min(76vw,420px)}
   .about-grid,.contact-grid{grid-template-columns:1fr}
+  .about-notes{grid-template-columns:1fr}
+  .about-note{padding-right:0}
+  .about-note+ .about-note{
+    padding-left:0;
+    border-top:1px solid var(--line);
+    border-left:0;
+  }
   .cards{grid-template-columns:1fr}
   .card{min-height:285px;border-right:0;border-bottom:1px solid var(--line)}
   .card:last-child{border-bottom:0}
@@ -466,6 +511,8 @@ footer{
   .card h3{font-size:1.85rem;white-space:normal}
   .card a{left:24px}
   .info{grid-template-columns:1fr;gap:4px}
+  .about-copy{font-size:.94rem;line-height:1.78}
+  .about-note{padding-top:24px;padding-bottom:24px}
   .contact{padding:84px 0}
   .contact-item{grid-template-columns:1fr;gap:5px}
 }
@@ -500,7 +547,7 @@ footer{
       <div>
         <div class="eyebrow">Civil Engineering Portfolio</div>
         <h1>LE VAN<br>CUONG</h1>
-        <p class="lead">Final-year Civil Engineering student with a strong interest in structural design, construction, and applied research. I am eager to continue learning, gain practical experience, and contribute to meaningful construction projects.</p>
+        <p class="lead">Fourth-year Civil Engineering student with a strong interest in structural engineering, foundation engineering, and research on climate-resilient infrastructure.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#portfolio">View Portfolio</a>
           <a class="btn btn-outline" href="#contact">Contact Me</a>
@@ -520,14 +567,25 @@ footer{
       <h2 class="section-title">About Me</h2>
       <p class="section-sub">Academic background, professional interests, and career direction in civil engineering.</p>
       <div class="about-grid">
-        <div>
-          <p>I am currently completing my Civil Engineering degree and developing practical skills in structural calculation, technical drawing, construction documentation, engineering software, and research-based problem solving.</p>
-          <p>My goal is to strengthen my design and construction experience while contributing responsibly to safe, efficient, and meaningful projects.</p>
+        <div class="about-copy">
+          <p>I am a fourth-year Civil Engineering student at The University of Danang – University of Science and Technology, specializing in civil and industrial construction. My academic interests focus on reinforced concrete structures, foundation engineering, climate change, and the long-term durability of civil infrastructure.</p>
+          <p>Through structural and foundation design projects, scientific research, site visits, and an internship at DINCO E&amp;C, I have gained practical experience in structural analysis, foundation assessment, engineering programming, and technical data processing. I use engineering software such as ETABS, SAP2000, Revit, AutoCAD, PLAXIS, and Robot Structural Analysis, together with Python and MATLAB for numerical modelling and research.</p>
+          <p>I aim to develop as a structural design engineer while continuing to pursue academic research, particularly in applying computational methods and climate data to assess the safety, performance, and long-term durability of civil engineering structures.</p>
         </div>
         <div class="info-list">
-          <div class="info"><b>Primary interests</b><span>Structural design, construction, foundation engineering, and applied research.</span></div>
+          <div class="info"><b>Primary interests</b><span>Structural Engineering, Foundation Engineering, Climate Change &amp; Structural Durability</span></div>
           <div class="info"><b>Location</b><span>Da Nang, Vietnam</span></div>
-          <div class="info"><b>Career direction</b><span>Structural engineering, technical design, and construction project development.</span></div>
+          <div class="info"><b>Career direction</b><span>Structural Design Engineer &amp; Researcher</span></div>
+        </div>
+      </div>
+      <div class="about-notes">
+        <div class="about-note">
+          <h3>Academic highlights</h3>
+          <p>GPA: 3.57/4.00 · Second Prize in Soil Mechanics – National Mechanics Olympiad · Third Prize in University Scientific Research</p>
+        </div>
+        <div class="about-note">
+          <h3>Career objective</h3>
+          <p>To gain professional experience in structural design and foundation engineering while strengthening my capabilities in research, engineering programming, and numerical modelling.</p>
         </div>
       </div>
     </div>
