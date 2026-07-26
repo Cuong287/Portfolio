@@ -352,13 +352,15 @@ section{padding:108px 0}
 .card h3{
   position:relative;
   z-index:1;
-  max-width:260px;
+  max-width:none;
   margin:42px 0 15px;
   color:var(--ink);
   font-family:var(--serif);
-  font-size:2rem;
+  font-size:clamp(1.7rem,1.95vw,2rem);
   font-weight:500;
-  line-height:1.05;
+  line-height:1.08;
+  letter-spacing:-.018em;
+  white-space:nowrap;
 }
 .card p{position:relative;z-index:1;max-width:300px;color:var(--muted);font-size:.88rem}
 .card a{
@@ -441,6 +443,7 @@ footer{
   .cards{grid-template-columns:1fr}
   .card{min-height:285px;border-right:0;border-bottom:1px solid var(--line)}
   .card:last-child{border-bottom:0}
+  .card h3{font-size:2rem}
 }
 
 @media(max-width:600px){
@@ -459,6 +462,9 @@ footer{
   .portrait{width:min(84vw,350px)}
   section{padding:78px 0}
   .section-sub{margin-bottom:38px}
+  .card{padding-right:24px;padding-left:24px}
+  .card h3{font-size:1.85rem;white-space:normal}
+  .card a{left:24px}
   .info{grid-template-columns:1fr;gap:4px}
   .contact{padding:84px 0}
   .contact-item{grid-template-columns:1fr;gap:5px}
