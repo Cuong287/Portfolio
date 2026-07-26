@@ -103,14 +103,15 @@ header{
   position:relative;
   min-height:650px;
   display:grid;
-  place-items:center;
+  align-items:start;
+  justify-items:center;
   overflow:hidden;
   color:var(--ink);
   border-bottom:1px solid var(--line);
 }
 .hero::before{
   position:absolute;
-  top:112px;
+  top:72px;
   bottom:62px;
   left:max(2vw,24px);
   width:4px;
@@ -133,7 +134,7 @@ header{
   grid-template-columns:minmax(0,1.12fr) minmax(410px,.88fr);
   gap:clamp(44px,5vw,74px);
   align-items:center;
-  padding:88px 0;
+  padding:36px 0 96px;
 }
 .eyebrow,.section-kicker{
   margin:0 0 22px;
@@ -513,6 +514,7 @@ footer{
   }
   .links.open{display:flex}
   .menu{display:grid;place-items:center}
+  .hero{align-items:center}
   .hero-grid{grid-template-columns:1fr;gap:68px;padding:78px 0}
   .portrait{width:min(76vw,420px)}
   .about-grid,.contact-grid{grid-template-columns:1fr}
