@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Academic awards, scholarships, and research recognition of civil engineering student Le Van Cuong.">
 <meta name="theme-color" content="#f3f0e8">
-<title>Awards &amp; Certificates | Le Van Cuong</title>
+<title>Awards &amp; Milestones | Le Van Cuong</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -43,12 +43,14 @@ header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-b
 .kicker{margin:0 0 20px;color:var(--sage);font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
 h1{max-width:800px;margin:0;font-family:var(--serif);font-size:clamp(4.5rem,8vw,7.8rem);font-weight:400;letter-spacing:-.06em;line-height:.82}
 .hero-lead{max-width:470px;margin:0;color:var(--muted)}
-.summary-strip{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.summary-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
 .summary-strip article{padding:32px clamp(20px,4vw,52px);border-right:1px solid var(--line)}
 .summary-strip article:last-child{border-right:0}
 .summary-strip strong{display:block;font-family:var(--serif);font-size:2.8rem;font-weight:400;line-height:1}
 .summary-strip span{color:var(--muted);font-family:var(--mono);font-size:.58rem;letter-spacing:.09em;text-transform:uppercase}
 .awards{padding:100px 0}
+.award-section-head{margin-bottom:38px}
+.award-section-head h2{margin:0;font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:400;letter-spacing:-.05em;line-height:.92}
 .award-list{border-top:1px solid var(--line)}
 .award{
   min-height:145px;padding:28px 0;display:grid;
@@ -70,6 +72,9 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
   .links{position:absolute;top:84px;right:0;left:0;padding:24px 8vw 30px;display:none;flex-direction:column;background:rgba(243,240,232,.99);border-bottom:1px solid var(--line)}
   .links.open{display:flex}.menu{display:grid;place-items:center}
   .hero-grid,.note-grid{grid-template-columns:1fr;gap:38px}
+  .summary-strip{grid-template-columns:repeat(2,1fr)}
+  .summary-strip article:nth-child(2n){border-right:0}
+  .summary-strip article:nth-child(-n+2){border-bottom:1px solid var(--line)}
   .award{grid-template-columns:54px 110px 1fr 35px}
 }
 @media(max-width:600px){
@@ -104,50 +109,155 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
   <section class="page-hero">
     <div class="container hero-grid">
       <div><p class="kicker">01 / Recognition</p><h1>Awards &amp;<br>Milestones</h1></div>
-      <p class="hero-lead">A record shaped by disciplined study, mechanics competitions, student research, and sustained academic development.</p>
+      <p class="hero-lead">A record of academic achievement, mechanics competitions, scientific research, and sustained professional development throughout my Civil Engineering studies.</p>
     </div>
   </section>
 
   <section class="summary-strip" aria-label="Academic summary">
-    <article><strong>3.57<span>/4.00</span></strong><span>Academic GPA</span></article>
-    <article><strong>2nd</strong><span>Prize · Soil Mechanics</span></article>
-    <article><strong>3rd</strong><span>Prize · Student Research</span></article>
+    <article><strong>3.60<span>/4.00</span></strong><span>Current GPA</span></article>
+    <article><strong>04 <span>Awards</span></strong><span>Mechanics Olympiad</span></article>
+    <article><strong>02 <span>Awards</span></strong><span>Student Research</span></article>
+    <article><strong>05 <span>Honors</span></strong><span>Scholarships &amp; Recognition</span></article>
   </section>
 
   <section class="awards">
-    <div class="container award-list">
-      <article class="award">
-        <span class="award-no">01</span><span class="award-year">2024</span>
-        <div><h2>Second Prize — Soil Mechanics</h2><p>National Mechanics Olympiad · recognition of analytical ability in geotechnical mechanics.</p></div>
-        <span class="award-mark" aria-hidden="true">✦</span>
-      </article>
-      <article class="award">
-        <span class="award-no">02</span><span class="award-year">University</span>
-        <div><h2>Third Prize — Student Research</h2><p>University-level scientific research competition · applied research in civil engineering.</p></div>
-        <span class="award-mark" aria-hidden="true">✦</span>
-      </article>
-      <article class="award">
-        <span class="award-no">03</span><span class="award-year">2023–2025</span>
-        <div><h2>Academic Merit Scholarships</h2><p>Scholarship recognition for strong academic performance across multiple semesters.</p></div>
-        <span class="award-mark" aria-hidden="true">✦</span>
-      </article>
-      <article class="award">
-        <span class="award-no">04</span><span class="award-year">2022</span>
-        <div><h2>Thanh Quan Scholarship</h2><p>Awarded in recognition of the highest university entrance score.</p></div>
-        <span class="award-mark" aria-hidden="true">✦</span>
-      </article>
-      <article class="award">
-        <span class="award-no">05</span><span class="award-year">2024–2025</span>
-        <div><h2>Tuan Le Scholarship</h2><p>Monthly scholarship supporting continued academic development from September 2024 to June 2025.</p></div>
-        <span class="award-mark" aria-hidden="true">✦</span>
-      </article>
+    <div class="container">
+      <div class="award-section-head">
+        <p class="kicker">MECHANICS OLYMPIAD</p>
+        <h2>Achievements in Soil Mechanics</h2>
+      </div>
+      <div class="award-list">
+        <article class="award">
+          <span class="award-no">01</span><span class="award-year">2025 · NATIONAL LEVEL</span>
+          <div>
+            <h2>Consolation Prize — 35th National Mechanics Olympiad</h2>
+            <p>Soil Mechanics Division</p>
+            <p>Awarded a Consolation Prize in the Soil Mechanics Division at the 35th National Mechanics Olympiad.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+        <article class="award">
+          <span class="award-no">02</span><span class="award-year">2025 · UNIVERSITY LEVEL</span>
+          <div>
+            <h2>Third Prize — University-Level Mechanics Olympiad</h2>
+            <p>Soil Mechanics Division</p>
+            <p>Awarded Third Prize in the Soil Mechanics Division of the university-level competition.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+        <article class="award">
+          <span class="award-no">03</span><span class="award-year">2024 · NATIONAL LEVEL</span>
+          <div>
+            <h2>Consolation Prize — 34th National Mechanics Olympiad</h2>
+            <p>Soil Mechanics Division</p>
+            <p>Awarded a Consolation Prize in the Soil Mechanics Division at the 34th National Mechanics Olympiad.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+        <article class="award">
+          <span class="award-no">04</span><span class="award-year">2024 · UNIVERSITY LEVEL</span>
+          <div>
+            <h2>Second Prize — University-Level Mechanics Olympiad</h2>
+            <p>Soil Mechanics Division</p>
+            <p>Awarded Second Prize in the Soil Mechanics Division of the university-level competition.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="awards">
+    <div class="container">
+      <div class="award-section-head">
+        <p class="kicker">STUDENT RESEARCH</p>
+        <h2>Scientific Research Awards</h2>
+      </div>
+      <div class="award-list">
+        <article class="award">
+          <span class="award-no">01</span><span class="award-year">2026 · SECOND PRIZE · FACULTY LEVEL</span>
+          <div>
+            <h2>Evaluation of Corrosion Risk in Several Vietnamese Cities under Global Warming</h2>
+            <p>Student Scientific Research Conference, The University of Danang – University of Science and Technology</p>
+            <p>Academic Year 2025–2026 · Five-member research team</p>
+            <p>Responsible for numerical calculations, computational programming, result generation, and analysis.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+        <article class="award">
+          <span class="award-no">02</span><span class="award-year">2025 · THIRD PRIZE · FACULTY LEVEL</span>
+          <div>
+            <h2>Calculation of Wind Load for Multi-Storey Buildings According to Vietnamese Standard TCVN 2737:2023 and Comparison with ASCE 7-16</h2>
+            <p>Student Scientific Research Conference, The University of Danang – University of Science and Technology</p>
+            <p>Academic Year 2024–2025 · Four-member research team</p>
+            <p>Responsible for wind-load calculations, development of an Excel-based calculation tool, structural modeling, and research paper preparation.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="awards">
+    <div class="container">
+      <div class="award-section-head">
+        <p class="kicker">SCHOLARSHIPS &amp; RECOGNITION</p>
+        <h2>Academic and Sponsored Scholarships</h2>
+      </div>
+      <div class="award-list">
+        <article class="award">
+          <span class="award-no">01</span><span class="award-year">2024–2025</span>
+          <div>
+            <h2>Outstanding Academic Achievement Award</h2>
+            <p>Faculty-Level Recognition · Scholarship Value: VND 4,000,000</p>
+            <p>Recognized by the Faculty for outstanding academic performance during the 2024–2025 academic year.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+        <article class="award">
+          <span class="award-no">02</span><span class="award-year">SEPTEMBER 2024 – JUNE 2026</span>
+          <div>
+            <h2>Tuan Le Scholarship</h2>
+            <p>Scholarship Value: VND 1,000,000 per month</p>
+            <p>Received from September 2024 to June 2026, with a monthly scholarship value of VND 1,000,000.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+        <article class="award">
+          <span class="award-no">03</span><span class="award-year">SEMESTER I · ACADEMIC YEAR 2024–2025</span>
+          <div>
+            <h2>Academic Merit Scholarship</h2>
+            <p>The University of Danang – University of Science and Technology</p>
+            <p>Awarded for strong academic performance during Semester I of the 2024–2025 academic year.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+        <article class="award">
+          <span class="award-no">04</span><span class="award-year">SEMESTER II · ACADEMIC YEAR 2023–2024</span>
+          <div>
+            <h2>Academic Merit Scholarship</h2>
+            <p>The University of Danang – University of Science and Technology</p>
+            <p>Awarded for strong academic performance during Semester II of the 2023–2024 academic year.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+        <article class="award">
+          <span class="award-no">05</span><span class="award-year">2022</span>
+          <div>
+            <h2>Thanh Quan Scholarship</h2>
+            <p>Scholarship Value: VND 5,000,000</p>
+            <p>Awarded after ranking third among incoming students in the Civil Engineering entrance cohort.</p>
+          </div>
+          <span class="award-mark" aria-hidden="true">✦</span>
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="scholarship-note">
     <div class="container note-grid">
-      <div><p class="kicker">Beyond the awards</p><h2>Recognition as a result, not the destination.</h2></div>
-      <p>These milestones reinforce a longer-term goal: developing the technical depth, research discipline, and communication skills required for a future career in teaching and civil-engineering research.</p>
+      <div><p class="kicker">BEYOND THE AWARDS</p><h2>A Foundation for Future Growth</h2></div>
+      <p>These achievements reflect my commitment to continuous learning, technical development, and academic research. They have strengthened my goal of becoming a structural design engineer and researcher, with a long-term focus on safe, resilient, and durable civil infrastructure.</p>
     </div>
   </section>
 </main>
