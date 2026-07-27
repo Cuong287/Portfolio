@@ -37,55 +37,108 @@ header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-b
 .links a::after{position:absolute;right:0;bottom:-8px;left:0;height:1px;content:"";background:var(--sage);transform:scaleX(0);transition:transform .2s ease}
 .links a:hover::after,.links a.active::after{transform:scaleX(1)}
 .menu{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:1.25rem}
-.page-hero{position:relative;padding:98px 0 92px;border-bottom:1px solid var(--line);overflow:hidden}
+.page-hero{position:relative;padding:82px 0 78px;border-bottom:1px solid var(--line);overflow:hidden}
 .page-hero::after{position:absolute;right:7vw;bottom:-150px;width:440px;height:440px;content:"";border:1px solid rgba(98,122,139,.28);border-radius:50%}
-.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:90px;align-items:end}
-.kicker{margin:0 0 20px;color:var(--sage);font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
-h1{max-width:800px;margin:0;font-family:var(--serif);font-size:clamp(4.5rem,8vw,7.8rem);font-weight:400;letter-spacing:-.06em;line-height:.82}
-.hero-lead{max-width:470px;margin:0;color:var(--muted)}
-.summary-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
-.summary-strip article{padding:32px clamp(20px,4vw,52px);border-right:1px solid var(--line)}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(50px,6vw,90px);align-items:center}
+.kicker{margin:0 0 18px;color:var(--sage);font-family:var(--mono);font-size:clamp(.6875rem,.75vw,.75rem);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.page-title{max-width:800px;margin:0;font-family:var(--serif);font-size:clamp(3rem,7.3vw,7rem);font-weight:500;letter-spacing:-.035em;line-height:.98}
+.hero-lead{max-width:470px;margin:0;color:var(--muted);font-family:var(--sans);font-size:clamp(.9375rem,1.1vw,1rem);line-height:1.7}
+.summary-wrap{border-bottom:1px solid var(--line)}
+.summary-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.summary-strip article{min-height:118px;padding:26px clamp(18px,3vw,42px);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
 .summary-strip article:last-child{border-right:0}
-.summary-strip strong{display:block;font-family:var(--serif);font-size:2.8rem;font-weight:400;line-height:1}
-.summary-strip span{color:var(--muted);font-family:var(--mono);font-size:.58rem;letter-spacing:.09em;text-transform:uppercase}
-.awards{padding:100px 0}
-.award-section-head{margin-bottom:38px}
-.award-section-head h2{margin:0;font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:400;letter-spacing:-.05em;line-height:.92}
-.award-list{border-top:1px solid var(--line)}
-.award{
-  min-height:145px;padding:28px 0;display:grid;
-  grid-template-columns:70px 130px minmax(0,1fr) 50px;gap:24px;align-items:center;
-  border-bottom:1px solid var(--line);transition:padding .18s ease,background .18s ease;
+.summary-strip strong{display:block;color:var(--ink);font-family:var(--sans);font-size:clamp(2rem,3.2vw,2.75rem);font-weight:600;letter-spacing:-.035em;line-height:1.05}
+.summary-strip strong span{font-family:inherit;font-size:.48em;font-weight:600;letter-spacing:0;text-transform:none}
+.summary-strip>article>span{margin-top:9px;color:var(--muted);font-family:var(--mono);font-size:clamp(.6875rem,.75vw,.75rem);font-weight:500;letter-spacing:.08em;line-height:1.45;text-transform:uppercase}
+.awards-section{padding:82px 0}
+.award-section-head{margin-bottom:30px}
+.award-section-title,.note-title{margin:0;font-family:var(--serif);font-size:clamp(2.25rem,5vw,4rem);font-weight:500;letter-spacing:-.035em;line-height:1.08}
+.card-meta-row{display:flex;align-items:flex-start;gap:14px}
+.award-no,.award-year,.contribution-label{
+  font-family:var(--mono);font-size:clamp(.6875rem,.75vw,.75rem);font-weight:600;
+  letter-spacing:.09em;line-height:1.5;text-transform:uppercase;
 }
-.award:hover{padding-right:18px;padding-left:18px;background:rgba(255,255,255,.32)}
-.award-no{color:var(--sage);font-family:var(--serif);font-size:2rem}
-.award-year{color:var(--muted);font-family:var(--mono);font-size:.62rem;letter-spacing:.08em}
-.award h2{margin:0;font-family:var(--serif);font-size:clamp(1.9rem,3.8vw,3.5rem);font-weight:400;letter-spacing:-.035em;line-height:1}
-.award p{margin:8px 0 0;color:var(--muted);font-size:.86rem}
-.award-mark{color:var(--steel);font-size:1.4rem;text-align:right}
-.scholarship-note{padding:90px 0;background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.note-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}
-.note-grid h2{margin:0;font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:400;letter-spacing:-.05em;line-height:.92}
-.note-grid>p{margin:0;color:var(--muted)}
+.award-no{flex:0 0 auto;color:var(--sage)}
+.award-year{color:var(--muted)}
+.award-mark{margin-left:auto;color:var(--steel);font-size:1.15rem;line-height:1;text-align:right}
+.mechanics-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.mechanics-card{min-width:0;padding:28px;background:rgba(255,253,247,.34);transition:background .18s ease}
+.mechanics-card:hover{background:rgba(255,255,255,.62)}
+.mechanics-title{
+  margin:24px 0 0;font-family:var(--sans);font-size:clamp(1.3125rem,2.1vw,1.875rem);
+  font-weight:600;letter-spacing:-.025em;line-height:1.25;overflow-wrap:anywhere;
+}
+.award-category{margin:16px 0 0;color:var(--steel);font-family:var(--sans);font-size:.9375rem;font-weight:600;line-height:1.6}
+.award-description{margin:7px 0 0;color:var(--muted);font-family:var(--sans);font-size:clamp(.9375rem,1.05vw,1rem);line-height:1.7}
+.research-section{padding-top:70px}
+.research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.research-card{min-width:0;padding:32px;background:rgba(255,253,247,.46);border:1px solid var(--line)}
+.research-title{
+  margin:24px 0 0;font-family:var(--sans);font-size:clamp(1.3125rem,2vw,1.75rem);
+  font-weight:600;letter-spacing:-.022em;line-height:1.3;overflow-wrap:anywhere;
+}
+.research-conference,.research-team,.research-contribution p{
+  color:var(--muted);font-family:var(--sans);font-size:clamp(.9375rem,1.05vw,1rem);line-height:1.7;
+}
+.research-conference{margin:22px 0 0}
+.research-team{margin:10px 0 0;color:var(--steel);font-weight:500}
+.research-contribution{margin-top:28px;padding-top:22px;border-top:1px solid var(--line)}
+.contribution-label{display:block;margin-bottom:9px;color:var(--sage)}
+.research-contribution p{margin:0}
+.scholarships-section{padding-top:70px}
+.scholarship-list{border-top:1px solid var(--line)}
+.scholarship-item{
+  position:relative;padding:22px 34px 22px 0;display:grid;
+  grid-template-columns:minmax(140px,.8fr) minmax(220px,1.2fr) minmax(300px,2fr);
+  gap:clamp(24px,3vw,42px);align-items:start;border-bottom:1px solid var(--line);
+}
+.scholarship-meta{display:flex;gap:12px;align-items:flex-start}
+.scholarship-title{
+  margin:0;font-family:var(--sans);font-size:clamp(1.25rem,1.8vw,1.625rem);
+  font-weight:600;letter-spacing:-.018em;line-height:1.25;overflow-wrap:anywhere;
+}
+.scholarship-copy p{margin:0;color:var(--muted);font-family:var(--sans);font-size:clamp(.9375rem,1.05vw,1rem);line-height:1.7}
+.scholarship-copy p+p{margin-top:6px}
+.scholarship-detail-line{color:var(--steel)!important;font-weight:500}
+.scholarship-value{color:var(--sage);font-weight:600}
+.scholarship-item>.award-mark{position:absolute;top:25px;right:4px}
+.scholarship-note{padding:76px 0;background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.note-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(50px,7vw,90px);align-items:center}
+.note-grid>p{margin:0;color:var(--muted);font-family:var(--sans);font-size:clamp(.9375rem,1.05vw,1rem);line-height:1.7}
 footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-size:.7rem}
+@media(max-width:1024px){
+  .scholarship-item{grid-template-columns:minmax(170px,.8fr) minmax(0,2fr)}
+  .scholarship-copy{grid-column:2}
+}
 @media(max-width:900px){
   .links{position:absolute;top:84px;right:0;left:0;padding:24px 8vw 30px;display:none;flex-direction:column;background:rgba(243,240,232,.99);border-bottom:1px solid var(--line)}
   .links.open{display:flex}.menu{display:grid;place-items:center}
   .hero-grid,.note-grid{grid-template-columns:1fr;gap:38px}
+  .page-hero{padding:72px 0 68px}
   .summary-strip{grid-template-columns:repeat(2,1fr)}
   .summary-strip article:nth-child(2n){border-right:0}
   .summary-strip article:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .award{grid-template-columns:54px 110px 1fr 35px}
+  .research-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .mechanics-grid{grid-template-columns:1fr}
+  .scholarship-item{padding:22px 34px 22px 0;grid-template-columns:1fr;gap:12px}
+  .scholarship-copy{grid-column:auto}
 }
 @media(max-width:600px){
   .container{width:calc(100% - 32px)}.nav{height:72px}.links{top:72px;padding-right:16px;padding-left:16px}
-  .page-hero{padding:72px 0}.summary-strip{grid-template-columns:1fr}
+  .page-hero{padding:60px 0 58px}
+  .summary-strip article{min-height:106px;padding:22px 16px}
+  .awards-section{padding:66px 0}.research-section,.scholarships-section{padding-top:56px}
+  .award-section-head{margin-bottom:24px}
+  .mechanics-card,.research-card{padding:24px}
+  .mechanics-title,.research-title{margin-top:20px}
+  .scholarship-note{padding:62px 0}
+}
+@media(max-width:379px){
+  .summary-strip{grid-template-columns:1fr}
   .summary-strip article{border-right:0;border-bottom:1px solid var(--line)}
-  .summary-strip article:last-child{border-bottom:0}.awards{padding:70px 0}
-  .award{grid-template-columns:42px 1fr 28px;gap:14px}
-  .award-year{grid-column:2;grid-row:1}.award>div{grid-column:2;grid-row:2}
-  .award-no,.award-mark{grid-row:1/span 2}.award-mark{grid-column:3}
-  .scholarship-note{padding:72px 0}
+  .summary-strip article:last-child{border-bottom:0}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
 </style>
@@ -108,144 +161,158 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
 <main>
   <section class="page-hero">
     <div class="container hero-grid">
-      <div><p class="kicker">01 / Recognition</p><h1>Awards &amp;<br>Milestones</h1></div>
+      <div><p class="kicker">01 / Recognition</p><h1 class="page-title">Awards &amp;<br>Milestones</h1></div>
       <p class="hero-lead">A record of academic achievement, mechanics competitions, scientific research, and sustained professional development throughout my Civil Engineering studies.</p>
     </div>
   </section>
 
-  <section class="summary-strip" aria-label="Academic summary">
-    <article><strong>3.60<span>/4.00</span></strong><span>Current GPA</span></article>
-    <article><strong>04 <span>Awards</span></strong><span>Mechanics Olympiad</span></article>
-    <article><strong>02 <span>Awards</span></strong><span>Student Research</span></article>
-    <article><strong>05 <span>Honors</span></strong><span>Scholarships &amp; Recognition</span></article>
+  <section class="summary-wrap" aria-label="Academic summary">
+    <div class="container summary-strip">
+      <article><strong>3.60<span>/4.00</span></strong><span>Current GPA</span></article>
+      <article><strong>04 <span>Awards</span></strong><span>Mechanics Olympiad</span></article>
+      <article><strong>02 <span>Awards</span></strong><span>Student Research</span></article>
+      <article><strong>05 <span>Honors</span></strong><span>Scholarships &amp; Recognition</span></article>
+    </div>
   </section>
 
-  <section class="awards">
+  <section class="awards-section mechanics-section">
     <div class="container">
       <div class="award-section-head">
         <p class="kicker">MECHANICS OLYMPIAD</p>
-        <h2>Achievements in Soil Mechanics</h2>
+        <h2 class="award-section-title">Achievements in Soil Mechanics</h2>
       </div>
-      <div class="award-list">
-        <article class="award">
-          <span class="award-no">01</span><span class="award-year">2025 · NATIONAL LEVEL</span>
-          <div>
-            <h2>Consolation Prize — 35th National Mechanics Olympiad</h2>
-            <p>Soil Mechanics Division</p>
-            <p>Awarded a Consolation Prize in the Soil Mechanics Division at the 35th National Mechanics Olympiad.</p>
+      <div class="mechanics-grid">
+        <article class="mechanics-card">
+          <div class="card-meta-row">
+            <span class="award-no">01</span>
+            <span class="award-year">2025 · NATIONAL LEVEL</span>
+            <span class="award-mark" aria-hidden="true">✦</span>
           </div>
-          <span class="award-mark" aria-hidden="true">✦</span>
+          <h3 class="mechanics-title">Consolation Prize — 35th National Mechanics Olympiad</h3>
+          <p class="award-category">Soil Mechanics Division</p>
+          <p class="award-description">Awarded a Consolation Prize in the Soil Mechanics Division at the 35th National Mechanics Olympiad.</p>
         </article>
-        <article class="award">
-          <span class="award-no">02</span><span class="award-year">2025 · UNIVERSITY LEVEL</span>
-          <div>
-            <h2>Third Prize — University-Level Mechanics Olympiad</h2>
-            <p>Soil Mechanics Division</p>
-            <p>Awarded Third Prize in the Soil Mechanics Division of the university-level competition.</p>
+        <article class="mechanics-card">
+          <div class="card-meta-row">
+            <span class="award-no">02</span>
+            <span class="award-year">2025 · UNIVERSITY LEVEL</span>
+            <span class="award-mark" aria-hidden="true">✦</span>
           </div>
-          <span class="award-mark" aria-hidden="true">✦</span>
+          <h3 class="mechanics-title">Third Prize — University-Level Mechanics Olympiad</h3>
+          <p class="award-category">Soil Mechanics Division</p>
+          <p class="award-description">Awarded Third Prize in the Soil Mechanics Division of the university-level competition.</p>
         </article>
-        <article class="award">
-          <span class="award-no">03</span><span class="award-year">2024 · NATIONAL LEVEL</span>
-          <div>
-            <h2>Consolation Prize — 34th National Mechanics Olympiad</h2>
-            <p>Soil Mechanics Division</p>
-            <p>Awarded a Consolation Prize in the Soil Mechanics Division at the 34th National Mechanics Olympiad.</p>
+        <article class="mechanics-card">
+          <div class="card-meta-row">
+            <span class="award-no">03</span>
+            <span class="award-year">2024 · NATIONAL LEVEL</span>
+            <span class="award-mark" aria-hidden="true">✦</span>
           </div>
-          <span class="award-mark" aria-hidden="true">✦</span>
+          <h3 class="mechanics-title">Consolation Prize — 34th National Mechanics Olympiad</h3>
+          <p class="award-category">Soil Mechanics Division</p>
+          <p class="award-description">Awarded a Consolation Prize in the Soil Mechanics Division at the 34th National Mechanics Olympiad.</p>
         </article>
-        <article class="award">
-          <span class="award-no">04</span><span class="award-year">2024 · UNIVERSITY LEVEL</span>
-          <div>
-            <h2>Second Prize — University-Level Mechanics Olympiad</h2>
-            <p>Soil Mechanics Division</p>
-            <p>Awarded Second Prize in the Soil Mechanics Division of the university-level competition.</p>
+        <article class="mechanics-card">
+          <div class="card-meta-row">
+            <span class="award-no">04</span>
+            <span class="award-year">2024 · UNIVERSITY LEVEL</span>
+            <span class="award-mark" aria-hidden="true">✦</span>
           </div>
-          <span class="award-mark" aria-hidden="true">✦</span>
+          <h3 class="mechanics-title">Second Prize — University-Level Mechanics Olympiad</h3>
+          <p class="award-category">Soil Mechanics Division</p>
+          <p class="award-description">Awarded Second Prize in the Soil Mechanics Division of the university-level competition.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="awards">
+  <section class="awards-section research-section">
     <div class="container">
       <div class="award-section-head">
         <p class="kicker">STUDENT RESEARCH</p>
-        <h2>Scientific Research Awards</h2>
+        <h2 class="award-section-title">Scientific Research Awards</h2>
       </div>
-      <div class="award-list">
-        <article class="award">
-          <span class="award-no">01</span><span class="award-year">2026 · SECOND PRIZE · FACULTY LEVEL</span>
-          <div>
-            <h2>Evaluation of Corrosion Risk in Several Vietnamese Cities under Global Warming</h2>
-            <p>Student Scientific Research Conference, The University of Danang – University of Science and Technology</p>
-            <p>Academic Year 2025–2026 · Five-member research team</p>
+      <div class="research-grid">
+        <article class="research-card">
+          <div class="card-meta-row">
+            <span class="award-no">01</span>
+            <span class="award-year">2026 · SECOND PRIZE · FACULTY LEVEL</span>
+            <span class="award-mark" aria-hidden="true">✦</span>
+          </div>
+          <h3 class="research-title">Evaluation of Corrosion Risk in Several Vietnamese Cities under Global Warming</h3>
+          <p class="research-conference">Student Scientific Research Conference, The University of Danang – University of Science and Technology</p>
+          <p class="research-team">Academic Year 2025–2026 · Five-member research team</p>
+          <div class="research-contribution">
+            <span class="contribution-label">MY CONTRIBUTION</span>
             <p>Responsible for numerical calculations, computational programming, result generation, and analysis.</p>
           </div>
-          <span class="award-mark" aria-hidden="true">✦</span>
         </article>
-        <article class="award">
-          <span class="award-no">02</span><span class="award-year">2025 · THIRD PRIZE · FACULTY LEVEL</span>
-          <div>
-            <h2>Calculation of Wind Load for Multi-Storey Buildings According to Vietnamese Standard TCVN 2737:2023 and Comparison with ASCE 7-16</h2>
-            <p>Student Scientific Research Conference, The University of Danang – University of Science and Technology</p>
-            <p>Academic Year 2024–2025 · Four-member research team</p>
+        <article class="research-card">
+          <div class="card-meta-row">
+            <span class="award-no">02</span>
+            <span class="award-year">2025 · THIRD PRIZE · FACULTY LEVEL</span>
+            <span class="award-mark" aria-hidden="true">✦</span>
+          </div>
+          <h3 class="research-title">Calculation of Wind Load for Multi-Storey Buildings According to Vietnamese Standard TCVN 2737:2023 and Comparison with ASCE 7-16</h3>
+          <p class="research-conference">Student Scientific Research Conference, The University of Danang – University of Science and Technology</p>
+          <p class="research-team">Academic Year 2024–2025 · Four-member research team</p>
+          <div class="research-contribution">
+            <span class="contribution-label">MY CONTRIBUTION</span>
             <p>Responsible for wind-load calculations, development of an Excel-based calculation tool, structural modeling, and research paper preparation.</p>
           </div>
-          <span class="award-mark" aria-hidden="true">✦</span>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="awards">
+  <section class="awards-section scholarships-section">
     <div class="container">
       <div class="award-section-head">
         <p class="kicker">SCHOLARSHIPS &amp; RECOGNITION</p>
-        <h2>Academic and Sponsored Scholarships</h2>
+        <h2 class="award-section-title">Academic and Sponsored Scholarships</h2>
       </div>
-      <div class="award-list">
-        <article class="award">
-          <span class="award-no">01</span><span class="award-year">2024–2025</span>
-          <div>
-            <h2>Outstanding Academic Achievement Award</h2>
-            <p>Faculty-Level Recognition · Scholarship Value: VND 4,000,000</p>
+      <div class="scholarship-list">
+        <article class="scholarship-item">
+          <div class="scholarship-meta"><span class="award-no">01</span><span class="award-year">2024–2025</span></div>
+          <h3 class="scholarship-title">Outstanding Academic Achievement Award</h3>
+          <div class="scholarship-copy">
+            <p class="scholarship-detail-line">Faculty-Level Recognition · <span class="scholarship-value">Scholarship Value: VND 4,000,000</span></p>
             <p>Recognized by the Faculty for outstanding academic performance during the 2024–2025 academic year.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
         </article>
-        <article class="award">
-          <span class="award-no">02</span><span class="award-year">SEPTEMBER 2024 – JUNE 2026</span>
-          <div>
-            <h2>Tuan Le Scholarship</h2>
-            <p>Scholarship Value: VND 1,000,000 per month</p>
+        <article class="scholarship-item">
+          <div class="scholarship-meta"><span class="award-no">02</span><span class="award-year">SEPTEMBER 2024 – JUNE 2026</span></div>
+          <h3 class="scholarship-title">Tuan Le Scholarship</h3>
+          <div class="scholarship-copy">
+            <p class="scholarship-detail-line"><span class="scholarship-value">Scholarship Value: VND 1,000,000 per month</span></p>
             <p>Received from September 2024 to June 2026, with a monthly scholarship value of VND 1,000,000.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
         </article>
-        <article class="award">
-          <span class="award-no">03</span><span class="award-year">SEMESTER I · ACADEMIC YEAR 2024–2025</span>
-          <div>
-            <h2>Academic Merit Scholarship</h2>
-            <p>The University of Danang – University of Science and Technology</p>
+        <article class="scholarship-item">
+          <div class="scholarship-meta"><span class="award-no">03</span><span class="award-year">SEMESTER I · ACADEMIC YEAR 2024–2025</span></div>
+          <h3 class="scholarship-title">Academic Merit Scholarship</h3>
+          <div class="scholarship-copy">
+            <p class="scholarship-detail-line">The University of Danang – University of Science and Technology</p>
             <p>Awarded for strong academic performance during Semester I of the 2024–2025 academic year.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
         </article>
-        <article class="award">
-          <span class="award-no">04</span><span class="award-year">SEMESTER II · ACADEMIC YEAR 2023–2024</span>
-          <div>
-            <h2>Academic Merit Scholarship</h2>
-            <p>The University of Danang – University of Science and Technology</p>
+        <article class="scholarship-item">
+          <div class="scholarship-meta"><span class="award-no">04</span><span class="award-year">SEMESTER II · ACADEMIC YEAR 2023–2024</span></div>
+          <h3 class="scholarship-title">Academic Merit Scholarship</h3>
+          <div class="scholarship-copy">
+            <p class="scholarship-detail-line">The University of Danang – University of Science and Technology</p>
             <p>Awarded for strong academic performance during Semester II of the 2023–2024 academic year.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
         </article>
-        <article class="award">
-          <span class="award-no">05</span><span class="award-year">2022</span>
-          <div>
-            <h2>Thanh Quan Scholarship</h2>
-            <p>Scholarship Value: VND 5,000,000</p>
+        <article class="scholarship-item">
+          <div class="scholarship-meta"><span class="award-no">05</span><span class="award-year">2022</span></div>
+          <h3 class="scholarship-title">Thanh Quan Scholarship</h3>
+          <div class="scholarship-copy">
+            <p class="scholarship-detail-line"><span class="scholarship-value">Scholarship Value: VND 5,000,000</span></p>
             <p>Awarded after ranking third among incoming students in the Civil Engineering entrance cohort.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
@@ -256,7 +323,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
 
   <section class="scholarship-note">
     <div class="container note-grid">
-      <div><p class="kicker">BEYOND THE AWARDS</p><h2>A Foundation for Future Growth</h2></div>
+      <div><p class="kicker">BEYOND THE AWARDS</p><h2 class="note-title">A Foundation for Future Growth</h2></div>
       <p>These achievements reflect my commitment to continuous learning, technical development, and academic research. They have strengthened my goal of becoming a structural design engineer and researcher, with a long-term focus on safe, resilient, and durable civil infrastructure.</p>
     </div>
   </section>
