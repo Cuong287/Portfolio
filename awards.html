@@ -70,12 +70,32 @@ header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-b
 }
 .award-category{margin:16px 0 0;color:var(--steel);font-family:var(--sans);font-size:.9375rem;font-weight:600;line-height:1.6}
 .award-description{margin:7px 0 0;color:var(--muted);font-family:var(--sans);font-size:clamp(.9375rem,1.05vw,1rem);line-height:1.7}
+.awards-moments{margin-top:38px}
+.awards-moments-label{
+  margin:0 0 14px;color:var(--sage);font-family:var(--mono);font-size:clamp(.6875rem,.75vw,.75rem);
+  font-weight:600;letter-spacing:.09em;line-height:1.5;text-transform:uppercase;
+}
+.awards-moments-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.awards-moment-figure,.awards-research-figure{
+  min-width:0;margin:0;background:rgba(255,253,247,.46);border:1px solid var(--line);
+}
+.awards-moment-media,.awards-research-media{
+  position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--paper-deep);
+}
+.awards-moment-media img,.awards-research-media img{
+  display:block;width:100%;height:100%;object-fit:cover;background:var(--paper-deep);font-size:0;
+}
+.awards-moment-caption,.awards-research-caption{
+  margin:0;padding:11px 14px;border-top:1px solid var(--line);color:var(--steel);
+  font-family:var(--sans);font-size:.75rem;line-height:1.5;
+}
 .research-section{padding-top:70px}
 .research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
 .research-card{
   min-width:0;height:100%;padding:32px;display:flex;flex-direction:column;
   background:rgba(255,253,247,.46);border:1px solid var(--line);
 }
+.awards-research-figure{margin-bottom:24px}
 .research-title{
   margin:24px 0 0;font-family:var(--sans);font-size:clamp(1.3125rem,2vw,1.75rem);
   font-weight:600;letter-spacing:-.022em;line-height:1.3;overflow-wrap:anywhere;
@@ -127,6 +147,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
   .research-grid{grid-template-columns:1fr}
   .research-card{height:auto}
   .research-title{min-height:0}
+  .awards-moments-grid{grid-template-columns:1fr}
 }
 @media(max-width:700px){
   .mechanics-grid{grid-template-columns:1fr}
@@ -231,6 +252,37 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           <p class="award-description">Awarded Second Prize in the Soil Mechanics Division of the university-level competition.</p>
         </article>
       </div>
+      <div class="awards-moments" aria-labelledby="selected-moments-label">
+        <p class="awards-moments-label" id="selected-moments-label">SELECTED MOMENTS</p>
+        <div class="awards-moments-grid">
+          <figure class="awards-moment-figure">
+            <div class="awards-moment-media">
+              <img
+                src="assets/images/awards/mechanics-award.jpg"
+                alt="Mechanics Olympiad recognition moment"
+                width="1600"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <figcaption class="awards-moment-caption">Mechanics Olympiad award moment</figcaption>
+          </figure>
+          <figure class="awards-moment-figure">
+            <div class="awards-moment-media">
+              <img
+                src="assets/images/awards/mechanics-team.jpg"
+                alt="Students participating in a Mechanics Olympiad activity"
+                width="1600"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <figcaption class="awards-moment-caption">Mechanics Olympiad team</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -242,6 +294,19 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
       </div>
       <div class="research-grid">
         <article class="research-card">
+          <figure class="awards-research-figure">
+            <div class="awards-research-media">
+              <img
+                src="assets/images/awards/research-carbonation.jpg"
+                alt="Presentation material for a student research project"
+                width="1600"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <figcaption class="awards-research-caption">Student research presentation</figcaption>
+          </figure>
           <div class="card-meta-row">
             <span class="award-no">01</span>
             <span class="award-year">2026 · SECOND PRIZE · FACULTY LEVEL</span>
@@ -256,6 +321,19 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           </div>
         </article>
         <article class="research-card">
+          <figure class="awards-research-figure">
+            <div class="awards-research-media">
+              <img
+                src="assets/images/awards/research-wind-load.jpg"
+                alt="Display for a student research project presentation"
+                width="1600"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <figcaption class="awards-research-caption">Research project presentation</figcaption>
+          </figure>
           <div class="card-meta-row">
             <span class="award-no">02</span>
             <span class="award-year">2025 · THIRD PRIZE · FACULTY LEVEL</span>
