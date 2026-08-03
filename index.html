@@ -390,6 +390,13 @@ section{padding:108px 0}
 }
 .card:hover{z-index:2;background:var(--white);transform:translateY(-6px)}
 .card:hover::before{transform:scale(1.08)}
+.card.is-locked{cursor:not-allowed}
+.card.is-locked:hover{
+  z-index:auto;
+  background:rgba(255,253,247,.48);
+  transform:none;
+}
+.card.is-locked:hover::before{transform:none}
 .card .num{
   position:relative;
   z-index:1;
@@ -435,6 +442,32 @@ section{padding:108px 0}
 }
 .card a::after{content:" ↗";transition:margin .18s ease}
 .card a:hover::after{margin-left:5px}
+.card-locked-actions{
+  position:relative;
+  z-index:2;
+  margin-top:auto;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.card-action-disabled{
+  padding-bottom:4px;
+  border-bottom:1px solid var(--line);
+  color:var(--muted);
+  font-size:.76rem;
+  font-weight:600;
+}
+.card-action-disabled::after{content:" ↗";opacity:.45}
+.coming-soon{
+  padding:3px 7px;
+  border:1px solid rgba(211,169,38,.55);
+  color:#d3a926;
+  font-size:.58rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  line-height:1.4;
+  white-space:nowrap;
+}
 
 .contact{
   padding:116px 0;
@@ -624,17 +657,23 @@ footer{
           <p>Academic scholarships, Mechanics Olympiad achievements, scientific research awards, certificates, and professional activities.</p>
           <a href="awards.html">View Achievements</a>
         </article>
-        <article class="card">
+        <article class="card is-locked">
           <div class="num">02 / PORTFOLIO</div>
           <h3>Academic Projects</h3>
           <p>Selected projects in reinforced concrete building design, foundation engineering, and modern construction technology.</p>
-          <a href="academic-projects.html">Explore Projects</a>
+          <div class="card-locked-actions">
+            <span class="card-action-disabled" role="link" aria-disabled="true">Explore Projects</span>
+            <span class="coming-soon">COMING SOON</span>
+          </div>
         </article>
-        <article class="card">
+        <article class="card is-locked">
           <div class="num">03 / PORTFOLIO</div>
           <h3>Scientific Research</h3>
           <p>Current research on climate-change impacts on carbonation and chloride-induced deterioration of reinforced concrete structures.</p>
-          <a href="research.html">View Research</a>
+          <div class="card-locked-actions">
+            <span class="card-action-disabled" role="link" aria-disabled="true">View Research</span>
+            <span class="coming-soon">COMING SOON</span>
+          </div>
         </article>
       </div>
     </div>
