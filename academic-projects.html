@@ -218,16 +218,23 @@ h1{
   color:var(--steel);font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
 }
 .preview-figure figcaption{padding:12px 14px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem;line-height:1.5}
-.project-details{margin-top:24px;border-top:1px solid var(--line)}
-.project-details summary{padding:14px 0;font-size:.875rem;font-weight:700;cursor:pointer;list-style:none}
+.project-details{margin-top:24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.project-details summary{
+  padding:14px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  font-size:.875rem;font-weight:700;cursor:pointer;list-style:none;
+}
 .project-details summary::-webkit-details-marker{display:none}
-.project-details summary::after{float:right;content:"+";color:var(--steel);font-family:var(--mono);font-size:1.1rem}
+.project-details summary::after{content:"+";color:var(--steel);font-family:var(--mono);font-size:1.1rem}
 .project-details[open] summary::after{content:"−"}
-.project-details__body{padding:0 0 4px}
+.project-details__body{padding:0 0 18px}
 .project-details__body h3{margin:12px 0 8px;font-family:var(--serif);font-size:1.3rem;font-weight:600}
 .project-details__body p{margin:0;color:var(--muted);font-size:.88rem}
 .project-details__body ul{margin:12px 0 0;padding-left:20px;color:var(--muted);font-size:.84rem}
 .project-details__body li+li{margin-top:5px}
+.project-details--featured{margin:40px 0 0 130px}
+.project-details--featured>.case-study-body{margin:0}
+.project-details--featured>summary{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+.project-details--featured[open]>summary{border-bottom:1px solid var(--line)}
 .specs{padding:82px 0;background:var(--dark);color:var(--white)}
 .spec-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(50px,7vw,90px)}
 .spec-grid h2{margin:0;font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:400;letter-spacing:-.05em;line-height:.92}
@@ -262,6 +269,7 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
   .featured-project__hero{grid-template-columns:64px minmax(0,1fr);gap:28px}
   .featured-project__hero .case-hero{grid-column:1/-1;width:min(100%,720px);margin:8px auto 0}
   .case-study-body{margin-left:0}
+  .project-details--featured{margin-left:0}
   .case-section{grid-template-columns:170px minmax(0,1fr);gap:36px}
   .workflow{grid-template-columns:repeat(3,minmax(0,1fr))}
   .workflow li:nth-child(3)::after{display:none}
@@ -384,7 +392,6 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
             <p class="case-location">5-Storey School Building · Da Nang, Vietnam</p>
             <p class="project-summary">Structural design of a five-storey reinforced-concrete school building, focused on the transverse frame at Grid 3—from preliminary member sizing and load determination to structural modelling, frame analysis, wind-load assessment, beam and column design, and reinforcement selection.</p>
             <div class="project-actions">
-              <a class="text-cta" href="#project-01-details">View project details</a>
               <div class="case-grade"><span>Assessment</span><strong>9.1 / 10 — A</strong></div>
             </div>
           </div>
@@ -396,7 +403,9 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
           </figure>
         </div>
 
-        <div class="case-study-body" id="project-01-details">
+        <details class="project-details project-details--featured" id="project-01-details">
+          <summary role="button" aria-expanded="false" aria-controls="project-01-content">Project details</summary>
+          <div class="case-study-body" id="project-01-content">
           <div class="key-facts" aria-label="Key project facts">
             <div class="key-fact"><span>Building</span><strong>5 storeys</strong></div>
             <div class="key-fact"><span>Typical level</span><strong>4.2 m</strong></div>
@@ -524,7 +533,8 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
               <p class="project-signature">Structural Modelling · Load Analysis · Wind Engineering · ETABS · Reinforced Concrete Design</p>
             </div>
           </section>
-        </div>
+          </div>
+        </details>
       </article>
 
       <div class="secondary-projects">
@@ -536,7 +546,7 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
             <p class="project-summary">Design and verification of isolated foundations and low pile caps, including soil-layer interpretation, axial pile capacity, load distribution, reinforced-concrete checks, anchorage, and construction detailing.</p>
             <div class="tags"><span>Soil mechanics</span><span>Drilled shaft</span><span>Low pile cap</span><span>TCVN 10304</span><span>TCVN 9393</span></div>
             <details class="project-details">
-              <summary>View project details</summary>
+              <summary role="button" aria-expanded="false" aria-controls="foundation-pile-design-scope">Project details</summary>
               <div class="project-details__body" id="foundation-pile-design-scope">
                 <h3>Verified project scope</h3>
                 <p>The current portfolio source documents a foundation-design workflow spanning ground interpretation, pile capacity, load transfer, reinforced-concrete verification, and detailing.</p>
@@ -558,7 +568,7 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
             <p class="project-summary">Comparative technical study of slip, climbing, flying, and horizontally movable formwork systems, with emphasis on load paths, temporary stability, constructability, work cycles, and job-site safety.</p>
             <div class="tags"><span>Slip form</span><span>Climbing form</span><span>Flying form</span><span>ACI 347</span><span>EN 12812</span></div>
             <details class="project-details">
-              <summary>View project details</summary>
+              <summary role="button" aria-expanded="false" aria-controls="modern-formwork-technology-scope">Project details</summary>
               <div class="project-details__body" id="modern-formwork-technology-scope">
                 <h3>Verified project scope</h3>
                 <p>The study compares four modern formwork approaches through structural behaviour and construction delivery considerations.</p>
@@ -621,6 +631,20 @@ navLinks.addEventListener("click",event=>event.stopPropagation());
 document.querySelectorAll("#navLinks a").forEach(link=>link.addEventListener("click",closeMenu));
 document.addEventListener("click",()=>{if(navLinks.classList.contains("open"))closeMenu()});
 desktopQuery.addEventListener("change",event=>{if(event.matches)closeMenu()});
+
+document.querySelectorAll(".project-details").forEach(details=>{
+  const summary=details.querySelector("summary");
+  const syncExpandedState=()=>summary.setAttribute("aria-expanded",String(details.open));
+
+  summary.addEventListener("keydown",event=>{
+    if(event.key==="Enter"||event.key===" "){
+      event.preventDefault();
+      details.open=!details.open;
+    }
+  });
+  details.addEventListener("toggle",syncExpandedState);
+  syncExpandedState();
+});
 
 const lightbox=document.getElementById("lightbox");
 const lightboxImage=document.getElementById("lightboxImage");
