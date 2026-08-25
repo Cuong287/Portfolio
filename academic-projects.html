@@ -5,216 +5,339 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Selected civil engineering academic projects by Le Van Cuong, including reinforced-concrete structures, foundation design, and construction technology.">
 <meta name="theme-color" content="#f3f0e8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Academic Projects | Le Van Cuong">
+<meta property="og:description" content="Civil and structural engineering case studies covering reinforced-concrete design, foundation engineering, and construction technology.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Academic Projects | Le Van Cuong">
+<meta name="twitter:description" content="Civil and structural engineering case studies covering reinforced-concrete design, foundation engineering, and construction technology.">
 <title>Academic Projects | Le Van Cuong</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Le Van Cuong",
+  "jobTitle": "Civil Engineering Student",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "The University of Danang – University of Science and Technology"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Da Nang",
+    "addressCountry": "VN"
+  }
+}
+</script>
 <style>
 :root{
-  --paper:#f3f0e8;--paper-deep:#e8e4da;--ink:#202522;--muted:#6d716c;
-  --sage:#7e8c7a;--steel:#627a8b;--line:#b8bbb5;--white:#fffdf7;
+  --paper:#f3f0e8;--paper-deep:#e8e4da;--ink:#202522;--muted:#555d58;
+  --sage:#52664f;--sage-soft:#dbe1d7;--steel:#486477;--line:#adb2ac;--white:#fffdf7;
   --dark:#1f2522;--serif:"Cormorant Garamond",Georgia,serif;
   --sans:"Inter",Arial,sans-serif;--mono:"IBM Plex Mono",monospace;
+  --header-height:84px;--section-space:clamp(68px,7vw,104px);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 22px)}
 body{
-  margin:0;color:var(--ink);font-family:var(--sans);line-height:1.75;
+  min-width:0;margin:0;overflow-x:hidden;color:var(--ink);font-family:var(--sans);line-height:1.7;
   background:radial-gradient(circle at 18% 4%,rgba(255,255,255,.72),transparent 28rem),var(--paper);
 }
 body::before{
   position:fixed;inset:0;z-index:-1;content:"";pointer-events:none;opacity:.16;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
 }
+body.lightbox-open{overflow:hidden}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--steel);outline-offset:5px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--steel);outline-offset:4px}
+.skip-link{
+  position:fixed;top:12px;left:12px;z-index:100;padding:10px 14px;background:var(--dark);color:var(--white);
+  font-size:.875rem;font-weight:700;text-decoration:none;transform:translateY(-160%);
+}
+.skip-link:focus{transform:translateY(0)}
 .container{width:min(1180px,calc(100% - 8vw));margin:auto}
+.eyebrow,.kicker,.technical-label{
+  color:var(--sage);font-family:var(--mono);font-size:.75rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+}
 header{
-  position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);
+  position:sticky;top:0;z-index:20;background:rgba(243,240,232,.94);
   border-bottom:1px solid var(--line);backdrop-filter:blur(16px);
 }
-.nav{height:84px;display:flex;align-items:center;justify-content:space-between}
-.brand{text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.32em}
+.nav{height:var(--header-height);display:flex;align-items:center;justify-content:space-between}
+.brand{text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.32em;white-space:nowrap}
 .links{display:flex;gap:clamp(22px,3vw,48px)}
-.links a{position:relative;text-decoration:none;font-size:.83rem}
+.links a{position:relative;text-decoration:none;font-size:.875rem}
 .links a::after{
   position:absolute;right:0;bottom:-8px;left:0;height:1px;content:"";
   background:var(--sage);transform:scaleX(0);transition:transform .2s ease;
 }
 .links a:hover::after,.links a.active::after{transform:scaleX(1)}
-.menu{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:1.25rem}
-.page-hero{position:relative;padding:98px 0 92px;border-bottom:1px solid var(--line);overflow:hidden}
+.menu{
+  display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--ink);
+  font-size:1.2rem;line-height:1;cursor:pointer;
+}
+.page-hero{position:relative;padding:clamp(72px,8vw,104px) 0 clamp(68px,7vw,92px);border-bottom:1px solid var(--line);overflow:hidden}
 .page-hero::before{
   position:absolute;inset:0 0 0 50%;content:"";
-  background:
-    linear-gradient(rgba(98,122,139,.08) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(98,122,139,.08) 1px,transparent 1px);
+  background:linear-gradient(rgba(72,100,119,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(72,100,119,.09) 1px,transparent 1px);
   background-size:58px 58px;
 }
-.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:90px;align-items:end}
-.kicker{margin:0 0 20px;color:var(--sage);font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(48px,7vw,90px);align-items:end}
+.kicker{margin:0 0 18px}
 h1{
-  max-width:760px;margin:0;font-family:var(--serif);
-  font-size:clamp(4.5rem,8vw,7.8rem);font-weight:400;letter-spacing:-.06em;line-height:.82;
+  max-width:760px;margin:0;font-family:var(--serif);font-size:clamp(4.35rem,8vw,7.8rem);
+  font-weight:400;letter-spacing:-.06em;line-height:.82;
 }
-.hero-lead{max-width:470px;margin:0;color:var(--muted)}
-.hero-meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
-.hero-meta span{padding:7px 10px;border:1px solid var(--line);font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase}
-.projects{padding:100px 0}
-.project{
-  display:grid;grid-template-columns:90px minmax(0,1fr) 310px;gap:42px;
-  padding:46px 0;border-top:1px solid var(--line);align-items:start;
+.hero-lead{max-width:500px;margin:0;color:var(--muted);font-size:clamp(1rem,1.25vw,1.08rem)}
+.hero-meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.hero-meta span,.tags span{
+  padding:7px 10px;border:1px solid var(--line);font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.055em;line-height:1.4;text-transform:uppercase;
 }
-.project:last-child{border-bottom:1px solid var(--line)}
-.project-index{display:flex;flex-direction:column;gap:42px;color:var(--sage)}
-.project-index strong{font-family:var(--serif);font-size:2.7rem;font-weight:400;line-height:1}
-.project-index span{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em}
-.project h2{max-width:680px;margin:0;font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4.4rem);font-weight:400;letter-spacing:-.045em;line-height:.92}
-.project-copy>p{max-width:680px;margin:20px 0;color:var(--muted)}
-.tags{display:flex;flex-wrap:wrap;gap:8px}
-.tags span{padding:7px 10px;border:1px solid var(--line);font-family:var(--mono);font-size:.56rem;letter-spacing:.07em;text-transform:uppercase}
+.project-directory{padding:34px 0 38px;border-bottom:1px solid var(--line);background:rgba(232,228,218,.32)}
+.directory-header{display:flex;justify-content:space-between;gap:28px;align-items:baseline;margin-bottom:20px}
+.directory-header h2{margin:0;font-family:var(--serif);font-size:2rem;font-weight:500;letter-spacing:-.03em}
+.directory-header p{max-width:520px;margin:0;color:var(--muted);font-size:.9rem}
+.directory-list{margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;border-top:1px solid var(--line)}
+.directory-link{
+  min-height:142px;padding:20px;display:flex;flex-direction:column;text-decoration:none;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  transition:background .18s ease,color .18s ease;
+}
+.directory-list li:first-child .directory-link{border-left:1px solid var(--line)}
+.directory-link:hover{background:var(--dark);color:var(--white)}
+.directory-meta{display:flex;justify-content:space-between;gap:12px;color:var(--sage);font-family:var(--mono);font-size:.72rem;letter-spacing:.08em}
+.directory-link:hover .directory-meta{color:#c4d2bf}
+.directory-link strong{margin-top:auto;font-family:var(--serif);font-size:1.35rem;font-weight:500;line-height:1.15}
+.projects{padding:var(--section-space) 0}
+.project{scroll-margin-top:calc(var(--header-height) + 24px)}
+.featured-project{padding-bottom:var(--section-space)}
+.featured-project__hero{
+  display:grid;grid-template-columns:84px minmax(0,.92fr) minmax(360px,1.08fr);gap:clamp(28px,3.5vw,46px);align-items:start;
+}
+.project-number{display:flex;flex-direction:column;gap:28px;color:var(--sage)}
+.project-number strong{font-family:var(--serif);font-size:2.65rem;font-weight:400;line-height:1}
+.project-number span{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em}
+.case-label{margin:0 0 13px}
+.project-title{
+  max-width:700px;margin:0;font-family:var(--serif);font-size:clamp(2.6rem,4.65vw,4.65rem);
+  font-weight:400;letter-spacing:-.045em;line-height:.93;
+}
+.case-location{margin:18px 0 0;color:var(--steel);font-family:var(--mono);font-size:.75rem;letter-spacing:.07em;text-transform:uppercase}
+.project-summary{max-width:720px;margin:19px 0 0;color:var(--muted)}
+.project-actions{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.text-cta{
+  display:inline-flex;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--ink);
+  font-size:.875rem;font-weight:700;text-decoration:none;
+}
+.text-cta::after{content:"→";color:var(--steel);font-family:var(--mono);transition:transform .18s ease}
+.text-cta:hover::after{transform:translateX(4px)}
+.case-grade{padding:8px 12px;border-left:1px solid var(--line)}
+.case-grade span{display:block;color:var(--sage);font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.case-grade strong{display:block;margin-top:2px;font-family:var(--serif);font-size:1.35rem;font-weight:500;line-height:1.15}
+.case-hero,.etabs-visual{min-width:0;margin:0;border:1px solid rgba(72,100,119,.4);background:rgba(255,253,247,.62)}
+.media-trigger{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;text-align:inherit;cursor:zoom-in}
+.case-image-frame,.etabs-visual-frame{position:relative;overflow:hidden;background:var(--white)}
+.case-image-frame{aspect-ratio:4/3}
+.etabs-visual-frame{aspect-ratio:3/4}
+.case-image-frame img,.etabs-visual-frame img{
+  display:block;width:100%;height:100%;object-fit:contain;transform:scale(1.16);transition:transform .25s ease;
+}
+.media-trigger:hover img{transform:scale(1.2)}
+.image--wind{object-fit:cover!important;transform:scale(1.08)!important}
+.media-trigger:hover .image--wind{transform:scale(1.12)!important}
+.case-caption,.etabs-visual figcaption{padding:13px 15px;border-top:1px solid var(--line)}
+.case-caption strong,.etabs-visual figcaption strong{display:block;font-family:var(--serif);font-size:1.08rem;font-weight:500;line-height:1.25}
+.case-caption span,.etabs-visual figcaption span{display:block;margin-top:3px;color:var(--muted);font-size:.8rem;line-height:1.5}
+.zoom-note{color:var(--steel)!important;font-family:var(--mono);font-size:.72rem!important;letter-spacing:.03em;text-transform:uppercase}
+.case-study-body{margin:48px 0 0 130px;scroll-margin-top:calc(var(--header-height) + 24px)}
+.key-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.key-fact{min-width:0;padding:18px 16px;border-right:1px solid var(--line)}
+.key-fact:last-child{border-right:0}
+.key-fact span{display:block;color:var(--sage);font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;text-transform:uppercase}
+.key-fact strong{display:block;margin-top:5px;font-family:var(--serif);font-size:1.35rem;font-weight:500;line-height:1.18;overflow-wrap:anywhere}
+.case-section{display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(36px,5vw,64px);padding:46px 0;border-bottom:1px solid var(--line)}
+.case-section-heading span{color:var(--sage);font-family:var(--mono);font-size:.75rem;letter-spacing:.12em}
+.case-section-heading h3{margin:7px 0 0;font-family:var(--serif);font-size:1.85rem;font-weight:500;letter-spacing:-.03em;line-height:1}
+.case-section-copy{min-width:0}
+.case-section-copy>p{max-width:790px;margin:0;color:var(--muted)}
+.evidence-note{padding:18px 20px;border-left:3px solid var(--sage);background:rgba(219,225,215,.56)}
+.evidence-note strong{display:block;margin-bottom:5px;font-family:var(--serif);font-size:1.2rem;font-weight:600}
+.evidence-note p{margin:0;color:var(--muted);font-size:.9rem}
+.technical-columns{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.technical-block{min-width:0;border-top:1px solid var(--line)}
+.technical-block h4{margin:14px 0 8px;font-family:var(--mono);font-size:.75rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+.data-list{margin:0}
+.data-list div{padding:8px 0;display:grid;grid-template-columns:minmax(120px,.9fr) 1.1fr;gap:14px;border-bottom:1px solid rgba(173,178,172,.62)}
+.data-list dt{color:var(--muted);font-size:.82rem}
+.data-list dd{margin:0;font-size:.84rem;font-weight:600;text-align:right;overflow-wrap:anywhere}
+.role-scope,.deliverable-list{margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));list-style:none;border-top:1px solid var(--line)}
+.role-scope li,.deliverable-list li{padding:14px 14px 14px 0;border-bottom:1px solid var(--line);color:var(--muted);font-size:.86rem}
+.role-scope li:nth-child(odd),.deliverable-list li:nth-child(odd){padding-right:20px;border-right:1px solid var(--line)}
+.role-scope li:nth-child(even),.deliverable-list li:nth-child(even){padding-left:20px}
+.role-scope strong,.deliverable-list strong{display:block;margin-bottom:2px;color:var(--ink);font-family:var(--serif);font-size:1.08rem;font-weight:600}
+.workflow{margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));list-style:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.workflow li{position:relative;min-width:0;padding:17px 24px 17px 9px;font-family:var(--mono);font-size:.72rem;letter-spacing:.035em;line-height:1.45;text-transform:uppercase;overflow-wrap:anywhere}
+.workflow li:not(:last-child)::after{position:absolute;top:50%;right:7px;content:"→";color:var(--steel);transform:translateY(-50%)}
+.process-list{margin-top:25px;border-top:1px solid var(--line)}
+.process-item{padding:16px 0;display:grid;grid-template-columns:42px 180px minmax(0,1fr);gap:18px;border-bottom:1px solid var(--line)}
+.process-item>span{color:var(--sage);font-family:var(--mono);font-size:.75rem}
+.process-item>strong{font-family:var(--serif);font-size:1.12rem;font-weight:600;line-height:1.3}
+.process-item>p{margin:0;color:var(--muted);font-size:.86rem}
+.etabs-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.software-list{border-top:1px solid var(--line)}
+.software-row{padding:13px 0;display:grid;grid-template-columns:160px minmax(0,1fr);gap:22px;border-bottom:1px solid var(--line)}
+.software-row strong{font-family:var(--serif);font-size:1.12rem;font-weight:600}
+.software-row span{color:var(--muted);font-size:.84rem}
+.standards-note{margin-top:20px;padding:16px 18px;border:1px solid var(--line);color:var(--muted);font-size:.84rem}
+.standards-note strong{color:var(--ink)}
+.project-signature{margin-top:24px;color:var(--steel);font-family:var(--mono);font-size:.72rem;letter-spacing:.045em;text-transform:uppercase}
+.secondary-projects{padding-top:10px;border-top:1px solid var(--line)}
+.secondary-project{
+  display:grid;grid-template-columns:84px minmax(0,1fr) 300px;gap:clamp(28px,3.5vw,46px);
+  padding:50px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.secondary-copy{min-width:0}
+.secondary-copy .project-title{font-size:clamp(2.35rem,4vw,3.8rem)}
+.tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:7px}
+.preview-figure{min-width:0;margin:0;border:1px solid rgba(72,100,119,.34);background:rgba(232,228,218,.52)}
 .drawing{
-  position:relative;min-height:250px;overflow:hidden;border:1px solid rgba(98,122,139,.28);
-  background:
-    linear-gradient(rgba(98,122,139,.09) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(98,122,139,.09) 1px,transparent 1px),
-    rgba(232,228,218,.55);
+  position:relative;min-height:220px;overflow:hidden;
+  background:linear-gradient(rgba(72,100,119,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(72,100,119,.1) 1px,transparent 1px),rgba(232,228,218,.55);
   background-size:28px 28px;
 }
-.drawing::before,.drawing::after{position:absolute;content:"";border:1px solid rgba(32,37,34,.55)}
-.building::before{
-  right:10%;bottom:0;width:70%;height:68%;
-  background:repeating-linear-gradient(0deg,transparent 0 24%,rgba(32,37,34,.32) 24% calc(24% + 1px));
-}
-.building::after{right:4%;bottom:68%;width:86%;height:28px;background:rgba(126,140,122,.14)}
-.foundation::before{top:15%;left:42%;width:18%;height:56%;background:rgba(98,122,139,.13)}
-.foundation::after{right:15%;bottom:12%;left:15%;height:34px;background:rgba(126,140,122,.18)}
+.drawing::before,.drawing::after{position:absolute;content:"";border:1px solid rgba(32,37,34,.62)}
+.foundation::before{top:15%;left:42%;width:18%;height:56%;background:rgba(72,100,119,.13)}
+.foundation::after{right:15%;bottom:12%;left:15%;height:34px;background:rgba(82,102,79,.18)}
 .formwork::before{top:24%;right:9%;left:9%;height:40%;border-radius:50% 50% 0 0}
 .formwork::after{top:34%;right:22%;left:22%;height:47%;border-width:0 1px}
-.featured-project{display:block;padding:58px 0 88px}
-.featured-project__hero{
-  display:grid;grid-template-columns:90px minmax(0,.92fr) minmax(340px,1.08fr);
-  gap:42px;align-items:start;
+.preview-badge{
+  position:absolute;top:12px;left:12px;padding:6px 8px;background:rgba(243,240,232,.94);border:1px solid var(--line);
+  color:var(--steel);font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;
 }
-.featured-project .project-copy>p{max-width:720px;margin:22px 0;color:var(--muted)}
-.case-label{
-  margin:0 0 12px;color:var(--sage);font-family:var(--mono);
-  font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
-}
-.case-location{
-  margin:18px 0 0;color:var(--steel);font-family:var(--mono);
-  font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
-}
-.case-grade{
-  width:max-content;margin-top:24px;padding:12px 16px;
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-}
-.case-grade span{display:block;color:var(--sage);font-family:var(--mono);font-size:.55rem;letter-spacing:.16em;text-transform:uppercase}
-.case-grade strong{display:block;margin-top:3px;font-family:var(--serif);font-size:1.45rem;font-weight:500;line-height:1.2}
-.case-hero{margin:0;border:1px solid rgba(98,122,139,.35);background:rgba(255,253,247,.55)}
-.case-image-frame{display:grid;place-items:center;aspect-ratio:3/4;padding:22px;background:var(--white);overflow:hidden}
-.case-image-frame img{display:block;width:100%;height:100%;object-fit:contain}
-.case-caption{padding:14px 16px;border-top:1px solid var(--line)}
-.case-caption strong{display:block;font-family:var(--serif);font-size:1.12rem;font-weight:500;line-height:1.25}
-.case-caption span{display:block;margin-top:3px;color:var(--muted);font-size:.72rem;line-height:1.55}
-.case-study-body{margin:54px 0 0 132px}
-.key-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.key-fact{padding:20px 18px;border-right:1px solid var(--line)}
-.key-fact:last-child{border-right:0}
-.key-fact span{display:block;color:var(--sage);font-family:var(--mono);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase}
-.key-fact strong{display:block;margin-top:5px;font-family:var(--serif);font-size:1.45rem;font-weight:500;line-height:1.15}
-.case-section{display:grid;grid-template-columns:210px minmax(0,1fr);gap:58px;padding:62px 0;border-bottom:1px solid var(--line)}
-.case-section-heading span{color:var(--sage);font-family:var(--mono);font-size:.58rem;letter-spacing:.14em}
-.case-section-heading h3{margin:8px 0 0;font-family:var(--serif);font-size:2rem;font-weight:500;letter-spacing:-.03em;line-height:1}
-.case-section-copy>p{max-width:790px;margin:0;color:var(--muted)}
-.technical-columns{margin-top:34px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px}
-.technical-block{border-top:1px solid var(--line)}
-.technical-block h4{margin:16px 0 8px;font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
-.data-list{margin:0}
-.data-list div{padding:8px 0;display:grid;grid-template-columns:minmax(120px,.9fr) 1.1fr;gap:16px;border-bottom:1px solid rgba(184,187,181,.58)}
-.data-list dt{color:var(--muted);font-size:.72rem}
-.data-list dd{margin:0;font-size:.76rem;font-weight:600;text-align:right}
-.scope-list{border-top:1px solid var(--line)}
-.scope-item{padding:23px 0;display:grid;grid-template-columns:48px 210px minmax(0,1fr);gap:20px;border-bottom:1px solid var(--line)}
-.scope-item>span{color:var(--sage);font-family:var(--mono);font-size:.65rem}
-.scope-item>strong{font-family:var(--serif);font-size:1.2rem;font-weight:500;line-height:1.3}
-.scope-item>div p{margin:0;color:var(--muted);font-size:.82rem}
-.scope-points{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:.76rem}
-.scope-points li+li{margin-top:3px}
-.workflow{margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));list-style:none;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.workflow li{position:relative;padding:18px 22px 18px 10px;font-family:var(--mono);font-size:.58rem;letter-spacing:.06em;text-transform:uppercase}
-.workflow li:not(:last-child)::after{position:absolute;top:50%;right:8px;content:"→";color:var(--steel);transform:translateY(-50%)}
-.etabs-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.etabs-visual{margin:0;border:1px solid rgba(98,122,139,.35);background:rgba(255,253,247,.55)}
-.etabs-visual-frame{display:grid;place-items:center;aspect-ratio:3/4;padding:14px;background:var(--white);overflow:hidden}
-.etabs-visual-frame img{display:block;width:100%;height:100%;object-fit:contain}
-.etabs-visual figcaption{padding:13px 14px;border-top:1px solid var(--line)}
-.etabs-visual figcaption strong{display:block;font-family:var(--serif);font-size:1.05rem;font-weight:500;line-height:1.25}
-.etabs-visual figcaption span{display:block;margin-top:3px;color:var(--muted);font-size:.68rem;line-height:1.5}
-.software-list{border-top:1px solid var(--line)}
-.software-row{padding:15px 0;display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px;border-bottom:1px solid var(--line)}
-.software-row strong{font-family:var(--serif);font-size:1.15rem;font-weight:500}
-.software-row span{color:var(--muted);font-size:.78rem}
-.project-signature{margin-top:34px;color:var(--steel);font-family:var(--mono);font-size:.61rem;letter-spacing:.08em;text-transform:uppercase}
-.specs{padding:90px 0;background:var(--dark);color:var(--white)}
-.spec-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}
+.preview-figure figcaption{padding:12px 14px;border-top:1px solid var(--line);color:var(--muted);font-size:.78rem;line-height:1.5}
+.project-details{margin-top:24px;border-top:1px solid var(--line)}
+.project-details summary{padding:14px 0;font-size:.875rem;font-weight:700;cursor:pointer;list-style:none}
+.project-details summary::-webkit-details-marker{display:none}
+.project-details summary::after{float:right;content:"+";color:var(--steel);font-family:var(--mono);font-size:1.1rem}
+.project-details[open] summary::after{content:"−"}
+.project-details__body{padding:0 0 4px}
+.project-details__body h3{margin:12px 0 8px;font-family:var(--serif);font-size:1.3rem;font-weight:600}
+.project-details__body p{margin:0;color:var(--muted);font-size:.88rem}
+.project-details__body ul{margin:12px 0 0;padding-left:20px;color:var(--muted);font-size:.84rem}
+.project-details__body li+li{margin-top:5px}
+.specs{padding:82px 0;background:var(--dark);color:var(--white)}
+.spec-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(50px,7vw,90px)}
 .spec-grid h2{margin:0;font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:400;letter-spacing:-.05em;line-height:.92}
-.capabilities{border-top:1px solid rgba(255,255,255,.18)}
-.capability{padding:20px 0;display:grid;grid-template-columns:60px 180px 1fr;gap:18px;border-bottom:1px solid rgba(255,255,255,.18)}
-.capability span{color:#aebda9;font-family:var(--mono);font-size:.65rem}
+.capabilities{border-top:1px solid rgba(255,255,255,.2)}
+.capability{padding:19px 0;display:grid;grid-template-columns:54px 180px 1fr;gap:18px;border-bottom:1px solid rgba(255,255,255,.2)}
+.capability span{color:#bfd0b9;font-family:var(--mono);font-size:.75rem}
 .capability strong{font-family:var(--serif);font-size:1.25rem;font-weight:500}
-.capability p{margin:0;color:#b8c0bb;font-size:.84rem}
-footer{padding:30px;background:var(--dark);color:#aeb7b1;border-top:1px solid rgba(255,255,255,.14);text-align:center;font-size:.7rem}
-@media(max-width:900px){
-  .links{position:absolute;top:84px;right:0;left:0;padding:24px 8vw 30px;display:none;flex-direction:column;background:rgba(243,240,232,.99);border-bottom:1px solid var(--line)}
+.capability p{margin:0;color:#c4cbc7;font-size:.86rem}
+footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rgba(255,255,255,.14);text-align:center;font-size:.75rem}
+.lightbox{
+  width:min(1060px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:0;border:1px solid rgba(255,255,255,.22);
+  background:var(--dark);color:var(--white);box-shadow:0 24px 80px rgba(0,0,0,.36);
+}
+.lightbox::backdrop{background:rgba(19,24,22,.84);backdrop-filter:blur(5px)}
+.lightbox-close{
+  position:absolute;top:12px;right:12px;z-index:2;width:44px;height:44px;border:1px solid rgba(255,255,255,.48);
+  background:rgba(31,37,34,.86);color:var(--white);font-size:1.3rem;cursor:pointer;
+}
+.lightbox figure{margin:0;display:grid;grid-template-rows:minmax(0,1fr) auto;max-height:calc(100dvh - 34px)}
+.lightbox-media{min-height:0;display:grid;place-items:center;padding:22px;background:#fff}
+.lightbox-media img{display:block;max-width:100%;max-height:calc(100dvh - 150px);object-fit:contain}
+.lightbox figcaption{padding:15px 76px 16px 20px;border-top:1px solid rgba(255,255,255,.18)}
+.lightbox figcaption strong{font-family:var(--serif);font-size:1.2rem;font-weight:500}
+.lightbox figcaption span{display:block;margin-top:2px;color:#c4cbc7;font-size:.82rem}
+@media(max-width:960px){
+  .links{position:absolute;top:var(--header-height);right:0;left:0;padding:22px 8vw 28px;display:none;flex-direction:column;background:rgba(243,240,232,.99);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(31,37,34,.08)}
   .links.open{display:flex}.menu{display:grid;place-items:center}
-  .hero-grid,.spec-grid{grid-template-columns:1fr;gap:38px}
-  .project{grid-template-columns:64px 1fr}.drawing{grid-column:2;min-height:220px}
-  .featured-project__hero{grid-template-columns:64px minmax(0,1fr);gap:30px}
-  .featured-project__hero .case-hero{grid-column:1/-1;width:min(100%,620px);margin:8px auto 0}
+  .hero-grid,.spec-grid{grid-template-columns:1fr;gap:36px}
+  .directory-list{grid-template-columns:1fr}
+  .directory-link,.directory-list li:first-child .directory-link{min-height:auto;border-right:1px solid var(--line);border-left:1px solid var(--line)}
+  .directory-link{min-height:92px}.directory-link strong{margin-top:22px}
+  .featured-project__hero{grid-template-columns:64px minmax(0,1fr);gap:28px}
+  .featured-project__hero .case-hero{grid-column:1/-1;width:min(100%,720px);margin:8px auto 0}
   .case-study-body{margin-left:0}
-  .key-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .key-fact:nth-child(2){border-right:0}.key-fact:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .case-section{grid-template-columns:1fr;gap:28px}
+  .case-section{grid-template-columns:170px minmax(0,1fr);gap:36px}
   .workflow{grid-template-columns:repeat(3,minmax(0,1fr))}
   .workflow li:nth-child(3)::after{display:none}
   .etabs-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .secondary-project{grid-template-columns:64px minmax(0,1fr)}
+  .secondary-project .preview-figure{grid-column:2;width:min(100%,520px)}
 }
-@media(max-width:600px){
-  .container{width:calc(100% - 32px)}.nav{height:72px}.links{top:72px;padding-right:16px;padding-left:16px}
-  .page-hero{padding:72px 0}.page-hero::before{inset:38% 0 0}
-  .projects{padding:70px 0}.project{grid-template-columns:44px 1fr;gap:18px;padding:36px 0}
-  .project-index strong{font-size:2rem}.drawing{min-height:190px}
-  .featured-project{padding:42px 0 64px}
-  .featured-project__hero{grid-template-columns:44px minmax(0,1fr);gap:18px}
-  .featured-project__hero .case-hero{grid-column:1/-1;margin-top:10px}
-  .case-image-frame{padding:14px}
-  .case-study-body{margin-top:40px}
-  .key-fact{padding:16px 12px}.key-fact strong{font-size:1.15rem}
-  .case-section{padding:48px 0}
-  .technical-columns{grid-template-columns:1fr;gap:28px}
-  .scope-item{grid-template-columns:38px minmax(0,1fr);gap:12px}
-  .scope-item>div{grid-column:2}
+@media(max-width:700px){
+  :root{--header-height:72px}
+  .container{width:calc(100% - 32px)}
+  .nav{height:var(--header-height)}
+  .brand{font-size:.75rem;letter-spacing:.24em}
+  .links{padding-right:16px;padding-left:16px}
+  .page-hero{padding:58px 0 56px}.page-hero::before{inset:42% 0 0}
+  h1{font-size:clamp(3.55rem,18vw,4.7rem)}
+  .hero-grid{gap:30px}
+  .hero-meta{margin-top:21px}
+  .directory-header{display:block}.directory-header p{margin-top:8px}
+  .project-directory{padding:28px 0 32px}
+  .projects{padding:58px 0}
+  .featured-project{padding-bottom:58px}
+  .featured-project__hero{grid-template-columns:42px minmax(0,1fr);gap:16px}
+  .project-number{gap:20px}.project-number strong{font-size:2rem}.project-number span{writing-mode:vertical-rl}
+  .project-title{font-size:clamp(2.45rem,12vw,3.4rem)}
+  .case-location{line-height:1.55}
+  .project-actions{display:block}.case-grade{width:max-content;margin-top:15px}
+  .case-image-frame{aspect-ratio:3/4}
+  .case-study-body{margin-top:34px}
+  .key-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .key-fact:nth-child(2){border-right:0}.key-fact:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .key-fact{padding:14px 12px}.key-fact strong{font-size:1.16rem}
+  .case-section{grid-template-columns:1fr;gap:20px;padding:36px 0}
+  .case-section-heading{display:flex;gap:12px;align-items:baseline}
+  .case-section-heading h3{font-size:1.65rem}
+  .technical-columns{grid-template-columns:1fr;gap:25px}
+  .data-list div{grid-template-columns:minmax(0,1fr) minmax(110px,1fr);gap:10px}
+  .role-scope,.deliverable-list{grid-template-columns:1fr}
+  .role-scope li:nth-child(odd),.deliverable-list li:nth-child(odd){padding-right:0;border-right:0}
+  .role-scope li:nth-child(even),.deliverable-list li:nth-child(even){padding-left:0}
   .workflow{grid-template-columns:1fr}
-  .workflow li{padding:14px 32px 14px 10px;border-bottom:1px solid rgba(184,187,181,.58)}
+  .workflow li{padding:12px 34px 12px 8px;border-bottom:1px solid rgba(173,178,172,.62)}
   .workflow li:last-child{border-bottom:0}
   .workflow li:nth-child(3)::after{display:block}
   .workflow li:not(:last-child)::after{right:12px;content:"↓"}
+  .process-item{grid-template-columns:32px minmax(0,1fr);gap:10px}
+  .process-item>p{grid-column:2}
   .etabs-gallery{grid-template-columns:1fr}
   .software-row{grid-template-columns:1fr;gap:2px}
-  .specs{padding:72px 0}.capability{grid-template-columns:35px 1fr}.capability p{grid-column:2}
+  .secondary-project{grid-template-columns:42px minmax(0,1fr);gap:16px;padding:40px 0}
+  .secondary-project .project-title{font-size:clamp(2.2rem,11vw,3rem)}
+  .secondary-project .preview-figure{grid-column:1/-1;width:100%}
+  .specs{padding:64px 0}.capability{grid-template-columns:34px 1fr}.capability p{grid-column:2}
+  .lightbox{width:calc(100% - 18px);max-height:calc(100dvh - 18px)}
+  .lightbox-media{padding:12px}.lightbox-media img{max-height:calc(100dvh - 138px)}
+  .lightbox figcaption{padding:12px 58px 13px 13px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
+@media(max-width:380px){
+  .brand{font-size:.7rem;letter-spacing:.19em}
+  .container{width:calc(100% - 28px)}
+  .featured-project__hero,.secondary-project{grid-template-columns:36px minmax(0,1fr);gap:12px}
+  .key-fact{padding:13px 9px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to project content</a>
 <header>
   <div class="container nav">
     <a class="brand" href="index.html" aria-label="Le Van Cuong — home">LE VAN CUONG</a>
     <button class="menu" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
     <nav class="links" id="navLinks" aria-label="Main navigation">
       <a href="index.html#about">About</a>
-      <a class="active" href="academic-projects.html">Projects</a>
+      <a class="active" href="academic-projects.html" aria-current="page">Projects</a>
       <a href="research.html">Research</a>
       <a href="awards.html">Awards</a>
       <a href="index.html#contact">Contact</a>
@@ -222,41 +345,58 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;border-top:1px solid rg
   </div>
 </header>
 
-<main>
-  <section class="page-hero">
+<main id="main-content" tabindex="-1">
+  <section class="page-hero" aria-labelledby="page-title">
     <div class="container hero-grid">
       <div>
         <p class="kicker">02 / Selected Work</p>
-        <h1>Academic<br>Projects</h1>
+        <h1 id="page-title">Academic<br>Projects</h1>
       </div>
       <div>
         <p class="hero-lead">Selected civil engineering coursework demonstrating structural reasoning, geotechnical interpretation, technical documentation, and construction-focused thinking.</p>
-        <div class="hero-meta"><span>Structural design</span><span>Foundation engineering</span><span>Construction technology</span></div>
+        <div class="hero-meta" aria-label="Project disciplines"><span>Structural design</span><span>Foundation engineering</span><span>Construction technology</span></div>
       </div>
     </div>
   </section>
 
-  <section class="projects">
+  <nav class="project-directory" aria-labelledby="project-index-title">
+    <div class="container">
+      <div class="directory-header">
+        <h2 id="project-index-title">Project index</h2>
+        <p>Three selected studies, organized for quick review of scope, evidence, and technical focus.</p>
+      </div>
+      <ol class="directory-list">
+        <li><a class="directory-link" href="#reinforced-concrete-building-design"><span class="directory-meta"><span>01 · Featured case study</span><span>2025</span></span><strong>Reinforced Concrete Building Design</strong></a></li>
+        <li><a class="directory-link" href="#foundation-pile-design"><span class="directory-meta"><span>02 · Project preview</span><span>2024</span></span><strong>Foundation &amp; Pile Design</strong></a></li>
+        <li><a class="directory-link" href="#modern-formwork-technology"><span class="directory-meta"><span>03 · Project preview</span><span>2026</span></span><strong>Modern Formwork Technology</strong></a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="projects" aria-label="Selected academic projects">
     <div class="container">
       <article class="project featured-project" id="reinforced-concrete-building-design">
         <div class="featured-project__hero">
-          <div class="project-index"><strong>01</strong><span>2025</span></div>
-          <div class="project-copy">
-            <p class="case-label">PBL 3 · Structural Analysis + Reinforced Concrete Design</p>
-            <h2>Reinforced Concrete Building Design</h2>
+          <div class="project-number"><strong>01</strong><span>2025</span></div>
+          <div>
+            <p class="case-label technical-label">Project-Based Learning 3 (PBL 3) · Structural Analysis + Reinforced Concrete Design</p>
+            <h2 class="project-title">Reinforced Concrete Building Design</h2>
             <p class="case-location">5-Storey School Building · Da Nang, Vietnam</p>
-            <p>Structural design of a five-storey reinforced-concrete school building, focusing on the analysis and design of the transverse frame at Grid 3. The project covered preliminary member sizing, load determination, structural modelling, frame analysis, wind-load assessment, reinforced-concrete beam and column design, and reinforcement selection.</p>
-            <div class="case-grade"><span>Grade</span><strong>9.1 / 10 — A</strong></div>
+            <p class="project-summary">Structural design of a five-storey reinforced-concrete school building, focused on the transverse frame at Grid 3—from preliminary member sizing and load determination to structural modelling, frame analysis, wind-load assessment, beam and column design, and reinforcement selection.</p>
+            <div class="project-actions">
+              <a class="text-cta" href="#project-01-details">View project details</a>
+              <div class="case-grade"><span>Assessment</span><strong>9.1 / 10 — A</strong></div>
+            </div>
           </div>
           <figure class="case-hero">
-            <div class="case-image-frame">
-              <img src="assets/images/projects/pbl3/structural-model.png" alt="ETABS structural model of the five-storey reinforced concrete school frame" width="1100" height="1600" loading="lazy" decoding="async">
-            </div>
-            <figcaption class="case-caption"><strong>Structural Model</strong><span>Five-storey transverse frame model and assigned member sections.</span></figcaption>
+            <button class="media-trigger" type="button" data-full="assets/images/projects/pbl3/structural-model.png" data-title="Structural model" data-caption="Five-storey transverse frame model and assigned member sections, prepared during structural modelling before analysis." aria-label="Open larger structural model image">
+              <div class="case-image-frame"><img src="assets/images/projects/pbl3/structural-model.png" alt="ETABS structural model of the five-storey reinforced concrete school frame" width="1100" height="1600" decoding="async"></div>
+            </button>
+            <figcaption class="case-caption"><strong>Structural model</strong><span>Frame geometry and assigned member sections, used to establish the ETABS analysis model.</span><span class="zoom-note">Select to inspect full image</span></figcaption>
           </figure>
         </div>
 
-        <div class="case-study-body">
+        <div class="case-study-body" id="project-01-details">
           <div class="key-facts" aria-label="Key project facts">
             <div class="key-fact"><span>Building</span><strong>5 storeys</strong></div>
             <div class="key-fact"><span>Typical level</span><strong>4.2 m</strong></div>
@@ -264,10 +404,32 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;border-top:1px solid rg
             <div class="key-fact"><span>Location</span><strong>Da Nang</strong></div>
           </div>
 
-          <section class="case-section" aria-labelledby="project-overview-title">
-            <div class="case-section-heading"><span>01</span><h3 id="project-overview-title">Project Overview</h3></div>
+          <section class="case-section" aria-labelledby="project-context-title">
+            <div class="case-section-heading"><span>01</span><h3 id="project-context-title">Project context</h3></div>
             <div class="case-section-copy">
-              <p>The project developed a complete structural-analysis and reinforced-concrete design workflow for the transverse frame at Grid 3, from scheme definition and load transfer to ETABS analysis and member design.</p>
+              <p>Project-Based Learning 3 developed a complete structural-analysis and reinforced-concrete design workflow for the transverse frame at Grid 3 of a five-storey school building. The study moved from scheme definition and load transfer to ETABS analysis and member design.</p>
+            </div>
+          </section>
+
+          <section class="case-section" aria-labelledby="my-role-title">
+            <div class="case-section-heading"><span>02</span><h3 id="my-role-title">My role</h3></div>
+            <div class="case-section-copy">
+              <div class="evidence-note">
+                <strong>Role attribution kept transparent</strong>
+                <p>The available project material does not state whether this was an individual or team project. The case study therefore presents the documented project workstream without claiming sole authorship.</p>
+              </div>
+              <ul class="role-scope" aria-label="Documented project workstream">
+                <li><strong>Scheme definition</strong>Preliminary slabs, beams, and columns.</li>
+                <li><strong>Load determination</strong>Permanent, imposed, roof, and wind actions.</li>
+                <li><strong>Structural analysis</strong>Frame model, loading cases, and response review.</li>
+                <li><strong>Member design</strong>Beam and column reinforcement selection.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="case-section" aria-labelledby="design-inputs-title">
+            <div class="case-section-heading"><span>03</span><h3 id="design-inputs-title">Design inputs</h3></div>
+            <div class="case-section-copy">
               <div class="technical-columns">
                 <div class="technical-block">
                   <h4>Building information</h4>
@@ -296,102 +458,120 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;border-top:1px solid rg
             </div>
           </section>
 
-          <section class="case-section" aria-labelledby="engineering-scope-title">
-            <div class="case-section-heading"><span>02</span><h3 id="engineering-scope-title">Engineering Scope</h3></div>
+          <section class="case-section" aria-labelledby="engineering-process-title">
+            <div class="case-section-heading"><span>04</span><h3 id="engineering-process-title">Engineering process</h3></div>
             <div class="case-section-copy">
-              <div class="scope-list">
-                <div class="scope-item">
-                  <span>01</span><strong>Structural Scheme</strong>
-                  <div><p>Defined the structural system and preliminary dimensions of slabs, beams, and columns based on geometry, span arrangement, load-transfer behaviour, and constructability.</p></div>
-                </div>
-                <div class="scope-item">
-                  <span>02</span><strong>Load Determination</strong>
-                  <div><p>Calculated permanent and imposed loads for typical floors, corridors, and roof areas, then converted slab loads into equivalent frame loads for structural analysis.</p></div>
-                </div>
-                <div class="scope-item">
-                  <span>03</span><strong>Wind Load Assessment</strong>
-                  <div><p>Determined wind actions for the building in Da Nang, including wall and roof aerodynamic effects, and converted the resulting actions into distributed and concentrated loads for the analysed transverse frame.</p></div>
-                </div>
-                <div class="scope-item">
-                  <span>04</span><strong>ETABS Modelling &amp; Analysis</strong>
-                  <div>
-                    <p>Developed the structural frame model in ETABS, assigned member sections and loading cases, and evaluated the structural response under gravity and lateral loading.</p>
-                    <ul class="scope-points"><li>Load transfer through the frame</li><li>Bending-moment distribution and column axial forces</li><li>Frame behaviour and global deformation under wind loading</li></ul>
-                  </div>
-                </div>
-                <div class="scope-item">
-                  <span>05</span><strong>Reinforced Concrete Design</strong>
-                  <div>
-                    <p>Designed the main beams and columns using governing internal-force combinations obtained from the structural analysis.</p>
-                    <ul class="scope-points"><li>Longitudinal and shear reinforcement for beams</li><li>Column reinforcement and reinforcement-ratio checks</li><li>Anchorage and lap-splice considerations</li></ul>
-                  </div>
-                </div>
+              <ol class="workflow" aria-label="Structural analysis workflow">
+                <li>Structural scheme</li><li>Load calculation</li><li>ETABS modelling</li><li>Structural analysis</li><li>Internal forces</li><li>RC design</li>
+              </ol>
+              <div class="process-list">
+                <div class="process-item"><span>01</span><strong>Define the system</strong><p>Set the structural scheme and preliminary member dimensions using geometry, spans, load transfer, and constructability.</p></div>
+                <div class="process-item"><span>02</span><strong>Determine actions</strong><p>Calculate permanent and imposed loads, convert slab loads to equivalent frame loads, and assess wind actions for Da Nang.</p></div>
+                <div class="process-item"><span>03</span><strong>Model and analyse</strong><p>Build the ETABS frame, assign sections and loading cases, then review gravity and lateral response.</p></div>
+                <div class="process-item"><span>04</span><strong>Design members</strong><p>Use governing internal-force combinations to design main beams and columns and select reinforcement.</p></div>
               </div>
             </div>
           </section>
 
-          <section class="case-section" aria-labelledby="analysis-workflow-title">
-            <div class="case-section-heading"><span>03</span><h3 id="analysis-workflow-title">Analysis Workflow</h3></div>
-            <div class="case-section-copy">
-              <ol class="workflow" aria-label="Structural analysis workflow">
-                <li>Structural Scheme</li><li>Load Calculation</li><li>ETABS Modelling</li><li>Structural Analysis</li><li>Internal Forces</li><li>RC Design</li>
-              </ol>
-            </div>
-          </section>
-
-          <section class="case-section" aria-labelledby="selected-visuals-title">
-            <div class="case-section-heading"><span>04</span><h3 id="selected-visuals-title">Selected ETABS Visuals</h3></div>
+          <section class="case-section" aria-labelledby="key-outputs-title">
+            <div class="case-section-heading"><span>05</span><h3 id="key-outputs-title">Key outputs</h3></div>
             <div class="case-section-copy">
               <div class="etabs-gallery">
                 <figure class="etabs-visual">
-                  <div class="etabs-visual-frame"><img src="assets/images/projects/pbl3/wind-loading.png" alt="Wind load assignment on the ETABS structural frame" width="1500" height="1550" loading="lazy" decoding="async"></div>
-                  <figcaption><strong>Wind Loading</strong><span>Lateral wind actions applied to the analysed frame.</span></figcaption>
+                  <button class="media-trigger" type="button" data-full="assets/images/projects/pbl3/wind-loading.png" data-title="Wind loading" data-caption="Lateral wind actions assigned to the analysed frame during load modelling." aria-label="Open larger wind loading image">
+                    <div class="etabs-visual-frame"><img class="image--wind" src="assets/images/projects/pbl3/wind-loading.png" alt="Wind load assignment on the ETABS structural frame" width="1500" height="1550" loading="lazy" decoding="async"></div>
+                  </button>
+                  <figcaption><strong>Wind loading</strong><span>Lateral actions assigned during the load-modelling stage.</span><span class="zoom-note">Select to inspect</span></figcaption>
                 </figure>
                 <figure class="etabs-visual">
-                  <div class="etabs-visual-frame"><img src="assets/images/projects/pbl3/internal-forces.png" alt="Bending moment diagram of the reinforced concrete frame" width="1100" height="1600" loading="lazy" decoding="async"></div>
-                  <figcaption><strong>Internal Forces</strong><span>Structural response and bending-moment distribution used for member design.</span></figcaption>
+                  <button class="media-trigger" type="button" data-full="assets/images/projects/pbl3/internal-forces.png" data-title="Internal forces" data-caption="Bending-moment distribution reviewed after structural analysis and used for member design." aria-label="Open larger internal forces image">
+                    <div class="etabs-visual-frame"><img src="assets/images/projects/pbl3/internal-forces.png" alt="Bending moment diagram of the reinforced concrete frame" width="1100" height="1600" loading="lazy" decoding="async"></div>
+                  </button>
+                  <figcaption><strong>Internal forces</strong><span>Moment distribution reviewed after analysis for member design.</span><span class="zoom-note">Select to inspect</span></figcaption>
                 </figure>
                 <figure class="etabs-visual">
-                  <div class="etabs-visual-frame"><img src="assets/images/projects/pbl3/deformed-shape.png" alt="Deformed shape of the structural frame under lateral loading" width="1100" height="1550" loading="lazy" decoding="async"></div>
-                  <figcaption><strong>Structural Response</strong><span>Global frame deformation under lateral loading.</span></figcaption>
+                  <button class="media-trigger" type="button" data-full="assets/images/projects/pbl3/deformed-shape.png" data-title="Structural response" data-caption="Global frame deformation reviewed under lateral loading during response assessment." aria-label="Open larger structural response image">
+                    <div class="etabs-visual-frame"><img src="assets/images/projects/pbl3/deformed-shape.png" alt="Deformed shape of the structural frame under lateral loading" width="1100" height="1550" loading="lazy" decoding="async"></div>
+                  </button>
+                  <figcaption><strong>Structural response</strong><span>Global deformation reviewed under lateral loading.</span><span class="zoom-note">Select to inspect</span></figcaption>
                 </figure>
               </div>
             </div>
           </section>
 
-          <section class="case-section" aria-labelledby="software-title">
-            <div class="case-section-heading"><span>05</span><h3 id="software-title">Software</h3></div>
+          <section class="case-section" aria-labelledby="tools-standards-title">
+            <div class="case-section-heading"><span>06</span><h3 id="tools-standards-title">Tools and standards</h3></div>
             <div class="case-section-copy">
               <div class="software-list">
                 <div class="software-row"><strong>ETABS</strong><span>Structural modelling and frame analysis</span></div>
-                <div class="software-row"><strong>Microsoft Excel</strong><span>Load calculations, internal-force processing and reinforcement calculations</span></div>
+                <div class="software-row"><strong>Microsoft Excel</strong><span>Load calculations, internal-force processing, and reinforcement calculations</span></div>
                 <div class="software-row"><strong>AutoCAD</strong><span>Technical documentation</span></div>
               </div>
+              <p class="standards-note"><strong>Design standards:</strong> the available source material does not identify the governing standard used for this project.</p>
+            </div>
+          </section>
+
+          <section class="case-section" aria-labelledby="deliverables-title">
+            <div class="case-section-heading"><span>07</span><h3 id="deliverables-title">Deliverables</h3></div>
+            <div class="case-section-copy">
+              <ul class="deliverable-list">
+                <li><strong>Structural frame model</strong>Geometry, sections, and loading cases.</li>
+                <li><strong>Load calculations</strong>Gravity, roof, and wind actions.</li>
+                <li><strong>Analysis outputs</strong>Internal forces and global deformation.</li>
+                <li><strong>RC member design</strong>Beam and column reinforcement calculations.</li>
+                <li><strong>Technical documentation</strong>Project drawings and calculation records described in the source material.</li>
+              </ul>
               <p class="project-signature">Structural Modelling · Load Analysis · Wind Engineering · ETABS · Reinforced Concrete Design</p>
             </div>
           </section>
         </div>
       </article>
 
-      <article class="project">
-        <div class="project-index"><strong>02</strong><span>2024</span></div>
-        <div class="project-copy">
-          <h2>Foundation &amp; Pile Design</h2>
-          <p>Design and verification of isolated foundations and low pile caps, including soil-layer interpretation, axial pile capacity, load distribution, reinforced-concrete checks, anchorage, and construction detailing.</p>
-          <div class="tags"><span>Soil mechanics</span><span>Drilled shaft</span><span>Low pile cap</span><span>TCVN 10304</span><span>TCVN 9393</span></div>
-        </div>
-        <div class="drawing foundation" role="img" aria-label="Abstract technical drawing of a column, pile cap, and deep foundation"></div>
-      </article>
+      <div class="secondary-projects">
+        <article class="project secondary-project" id="foundation-pile-design">
+          <div class="project-number"><strong>02</strong><span>2024</span></div>
+          <div class="secondary-copy">
+            <p class="technical-label case-label">Geotechnical + reinforced-concrete design</p>
+            <h2 class="project-title">Foundation &amp; Pile Design</h2>
+            <p class="project-summary">Design and verification of isolated foundations and low pile caps, including soil-layer interpretation, axial pile capacity, load distribution, reinforced-concrete checks, anchorage, and construction detailing.</p>
+            <div class="tags"><span>Soil mechanics</span><span>Drilled shaft</span><span>Low pile cap</span><span>TCVN 10304</span><span>TCVN 9393</span></div>
+            <details class="project-details">
+              <summary>View project details</summary>
+              <div class="project-details__body" id="foundation-pile-design-scope">
+                <h3>Verified project scope</h3>
+                <p>The current portfolio source documents a foundation-design workflow spanning ground interpretation, pile capacity, load transfer, reinforced-concrete verification, and detailing.</p>
+                <ul><li>Interpret soil layers for foundation selection.</li><li>Assess axial pile capacity and load distribution.</li><li>Check isolated foundations and low pile caps.</li><li>Address reinforcement, anchorage, and construction detailing.</li></ul>
+              </div>
+            </details>
+          </div>
+          <figure class="preview-figure">
+            <div class="drawing foundation" role="img" aria-label="Conceptual illustration of a column, pile cap, and deep foundation"><span class="preview-badge">Project preview</span></div>
+            <figcaption>Conceptual portfolio illustration—not a technical deliverable or project drawing.</figcaption>
+          </figure>
+        </article>
 
-      <article class="project">
-        <div class="project-index"><strong>03</strong><span>2026</span></div>
-        <div class="project-copy">
-          <h2>Modern Formwork Technology</h2>
-          <p>Comparative technical study of slip, climbing, flying, and horizontally movable formwork systems, with emphasis on load paths, temporary stability, constructability, work cycles, and job-site safety.</p>
-          <div class="tags"><span>Slip form</span><span>Climbing form</span><span>Flying form</span><span>ACI 347</span><span>EN 12812</span></div>
-        </div>
-        <div class="drawing formwork" role="img" aria-label="Abstract structural drawing of a modern formwork system"></div>
-      </article>
+        <article class="project secondary-project" id="modern-formwork-technology">
+          <div class="project-number"><strong>03</strong><span>2026</span></div>
+          <div class="secondary-copy">
+            <p class="technical-label case-label">Construction technology study</p>
+            <h2 class="project-title">Modern Formwork Technology</h2>
+            <p class="project-summary">Comparative technical study of slip, climbing, flying, and horizontally movable formwork systems, with emphasis on load paths, temporary stability, constructability, work cycles, and job-site safety.</p>
+            <div class="tags"><span>Slip form</span><span>Climbing form</span><span>Flying form</span><span>ACI 347</span><span>EN 12812</span></div>
+            <details class="project-details">
+              <summary>View project details</summary>
+              <div class="project-details__body" id="modern-formwork-technology-scope">
+                <h3>Verified project scope</h3>
+                <p>The study compares four modern formwork approaches through structural behaviour and construction delivery considerations.</p>
+                <ul><li>Compare slip, climbing, flying, and horizontally movable systems.</li><li>Review load paths and temporary stability.</li><li>Consider constructability and work cycles.</li><li>Address job-site safety within the comparison.</li></ul>
+              </div>
+            </details>
+          </div>
+          <figure class="preview-figure">
+            <div class="drawing formwork" role="img" aria-label="Conceptual illustration of a modern formwork system"><span class="preview-badge">Project preview</span></div>
+            <figcaption>Conceptual portfolio illustration—not a technical deliverable or project drawing.</figcaption>
+          </figure>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -408,12 +588,77 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;border-top:1px solid rg
 </main>
 
 <footer>© <span id="year"></span> Le Van Cuong · Civil Engineering Portfolio</footer>
+
+<dialog class="lightbox" id="lightbox" aria-labelledby="lightboxTitle" aria-describedby="lightboxCaption">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image viewer">×</button>
+  <figure>
+    <div class="lightbox-media"><img id="lightboxImage" src="assets/images/projects/pbl3/structural-model.png" alt=""></div>
+    <figcaption><strong id="lightboxTitle">Project image</strong><span id="lightboxCaption"></span></figcaption>
+  </figure>
+</dialog>
+
 <script>
-const menuBtn=document.getElementById("menuBtn"),navLinks=document.getElementById("navLinks");
-const closeMenu=()=>{navLinks.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.setAttribute("aria-label","Open navigation")};
-menuBtn.addEventListener("click",()=>{const open=navLinks.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open));menuBtn.setAttribute("aria-label",open?"Close navigation":"Open navigation")});
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+const desktopQuery=window.matchMedia("(min-width: 961px)");
+
+function closeMenu(){
+  navLinks.classList.remove("open");
+  menuBtn.setAttribute("aria-expanded","false");
+  menuBtn.setAttribute("aria-label","Open navigation");
+  menuBtn.textContent="☰";
+}
+
+menuBtn.addEventListener("click",event=>{
+  event.stopPropagation();
+  const open=navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded",String(open));
+  menuBtn.setAttribute("aria-label",open?"Close navigation":"Open navigation");
+  menuBtn.textContent=open?"×":"☰";
+});
+
+navLinks.addEventListener("click",event=>event.stopPropagation());
 document.querySelectorAll("#navLinks a").forEach(link=>link.addEventListener("click",closeMenu));
-document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu()});
+document.addEventListener("click",()=>{if(navLinks.classList.contains("open"))closeMenu()});
+desktopQuery.addEventListener("change",event=>{if(event.matches)closeMenu()});
+
+const lightbox=document.getElementById("lightbox");
+const lightboxImage=document.getElementById("lightboxImage");
+const lightboxTitle=document.getElementById("lightboxTitle");
+const lightboxCaption=document.getElementById("lightboxCaption");
+const lightboxClose=document.getElementById("lightboxClose");
+let activeTrigger=null;
+
+document.querySelectorAll(".media-trigger").forEach(trigger=>{
+  trigger.addEventListener("click",()=>{
+    const preview=trigger.querySelector("img");
+    activeTrigger=trigger;
+    lightboxImage.src=trigger.dataset.full;
+    lightboxImage.alt=preview.alt;
+    lightboxTitle.textContent=trigger.dataset.title;
+    lightboxCaption.textContent=trigger.dataset.caption;
+    document.body.classList.add("lightbox-open");
+    lightbox.showModal();
+    lightboxClose.focus();
+  });
+});
+
+function closeLightbox(){if(lightbox.open)lightbox.close()}
+lightboxClose.addEventListener("click",closeLightbox);
+lightbox.addEventListener("click",event=>{if(event.target===lightbox)closeLightbox()});
+lightbox.addEventListener("close",()=>{
+  document.body.classList.remove("lightbox-open");
+  lightboxImage.alt="";
+  if(activeTrigger)activeTrigger.focus();
+});
+
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape"){
+    closeMenu();
+    closeLightbox();
+  }
+});
+
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
