@@ -8,7 +8,7 @@
 <title>Research &amp; Technical Studies | Le Van Cuong</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <style>
 :root{
@@ -110,6 +110,9 @@ footer{padding:30px;background:var(--dark-deep);color:#aeb7b1;border-top:1px sol
   .container{width:calc(100% - 32px)}.nav{height:72px}.links{top:72px;padding-right:16px;padding-left:16px}
   .page-hero{padding:66px 0 62px}h1{font-size:clamp(3.55rem,18vw,5rem)}
   .project-index{padding:34px 0}.index-heading{align-items:flex-start;flex-direction:column;gap:6px}
+  .eyebrow,.kicker,.project-label,.section-label,.project-type{font-size:.7rem}
+  .hero-note,.index-heading span,.index-card span{font-size:.68rem}
+  .project-figure figcaption{font-size:.78rem}.tool-list li,.deliverable-list li{font-size:.66rem}
   .research-intro{padding:68px 0 56px}.studies{padding-bottom:74px}
   .project-summary{grid-template-columns:1fr 34px;gap:14px;padding:24px 20px}.project-no{grid-column:1/-1}
   .project-title{font-size:clamp(2rem,11vw,3rem)}.project-scope{font-size:.78rem}
@@ -144,7 +147,7 @@ footer{padding:30px;background:var(--dark-deep);color:#aeb7b1;border-top:1px sol
         <h1>Research &amp;<br>Technical Studies</h1>
       </div>
       <p class="hero-copy">A documented selection of student research and engineering calculation work in structural wind loading and reinforced-concrete durability.
-        <span class="hero-note">Results and claims are limited to the supplied papers, presentation, calculation note, and workbook.</span>
+        <span class="hero-note">Results and claims are based on the supplied research documents and project details confirmed by the author.</span>
       </p>
     </div>
   </section>
@@ -214,9 +217,9 @@ footer{padding:30px;background:var(--dark-deep);color:#aeb7b1;border-top:1px sol
           <div class="project-body">
             <figure class="project-figure">
               <div class="project-media">
-                <img src="assets/images/research/wind-asce-cases.png" alt="Tables of ETABS base reactions and percentage differences for four ASCE 7-16 wind-load cases" width="950" height="1100" loading="lazy" decoding="async">
+                <img src="assets/images/research/wind-asce-cases.png" alt="Table 6 with ASCE 7-16 base reactions for Cases 1 to 4 and Table 7 with percentage differences for Cases 2 to 4, including FX, FY, FZ, MX, MY, and MZ" width="1090" height="1548" loading="lazy" decoding="async">
               </div>
-              <figcaption>ASCE 7-16 base reactions and differences between Cases 1–4 for the 20-storey example. Extracted from Tables 6–7 of the 2024–2025 student research paper.</figcaption>
+              <figcaption>Tables 6–7: ASCE 7-16 base reactions for Cases 1–4 and percentage differences for Cases 2–4, including all force and moment components for the 20-storey example. Cropped from the 2024–2025 student research paper.</figcaption>
             </figure>
             <div class="project-data">
               <section class="project-section">
@@ -276,7 +279,7 @@ footer{padding:30px;background:var(--dark-deep);color:#aeb7b1;border-top:1px sol
           <div class="project-body">
             <figure class="project-figure">
               <div class="project-media">
-                <img src="assets/images/research/carbonation-monthly-yearly.png" alt="Two line charts comparing monthly and yearly carbonation-depth predictions for Da Nang and Ninh Thuan under four SSP scenarios" width="800" height="1260" loading="lazy" decoding="async">
+                <img src="assets/images/research/carbonation-monthly-yearly.png" alt="Two line charts comparing monthly and yearly carbonation-depth predictions for Da Nang and Ninh Thuan under four SSP scenarios" width="800" height="1120" loading="lazy" decoding="async">
               </div>
               <figcaption>Predicted carbonation depth using monthly and yearly climate data: (a) Da Nang and (b) Ninh Thuan. Extracted from Figure 7 of the 2025–2026 paper.</figcaption>
             </figure>
@@ -395,8 +398,8 @@ footer{padding:30px;background:var(--dark-deep);color:#aeb7b1;border-top:1px sol
         <h2 id="source-integrity-title">Documents reviewed; access kept private.</h2>
       </div>
       <div class="integrity-copy">
-        <p>The project descriptions are based on the supplied conference papers, wind-load calculation note, Excel workbook, and research presentation. Illustrations shown above are cropped result figures from those documents rather than decorative reconstructions.</p>
-        <p>Original files are not offered as public downloads because the documents contain student and supervisor email addresses, and permission to redistribute the full files has not been confirmed.</p>
+        <p>The research findings and result figures shown above are drawn from the supplied papers, calculation note, workbook, and presentation.</p>
+        <p>Descriptions of my role, the MATLAB workflow, and the 1,000,000-sample Monte Carlo runs are project details confirmed by the author. Full source files remain private pending redistribution permission.</p>
       </div>
     </div>
   </section>
@@ -409,6 +412,34 @@ const closeMenu=()=>{navLinks.classList.remove("open");menuBtn.setAttribute("ari
 menuBtn.addEventListener("click",()=>{const open=navLinks.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open));menuBtn.setAttribute("aria-label",open?"Close navigation":"Open navigation")});
 document.querySelectorAll("#navLinks a").forEach(link=>link.addEventListener("click",closeMenu));
 document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu()});
+
+const projectIds=new Set(["wind-loads","seasonal-carbonation","corrosion-risk"]);
+const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+let projectScrollFrame;
+const openProject=id=>{
+  if(!projectIds.has(id))return;
+  const project=document.getElementById(id),details=project?.querySelector("details"),summary=project?.querySelector("summary");
+  if(!project||!details||!summary)return;
+  details.open=true;
+  cancelAnimationFrame(projectScrollFrame);
+  projectScrollFrame=requestAnimationFrame(()=>{
+    projectScrollFrame=requestAnimationFrame(()=>{
+      project.scrollIntoView({behavior:reduceMotion.matches?"auto":"smooth",block:"start"});
+      summary.focus({preventScroll:true});
+    });
+  });
+};
+const openProjectFromHash=()=>openProject(location.hash.slice(1));
+document.querySelectorAll('.index-card[href^="#"]').forEach(link=>link.addEventListener("click",event=>{
+  const id=link.hash.slice(1);
+  if(!projectIds.has(id))return;
+  event.preventDefault();
+  if(location.hash!==link.hash)history.pushState(null,"",link.hash);
+  openProject(id);
+}));
+window.addEventListener("hashchange",openProjectFromHash);
+window.addEventListener("popstate",openProjectFromHash);
+openProjectFromHash();
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
