@@ -435,6 +435,18 @@ section{padding:108px 0}
 }
 .card a::after{content:" ↗";transition:margin .18s ease}
 .card a:hover::after{margin-left:5px}
+.card .disabled-link{
+  position:relative;
+  z-index:2;
+  align-self:flex-start;
+  margin-top:auto;
+  padding-bottom:4px;
+  border-bottom:1px solid var(--line);
+  color:var(--muted);
+  font-size:.76rem;
+  font-weight:600;
+  cursor:not-allowed;
+}
 
 .contact{
   padding:116px 0;
@@ -628,13 +640,13 @@ footer{
           <div class="num">02 / PORTFOLIO</div>
           <h3>Academic Projects</h3>
           <p>Selected projects in reinforced concrete building design, foundation engineering, and modern construction technology.</p>
-          <a href="academic-projects.html">Explore Projects</a>
+          <span class="disabled-link" aria-disabled="true">Temporarily unavailable</span>
         </article>
         <article class="card">
           <div class="num">03 / PORTFOLIO</div>
           <h3>Scientific Research</h3>
           <p>Current research on climate-change impacts on carbonation and chloride-induced deterioration of reinforced concrete structures.</p>
-          <a href="research.html">View Research</a>
+          <span class="disabled-link" aria-disabled="true">Temporarily unavailable</span>
         </article>
       </div>
     </div>
