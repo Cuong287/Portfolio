@@ -5,27 +5,36 @@
 .section-head p{max-width:610px;margin-top:12px;font-size:.84rem}
 .section-kicker{margin:0 0 9px!important;color:var(--sage)!important;font:600 10px var(--mono)!important;letter-spacing:.13em;text-transform:uppercase}
 
-.settings-grid{grid-template-columns:minmax(0,1.68fr) minmax(276px,.72fr);background:rgba(255,253,247,.5);box-shadow:0 16px 38px rgba(43,49,46,.045)}
-.setup-controls{display:grid;min-width:0}
-.setup-controls fieldset{display:grid;gap:18px;margin:0;padding:20px 24px;border:0}
-.setup-controls fieldset+fieldset{border-top:1px solid var(--line)}
+.settings-grid{display:block;border-inline:0;background:transparent;box-shadow:none}
+.setup-controls{display:grid;grid-template-columns:.88fr 1.12fr;min-width:0}
+.setup-controls fieldset{display:grid;gap:18px;margin:0;padding:18px 24px 22px;border:0}
+.setup-controls fieldset+fieldset{border-top:0;border-left:1px solid var(--line)}
 .material-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
 .detailing-fields{grid-template-columns:1.45fr 1fr 1fr}
 .setup-controls legend{grid-column:1/-1}
 .setup-controls label{margin:0;font-size:.75rem}
 .setup-controls label small{min-height:14px;color:var(--muted);font:400 10px var(--mono)}
 .setup-controls select,.setup-controls input{background:rgba(255,253,247,.72)}
-.formula-card{display:flex;flex-direction:column;justify-content:center;border:0;background:linear-gradient(135deg,rgba(126,140,122,.14),rgba(98,122,139,.06))}
-.formula-card legend{grid-column:auto}
-.formula-card dl{margin-top:18px}
-.formula-card dd{color:var(--dark)}
+.formula-card{display:grid;grid-template-columns:154px 1fr;align-items:center;gap:22px;padding:15px 24px 18px;border:0;border-top:1px solid var(--line);background:rgba(126,140,122,.07)}
+.formula-label{margin:0;color:var(--sage);font:600 10px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.formula-card dl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin:0}
+.material-stat{min-width:0;padding:3px 14px;border-left:1px solid rgba(184,187,181,.85)}
+.material-stat:first-child{border-left:0}
+.formula-card dt{margin:0;color:var(--muted);font-size:11px}
+.formula-card dd{margin:3px 0 0;color:var(--dark);font-size:11px;white-space:nowrap}
 
 @media(max-width:850px){
-  .formula-card{border-top:1px solid var(--line)}
+  .setup-controls{grid-template-columns:1fr}
+  .setup-controls fieldset+fieldset{border-top:1px solid var(--line);border-left:0}
+  .formula-card{grid-template-columns:1fr;gap:12px}
+  .formula-card dl{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .material-stat:nth-child(4){border-left:0}
 }
 @media(max-width:520px){
   .calculator{padding-block:60px 72px}
   .material-fields,.detailing-fields{grid-template-columns:1fr}
   .setup-controls fieldset{gap:14px;padding:20px 18px}
-  .formula-card{padding:22px 18px}
+  .formula-card{padding:20px 18px}
+  .formula-card dl{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 0}
+  .material-stat:nth-child(odd){border-left:0}
 }
