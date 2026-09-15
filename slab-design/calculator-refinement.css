@@ -11,11 +11,11 @@
 .setup-controls fieldset+fieldset{border-top:0;border-left:1px solid var(--line)}
 .material-fields{grid-template-columns:repeat(2,minmax(0,1fr))}
 .detailing-fields{grid-template-columns:1.45fr 1fr 1fr}
-.setup-controls legend{grid-column:1/-1}
+.group-title{grid-column:1/-1;margin:0;color:var(--sage);font:600 10px var(--mono);letter-spacing:.12em;text-transform:uppercase}
 .setup-controls label{margin:0;font-size:.75rem}
 .setup-controls label small{min-height:14px;color:var(--muted);font:400 10px var(--mono)}
 .setup-controls select,.setup-controls input{background:rgba(255,253,247,.72)}
-.formula-card{display:grid;grid-template-columns:154px 1fr;align-items:center;gap:22px;padding:15px 24px 18px;border:0;border-top:1px solid var(--line);background:rgba(126,140,122,.07)}
+.formula-card{display:grid;grid-template-columns:154px 1fr;align-items:center;gap:22px;margin-top:14px;padding:10px 24px 14px;border:0;background:rgba(126,140,122,.07)}
 .formula-label{margin:0;color:var(--sage);font:600 10px var(--mono);letter-spacing:.12em;text-transform:uppercase}
 .formula-card dl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin:0}
 .material-stat{min-width:0;padding:3px 14px;border-left:1px solid rgba(184,187,181,.85)}
