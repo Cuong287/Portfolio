@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="calculator-refinement.css">
 </head>
 <body>
   <header>
@@ -59,28 +60,30 @@
     <section id="calculator" class="calculator container">
       <div class="section-head">
         <div class="section-label"><b>02</b><span>CALCULATOR</span></div>
-        <div><h2>Thông số &amp; dải thiết kế</h2><p>Đơn vị: MPa, mm, kN·m. Mô-men âm/dương đều được lấy trị tuyệt đối khi xác định diện tích cốt thép.</p></div>
+        <div><p class="section-kicker">SLAB REINFORCEMENT / TCVN 5574:2018</p><h2>Khởi tạo bài toán</h2><p>Thiết lập vật liệu và quy ước cấu tạo trước khi nhập các dải sàn. Đơn vị: MPa, mm, kN·m.</p></div>
       </div>
 
       <form id="slab-form" novalidate>
         <div class="settings-grid">
-          <fieldset>
-            <legend>Vật liệu</legend>
-            <label>Cấp bê tông
-              <select id="concrete" name="concrete" aria-label="Cấp bê tông"></select>
-            </label>
-            <label>Nhóm cốt thép
-              <select id="steel" name="steel" aria-label="Nhóm cốt thép"></select>
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>Quy ước cấu tạo</legend>
-            <label>Lớp bê tông bảo vệ c (mm, gợi ý a khi thêm dải)<input id="cover" type="number" min="10" max="100" step="1" value="25"></label>
-            <label>Hàm lượng thép tối ưu thấp (%)<input id="rho-min" type="number" min="0.1" max="5" step="0.1" value="0.6"></label>
-            <label>Hàm lượng thép tối ưu cao (%)<input id="rho-max-opt" type="number" min="0.1" max="5" step="0.1" value="0.9"></label>
-          </fieldset>
+          <div class="setup-controls">
+            <fieldset class="material-fields">
+              <legend>Vật liệu</legend>
+              <label>Cấp bê tông
+                <select id="concrete" name="concrete" aria-label="Cấp bê tông"></select>
+              </label>
+              <label>Nhóm cốt thép
+                <select id="steel" name="steel" aria-label="Nhóm cốt thép"></select>
+              </label>
+            </fieldset>
+            <fieldset class="detailing-fields">
+              <legend>Quy ước cấu tạo</legend>
+              <label>Lớp bảo vệ c <small>mm · gợi ý a khi thêm dải</small><input id="cover" type="number" min="10" max="100" step="1" value="25"></label>
+              <label>ρ tối ưu thấp <small>%</small><input id="rho-min" type="number" min="0.1" max="5" step="0.1" value="0.6"></label>
+              <label>ρ tối ưu cao <small>%</small><input id="rho-max-opt" type="number" min="0.1" max="5" step="0.1" value="0.9"></label>
+            </fieldset>
+          </div>
           <fieldset class="formula-card">
-            <legend>Thông số dùng để tính</legend>
+            <legend>Thông số vật liệu</legend>
             <dl id="material-summary"></dl>
           </fieldset>
         </div>
