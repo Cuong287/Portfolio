@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Công cụ thiết kế cốt thép sàn bê tông cốt thép theo TCVN 5574:2018.">
+  <meta name="theme-color" content="#f3f0e8">
+  <title>Slab Design | Le Van Cuong</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="nav container" aria-label="Điều hướng chính">
+      <a class="brand" href="../index.html">LE VAN CUONG</a>
+      <div class="nav-links">
+        <a href="#calculator">Công cụ</a>
+        <a href="#method">Phương pháp</a>
+        <a href="../index.html">Portfolio ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="section-marker"><b>01</b><span>PRODUCT</span></div>
+      <p class="eyebrow">Structural calculation products</p>
+      <div class="hero-layout">
+        <div>
+          <h1>Thiết kế<br><em>sàn BTCT.</em></h1>
+          <p class="lead">Nhập nội lực từ mô hình phân tích, chọn vật liệu và bố trí thép. Công cụ tính nhanh cốt thép chịu uốn trên dải sàn 1&nbsp;m theo TCVN&nbsp;5574:2018.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#calculator">Bắt đầu tính <span>↘</span></a>
+            <a class="text-link" href="#method">Phạm vi áp dụng</a>
+          </div>
+        </div>
+        <aside class="hero-drawing" aria-label="Sơ đồ dải sàn minh họa">
+          <div class="drawing-label">DESIGN STRIP · 1 000 MM</div>
+          <div class="slab-top"></div>
+          <div class="slab-body"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="rebar top-rebar"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="rebar bottom-rebar"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="dimension horizontal"><span>b = 1 000</span></div>
+          <div class="dimension vertical"><span>h</span></div>
+          <div class="drawing-foot">M<sub>Ed</sub> → A<sub>s,req</sub> → A<sub>s,prov</sub></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="project-bar">
+      <div class="container project-bar-inner">
+        <span>TCVN 5574:2018</span><span class="dot">·</span><span>TTGH I — Uốn</span><span class="dot">·</span><span>Beta 0.1</span>
+        <span class="project-note">Không thay thế hồ sơ thiết kế đã được kiểm tra.</span>
+      </div>
+    </section>
+
+    <section id="calculator" class="calculator container">
+      <div class="section-head">
+        <div class="section-label"><b>02</b><span>CALCULATOR</span></div>
+        <div><h2>Thông số &amp; dải thiết kế</h2><p>Đơn vị: MPa, mm, kN·m. Mô-men âm/dương đều được lấy trị tuyệt đối khi xác định diện tích cốt thép.</p></div>
+      </div>
+
+      <form id="slab-form" novalidate>
+        <div class="settings-grid">
+          <fieldset>
+            <legend>Vật liệu</legend>
+            <label>Cấp bê tông
+              <select id="concrete" name="concrete" aria-label="Cấp bê tông"></select>
+            </label>
+            <label>Nhóm cốt thép
+              <select id="steel" name="steel" aria-label="Nhóm cốt thép"></select>
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>Quy ước cấu tạo</legend>
+            <label>Lớp bê tông bảo vệ c (mm, gợi ý a khi thêm dải)<input id="cover" type="number" min="10" max="100" step="1" value="25"></label>
+            <label>Hàm lượng thép tối ưu thấp (%)<input id="rho-min" type="number" min="0.1" max="5" step="0.1" value="0.6"></label>
+            <label>Hàm lượng thép tối ưu cao (%)<input id="rho-max-opt" type="number" min="0.1" max="5" step="0.1" value="0.9"></label>
+          </fieldset>
+          <fieldset class="formula-card">
+            <legend>Thông số dùng để tính</legend>
+            <dl id="material-summary"></dl>
+          </fieldset>
+        </div>
+
+        <div class="table-toolbar">
+          <div><h3>Dải sàn</h3><p>Nhập mô-men thiết kế M<sub>Ed</sub> tại gối hoặc nhịp từ ETABS, SAFE hay phần mềm phân tích khác. a là khoảng cách từ mép bê tông đến tâm thanh thép.</p></div>
+          <div class="toolbar-actions"><button type="button" class="button secondary" id="load-example">Nạp ví dụ</button><button type="button" class="button primary" id="add-row">+ Thêm dải</button></div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Dải</th><th>Phương</th><th>Vị trí</th><th>M<sub>Ed</sub><small>kN·m</small></th><th>L<small>mm</small></th><th>b<small>mm</small></th><th>h<small>mm</small></th><th>a<small>mm</small></th><th>Φ<small>mm</small></th><th>s<small>mm</small></th><th aria-label="Xóa"></th></tr></thead>
+            <tbody id="strip-body"></tbody>
+          </table>
+        </div>
+
+        <div class="calculate-row"><p id="form-message" role="status">Sẵn sàng tính toán.</p><button type="submit" class="button primary">Tính cốt thép <span>↘</span></button></div>
+      </form>
+
+      <section class="results" aria-live="polite">
+        <div class="results-head"><div class="section-label"><b>03</b><span>RESULTS</span></div><h2>Kết quả TTGH I</h2><button id="export-csv" class="text-button" type="button">Tải CSV ↓</button></div>
+        <div class="metrics" id="metrics">
+          <article><span>Dải hợp lệ</span><strong>—</strong><small>trên tổng số dải</small></article>
+          <article><span>A<sub>s,req</sub> lớn nhất</span><strong>—</strong><small>mm²/m</small></article>
+          <article><span>Hàm lượng lớn nhất</span><strong>—</strong><small>%</small></article>
+          <article><span>Cần rà soát</span><strong>—</strong><small>α<sub>m</sub> hoặc bố trí thép</small></article>
+        </div>
+        <div class="table-wrap result-table-wrap">
+          <table class="result-table">
+            <thead><tr><th>Dải</th><th>Phương</th><th>Vị trí</th><th>h<sub>0</sub></th><th>α<sub>m</sub></th><th>ξ</th><th>A<sub>s,req</sub></th><th>A<sub>s,prov</sub></th><th>ρ<sub>req</sub></th><th>ρ<sub>prov</sub></th><th>Kiểm tra</th></tr></thead>
+            <tbody id="result-body"><tr><td colspan="11" class="empty">Nhập dải sàn và chọn “Tính cốt thép”.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section id="method" class="method">
+      <div class="container method-grid">
+        <div class="section-label"><b>04</b><span>METHOD</span></div>
+        <div><h2>Phạm vi bản beta</h2><p>Công cụ hiện thực tính cốt thép dọc chịu uốn tiết diện chữ nhật cho dải sàn rộng b, dùng R<sub>b</sub>, R<sub>s</sub>, h<sub>0</sub>, α<sub>m</sub> và ξ theo TCVN&nbsp;5574:2018. Kết quả bố trí thép được kiểm tra với A<sub>s,req</sub> và giới hạn hàm lượng.</p></div>
+        <div class="method-list"><p><b>Đã có</b> · Vật liệu B12.5–B60, CB240-T–CB500-V, dải gối/nhịp, kiểm tra α<sub>m</sub> và thép bố trí.</p><p><b>Đang phát triển</b> · TTGH II: nứt, bề rộng khe nứt và độ võng; xuất thuyết minh PDF; lưu và chia sẻ phương án.</p><p><b>Kiểm soát</b> · Luôn rà soát kết quả với mô hình phân tích, tải trọng, cấu tạo và người chịu trách nhiệm thiết kế.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="container"><span>LE VAN CUONG — CALCULATION PRODUCTS</span><span>Slab Design / 2026</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
