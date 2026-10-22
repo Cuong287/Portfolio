@@ -5,10 +5,33 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Academic awards, scholarships, and research recognition of civil engineering student Le Van Cuong.">
 <meta name="theme-color" content="#f3f0e8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Awards &amp; Milestones | Le Van Cuong">
+<meta property="og:description" content="Academic awards, Mechanics Olympiad achievements, student scientific research recognition, and scholarships of Le Van Cuong.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Awards &amp; Milestones | Le Van Cuong">
+<meta name="twitter:description" content="Academic awards, Mechanics Olympiad achievements, student scientific research recognition, and scholarships of Le Van Cuong.">
 <title>Awards &amp; Milestones | Le Van Cuong</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Le Van Cuong",
+  "jobTitle": "Civil Engineering Student",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "The University of Danang – University of Science and Technology"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Da Nang",
+    "addressCountry": "VN"
+  }
+}
+</script>
 <style>
 :root{
   --paper:#f3f0e8;--paper-deep:#e8e4da;--ink:#202522;--muted:#6d716c;
@@ -26,8 +49,14 @@ body::before{
   position:fixed;inset:0;z-index:-1;content:"";pointer-events:none;opacity:.16;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
 }
+body.lightbox-open{overflow:hidden}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--steel);outline-offset:5px}
+.skip-link{
+  position:fixed;top:12px;left:12px;z-index:100;padding:10px 14px;background:var(--dark);color:var(--white);
+  font-size:.875rem;font-weight:700;text-decoration:none;transform:translateY(-160%);
+}
+.skip-link:focus{transform:translateY(0)}
 .container{width:min(1180px,calc(100% - 8vw));margin:auto}
 header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
 .nav{height:84px;display:flex;align-items:center;justify-content:space-between}
@@ -37,21 +66,27 @@ header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-b
 .links a::after{position:absolute;right:0;bottom:-8px;left:0;height:1px;content:"";background:var(--sage);transform:scaleX(0);transition:transform .2s ease}
 .links a:hover::after,.links a.active::after,.links a[aria-current="page"]::after{transform:scaleX(1)}
 .links .disabled-link{color:var(--muted);font-size:.83rem;cursor:not-allowed}
-.menu{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:1.25rem}
+.menu{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:1.25rem;cursor:pointer}
 .page-hero{position:relative;padding:82px 0 78px;border-bottom:1px solid var(--line);overflow:hidden}
 .page-hero::after{position:absolute;right:7vw;bottom:-150px;width:440px;height:440px;content:"";border:1px solid rgba(98,122,139,.28);border-radius:50%}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(50px,6vw,90px);align-items:center}
 .kicker{margin:0 0 18px;color:var(--sage);font-family:var(--mono);font-size:clamp(.6875rem,.75vw,.75rem);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.section-label{display:inline-flex;align-items:baseline;gap:8px}
+.section-label .section-number{color:#d3a926;font-family:var(--sans);font-size:1rem;font-weight:700;letter-spacing:0;line-height:1}
+.section-label .section-divider{color:var(--steel);font-family:var(--mono);font-size:.72rem}
 .page-title{max-width:800px;margin:0;font-family:var(--serif);font-size:clamp(3rem,7.3vw,7rem);font-weight:500;letter-spacing:-.035em;line-height:.98}
 .hero-lead{max-width:470px;margin:0;color:var(--muted);font-family:var(--sans);font-size:clamp(.9375rem,1.1vw,1rem);line-height:1.7}
-.summary-wrap{border-bottom:1px solid var(--line)}
+.summary-wrap{border-bottom:1px solid var(--line);background:rgba(232,228,218,.28)}
 .summary-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.summary-strip article{min-height:118px;padding:26px clamp(18px,3vw,42px);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
-.summary-strip article:last-child{border-right:0}
-.summary-strip strong{display:block;color:var(--ink);font-family:var(--sans);font-size:clamp(2rem,3.2vw,2.75rem);font-weight:600;letter-spacing:-.035em;line-height:1.05}
-.summary-strip strong span{font-family:inherit;font-size:.48em;font-weight:600;letter-spacing:0;text-transform:none}
-.summary-strip>article>span{margin-top:9px;color:var(--muted);font-family:var(--mono);font-size:clamp(.6875rem,.75vw,.75rem);font-weight:500;letter-spacing:.08em;line-height:1.45;text-transform:uppercase}
-.awards-section{padding:82px 0}
+.summary-item{min-height:122px;padding:26px clamp(18px,3vw,42px);display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line);text-decoration:none;transition:background .18s ease}
+.summary-item:last-child{border-right:0}
+.summary-link:hover{background:rgba(255,253,247,.72)}
+.summary-item strong{display:block;color:var(--ink);font-family:var(--sans);font-size:clamp(2rem,3.2vw,2.75rem);font-weight:600;letter-spacing:-.035em;line-height:1.05}
+.summary-item strong span{font-family:inherit;font-size:.48em;font-weight:600;letter-spacing:0;text-transform:none}
+.summary-meta{margin-top:9px;display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-family:var(--mono);font-size:clamp(.6875rem,.75vw,.75rem);font-weight:500;letter-spacing:.08em;line-height:1.45;text-transform:uppercase}
+.summary-arrow{color:var(--steel);transition:transform .18s ease}
+.summary-link:hover .summary-arrow{transform:translate(2px,2px)}
+.awards-section{padding:82px 0;scroll-margin-top:84px}
 .award-section-head{margin-bottom:30px}
 .award-section-title,.note-title{margin:0;font-family:var(--serif);font-size:clamp(2.25rem,5vw,4rem);font-weight:500;letter-spacing:-.035em;line-height:1.08}
 .card-meta-row{display:flex;align-items:flex-start;gap:14px}
@@ -78,18 +113,34 @@ header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-b
 }
 .awards-moments-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .awards-moment-figure,.awards-research-figure{
-  min-width:0;margin:0;background:rgba(255,253,247,.46);border:1px solid var(--line);
+  min-width:0;margin:0;background:rgba(255,253,247,.62);border:1px solid rgba(98,122,139,.38);
+}
+.media-trigger{
+  display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;text-align:inherit;cursor:zoom-in;
 }
 .awards-moment-media,.awards-research-media{
-  position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--paper-deep);
+  position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--paper-deep);
 }
 .awards-moment-media img,.awards-research-media img{
-  display:block;width:100%;height:100%;object-fit:cover;background:var(--paper-deep);font-size:0;
+  display:block;width:100%;height:100%;object-fit:cover;background:var(--paper-deep);font-size:0;transition:transform .28s ease;
 }
-.awards-research-image--wind-load{object-position:50% 70%}
+.media-trigger:hover img{transform:scale(1.03)}
+.awards-moment-image--award{object-position:50% 45%}
+.awards-moment-image--team{object-position:50% 50%}
+.awards-research-image--carbonation{object-position:50% 50%}
+.awards-research-image--wind-load{object-position:50% 58%}
 .awards-moment-caption,.awards-research-caption{
-  margin:0;padding:11px 14px;border-top:1px solid var(--line);color:var(--steel);
-  font-family:var(--sans);font-size:.75rem;line-height:1.5;
+  margin:0;padding:13px 15px;border-top:1px solid var(--line);
+}
+.awards-moment-caption strong,.awards-research-caption strong{
+  display:block;color:var(--ink);font-family:var(--serif);font-size:1.08rem;font-weight:500;line-height:1.25;
+}
+.awards-moment-caption span,.awards-research-caption span{
+  display:block;margin-top:3px;color:var(--muted);font-family:var(--sans);font-size:.8rem;line-height:1.5;
+}
+.zoom-note{
+  margin-top:5px!important;color:var(--steel)!important;font-family:var(--mono)!important;
+  font-size:.7rem!important;letter-spacing:.04em;text-transform:uppercase;
 }
 .research-section{padding-top:70px}
 .research-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
@@ -129,8 +180,35 @@ header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-b
 .scholarship-item>.award-mark{position:absolute;top:25px;right:4px}
 .scholarship-note{padding:76px 0;background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .note-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(50px,7vw,90px);align-items:center}
-.note-grid>p{margin:0;color:var(--muted);font-family:var(--sans);font-size:clamp(.9375rem,1.05vw,1rem);line-height:1.7}
+.note-copy p{margin:0;color:var(--muted);font-family:var(--sans);font-size:clamp(.9375rem,1.05vw,1rem);line-height:1.7}
+.note-actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:28px;align-items:center}
+.btn{
+  min-height:50px;padding:0 20px;display:inline-flex;align-items:center;justify-content:center;gap:16px;
+  border-radius:0;text-decoration:none;font-size:.84rem;font-weight:600;
+  transition:background .18s ease,color .18s ease,transform .18s ease;
+}
+.btn-primary{background:var(--ink);color:var(--white)}
+.btn-primary::after{content:"↗";transition:transform .18s ease}
+.btn-primary:hover{background:#343b37;transform:translateY(-2px)}
+.btn-primary:hover::after{transform:translate(3px,-3px)}
+.btn-outline{min-height:40px;padding:0 0 4px;border-bottom:1px solid var(--ink);color:var(--ink)}
+.btn-outline:hover{color:var(--steel);border-color:var(--steel)}
 footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-size:.7rem}
+.lightbox{
+  width:min(1060px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:0;border:1px solid rgba(255,255,255,.22);
+  background:var(--dark);color:var(--white);box-shadow:0 24px 80px rgba(0,0,0,.36);
+}
+.lightbox::backdrop{background:rgba(19,24,22,.84);backdrop-filter:blur(5px)}
+.lightbox-close{
+  position:absolute;top:12px;right:12px;z-index:2;width:44px;height:44px;border:1px solid rgba(255,255,255,.48);
+  background:rgba(31,37,34,.86);color:var(--white);font-size:1.3rem;cursor:pointer;
+}
+.lightbox figure{margin:0;display:grid;grid-template-rows:minmax(0,1fr) auto;max-height:calc(100dvh - 34px)}
+.lightbox-media{min-height:0;display:grid;place-items:center;padding:22px;background:#fff}
+.lightbox-media img{display:block;max-width:100%;max-height:calc(100dvh - 150px);object-fit:contain}
+.lightbox figcaption{padding:15px 76px 16px 20px;border-top:1px solid rgba(255,255,255,.18)}
+.lightbox figcaption strong{font-family:var(--serif);font-size:1.2rem;font-weight:500}
+.lightbox figcaption span{display:block;margin-top:2px;color:#c4cbc7;font-size:.82rem}
 @media(min-width:901px){
   .research-title{min-height:6.5em}
 }
@@ -139,13 +217,13 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
   .scholarship-copy{grid-column:2}
 }
 @media(max-width:900px){
-  .links{position:absolute;top:84px;right:0;left:0;padding:24px 8vw 30px;display:none;flex-direction:column;background:rgba(243,240,232,.99);border-bottom:1px solid var(--line)}
+  .links{position:absolute;top:84px;right:0;left:0;padding:24px 8vw 30px;display:none;flex-direction:column;background:rgba(243,240,232,.99);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(31,37,34,.08)}
   .links.open{display:flex}.menu{display:grid;place-items:center}
   .hero-grid,.note-grid{grid-template-columns:1fr;gap:38px}
   .page-hero{padding:72px 0 68px}
   .summary-strip{grid-template-columns:repeat(2,1fr)}
-  .summary-strip article:nth-child(2n){border-right:0}
-  .summary-strip article:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .summary-item:nth-child(2n){border-right:0}
+  .summary-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
   .research-grid{grid-template-columns:1fr}
   .research-card{height:auto}
   .research-title{min-height:0}
@@ -155,26 +233,31 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
   .mechanics-grid{grid-template-columns:1fr}
   .scholarship-item{padding:22px 34px 22px 0;grid-template-columns:1fr;gap:12px}
   .scholarship-copy{grid-column:auto}
+  .lightbox{width:calc(100% - 18px);max-height:calc(100dvh - 18px)}
+  .lightbox-media{padding:12px}.lightbox-media img{max-height:calc(100dvh - 138px)}
+  .lightbox figcaption{padding:12px 58px 13px 13px}
 }
 @media(max-width:600px){
   .container{width:calc(100% - 32px)}.nav{height:72px}.links{top:72px;padding-right:16px;padding-left:16px}
   .page-hero{padding:60px 0 58px}
-  .summary-strip article{min-height:106px;padding:22px 16px}
-  .awards-section{padding:66px 0}.research-section,.scholarships-section{padding-top:56px}
+  .summary-item{min-height:106px;padding:22px 16px}
+  .awards-section{padding:66px 0;scroll-margin-top:72px}.research-section,.scholarships-section{padding-top:56px}
   .award-section-head{margin-bottom:24px}
   .mechanics-card,.research-card{padding:24px}
   .mechanics-title,.research-title{margin-top:20px}
   .scholarship-note{padding:62px 0}
+  .note-actions{flex-direction:column;align-items:flex-start;gap:16px}
 }
 @media(max-width:379px){
   .summary-strip{grid-template-columns:1fr}
-  .summary-strip article{border-right:0;border-bottom:1px solid var(--line)}
-  .summary-strip article:last-child{border-bottom:0}
+  .summary-item{border-right:0;border-bottom:1px solid var(--line)}
+  .summary-item:last-child{border-bottom:0}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to awards content</a>
 <header>
   <div class="container nav">
     <a class="brand" href="index.html" aria-label="Le Van Cuong — home">LE VAN CUONG</a>
@@ -189,7 +272,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
   </div>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
   <section class="page-hero">
     <div class="container hero-grid">
       <div><p class="kicker">01 / Recognition</p><h1 class="page-title">Awards &amp;<br>Milestones</h1></div>
@@ -197,19 +280,35 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
     </div>
   </section>
 
-  <section class="summary-wrap" aria-label="Academic summary">
+  <nav class="summary-wrap" aria-label="Academic summary and section directory">
     <div class="container summary-strip">
-      <article><strong>3.60<span>/4.00</span></strong><span>Current GPA</span></article>
-      <article><strong>04 <span>Awards</span></strong><span>Mechanics Olympiad</span></article>
-      <article><strong>02 <span>Awards</span></strong><span>Student Research</span></article>
-      <article><strong>05 <span>Honors</span></strong><span>Scholarships &amp; Recognition</span></article>
+      <div class="summary-item">
+        <strong>3.60<span>/4.00</span></strong>
+        <span class="summary-meta"><span>Current GPA</span></span>
+      </div>
+      <a class="summary-item summary-link" href="#mechanics-olympiad">
+        <strong>04 <span>Awards</span></strong>
+        <span class="summary-meta"><span>Mechanics Olympiad</span><span class="summary-arrow" aria-hidden="true">↘</span></span>
+      </a>
+      <a class="summary-item summary-link" href="#student-research">
+        <strong>02 <span>Awards</span></strong>
+        <span class="summary-meta"><span>Student Research</span><span class="summary-arrow" aria-hidden="true">↘</span></span>
+      </a>
+      <a class="summary-item summary-link" href="#scholarships">
+        <strong>05 <span>Honors</span></strong>
+        <span class="summary-meta"><span>Scholarships &amp; Recognition</span><span class="summary-arrow" aria-hidden="true">↘</span></span>
+      </a>
     </div>
-  </section>
+  </nav>
 
-  <section class="awards-section mechanics-section">
+  <section class="awards-section mechanics-section" id="mechanics-olympiad">
     <div class="container">
       <div class="award-section-head">
-        <p class="kicker">MECHANICS OLYMPIAD</p>
+        <p class="kicker section-label">
+          <span class="section-number">01</span>
+          <span class="section-divider" aria-hidden="true">/</span>
+          <span>MECHANICS OLYMPIAD</span>
+        </p>
         <h2 class="award-section-title">Achievements in Soil Mechanics</h2>
       </div>
       <div class="mechanics-grid">
@@ -221,7 +320,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           </div>
           <h3 class="mechanics-title">Consolation Prize — 35th National Mechanics Olympiad</h3>
           <p class="award-category">Soil Mechanics Division</p>
-          <p class="award-description">Awarded a Consolation Prize in the Soil Mechanics Division at the 35th National Mechanics Olympiad.</p>
+          <p class="award-description">National-level recognition in the Soil Mechanics subject competition jointly organized by the Ministry of Education and Training and the Vietnam Association of Mechanics.</p>
         </article>
         <article class="mechanics-card">
           <div class="card-meta-row">
@@ -231,7 +330,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           </div>
           <h3 class="mechanics-title">Third Prize — University-Level Mechanics Olympiad</h3>
           <p class="award-category">Soil Mechanics Division</p>
-          <p class="award-description">Awarded Third Prize in the Soil Mechanics Division of the university-level competition.</p>
+          <p class="award-description">University-wide selection round at The University of Danang – University of Science and Technology, qualifying for the 2025 national Olympiad delegation.</p>
         </article>
         <article class="mechanics-card">
           <div class="card-meta-row">
@@ -241,7 +340,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           </div>
           <h3 class="mechanics-title">Consolation Prize — 34th National Mechanics Olympiad</h3>
           <p class="award-category">Soil Mechanics Division</p>
-          <p class="award-description">Awarded a Consolation Prize in the Soil Mechanics Division at the 34th National Mechanics Olympiad.</p>
+          <p class="award-description">National recognition in the Soil Mechanics competition (Central Region), representing The University of Danang – University of Science and Technology.</p>
         </article>
         <article class="mechanics-card">
           <div class="card-meta-row">
@@ -251,63 +350,109 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           </div>
           <h3 class="mechanics-title">Second Prize — University-Level Mechanics Olympiad</h3>
           <p class="award-category">Soil Mechanics Division</p>
-          <p class="award-description">Awarded Second Prize in the Soil Mechanics Division of the university-level competition.</p>
+          <p class="award-description">Ranked among the top candidates in the university-level Soil Mechanics competition and selected for the 2024 national Olympiad team.</p>
         </article>
       </div>
       <div class="awards-moments" aria-labelledby="selected-moments-label">
         <p class="awards-moments-label" id="selected-moments-label">SELECTED MOMENTS</p>
         <div class="awards-moments-grid">
           <figure class="awards-moment-figure">
-            <div class="awards-moment-media">
-              <img
-                src="assets/images/awards/mechanics-award.jpg"
-                alt="Mechanics Olympiad recognition moment"
-                width="960"
-                height="1280"
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <figcaption class="awards-moment-caption">Mechanics Olympiad award moment</figcaption>
+            <button
+              class="media-trigger"
+              type="button"
+              data-full="assets/images/awards/mechanics-award.jpg"
+              data-title="35th National Mechanics Olympiad (2025)"
+              data-caption="Closing and awards ceremony of the 35th National Mechanics Olympiad at The University of Danang – University of Science and Technology (May 22, 2025)."
+              aria-label="Open larger image of the 35th National Mechanics Olympiad award ceremony"
+            >
+              <div class="awards-moment-media">
+                <img
+                  class="awards-moment-image--award"
+                  src="assets/images/awards/mechanics-award.jpg"
+                  alt="Le Van Cuong holding the certificate at the 35th National Mechanics Olympiad awards ceremony"
+                  width="960"
+                  height="1280"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </button>
+            <figcaption class="awards-moment-caption">
+              <strong>35th National Mechanics Olympiad (2025)</strong>
+              <span>Closing and awards ceremony at The University of Danang – University of Science and Technology.</span>
+              <span class="zoom-note">Select to inspect full image</span>
+            </figcaption>
           </figure>
           <figure class="awards-moment-figure">
-            <div class="awards-moment-media">
-              <img
-                src="assets/images/awards/mechanics-team.jpg"
-                alt="Students participating in a Mechanics Olympiad activity"
-                width="1276"
-                height="956"
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <figcaption class="awards-moment-caption">Mechanics Olympiad team</figcaption>
+            <button
+              class="media-trigger"
+              type="button"
+              data-full="assets/images/awards/mechanics-team.jpg"
+              data-title="34th National Mechanics Olympiad Delegation (2024)"
+              data-caption="University delegation and faculty advisor at the opening ceremony of the 34th National Mechanics Olympiad — Central Region in Da Nang (May 5, 2024)."
+              aria-label="Open larger image of the 34th National Mechanics Olympiad team"
+            >
+              <div class="awards-moment-media">
+                <img
+                  class="awards-moment-image--team"
+                  src="assets/images/awards/mechanics-team.jpg"
+                  alt="University delegation at the 34th National Mechanics Olympiad opening ceremony"
+                  width="1276"
+                  height="956"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </button>
+            <figcaption class="awards-moment-caption">
+              <strong>34th National Mechanics Olympiad Delegation (2024)</strong>
+              <span>University team at the Central Region opening ceremony in Da Nang.</span>
+              <span class="zoom-note">Select to inspect full image</span>
+            </figcaption>
           </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="awards-section research-section">
+  <section class="awards-section research-section" id="student-research">
     <div class="container">
       <div class="award-section-head">
-        <p class="kicker">STUDENT RESEARCH</p>
+        <p class="kicker section-label">
+          <span class="section-number">02</span>
+          <span class="section-divider" aria-hidden="true">/</span>
+          <span>STUDENT RESEARCH</span>
+        </p>
         <h2 class="award-section-title">Scientific Research Awards</h2>
       </div>
       <div class="research-grid">
         <article class="research-card">
           <figure class="awards-research-figure">
-            <div class="awards-research-media">
-              <img
-                src="assets/images/awards/research-carbonation.jpg"
-                alt="Student research team with faculty members"
-                width="1280"
-                height="960"
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <figcaption class="awards-research-caption">Student research team with faculty members</figcaption>
+            <button
+              class="media-trigger"
+              type="button"
+              data-full="assets/images/awards/research-carbonation.jpg"
+              data-title="Second Prize — Student Scientific Research (2025–2026)"
+              data-caption="Research team and faculty members at the Faculty of Civil Engineering, The University of Danang – University of Science and Technology."
+              aria-label="Open larger image of the Second Prize student research team"
+            >
+              <div class="awards-research-media">
+                <img
+                  class="awards-research-image--carbonation"
+                  src="assets/images/awards/research-carbonation.jpg"
+                  alt="Student research team with faculty members at the Faculty of Civil Engineering"
+                  width="1280"
+                  height="960"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </button>
+            <figcaption class="awards-research-caption">
+              <strong>Second Prize — Faculty of Civil Engineering</strong>
+              <span>Research team with faculty members at the 2025–2026 conference.</span>
+              <span class="zoom-note">Select to inspect full image</span>
+            </figcaption>
           </figure>
           <div class="card-meta-row">
             <span class="award-no">01</span>
@@ -316,7 +461,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           </div>
           <h3 class="research-title">Evaluation of Corrosion Risk in Several Vietnamese Cities under Global Warming</h3>
           <p class="research-conference">Student Scientific Research Conference, The University of Danang – University of Science and Technology</p>
-          <p class="research-team">Academic Year 2025–2026 · Five-member research team</p>
+          <p class="research-team">Academic Year 2025–2026 · Five-member research team · Supervisor: Dr. Tran Thanh Binh</p>
           <div class="research-contribution">
             <span class="contribution-label">MY CONTRIBUTION</span>
             <p>Responsible for numerical calculations, computational programming, result generation, and analysis.</p>
@@ -324,18 +469,31 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
         </article>
         <article class="research-card">
           <figure class="awards-research-figure">
-            <div class="awards-research-media">
-              <img
-                class="awards-research-image--wind-load"
-                src="assets/images/awards/research-wind-load.jpg"
-                alt="Wind load research team holding project certificates"
-                width="707"
-                height="905"
-                loading="lazy"
-                decoding="async"
-              >
-            </div>
-            <figcaption class="awards-research-caption">Wind load research team with project certificates</figcaption>
+            <button
+              class="media-trigger"
+              type="button"
+              data-full="assets/images/awards/research-wind-load.jpg"
+              data-title="Third Prize — Student Scientific Research (2024–2025)"
+              data-caption="Wind-load research team holding the conference poster and Third Prize certificate at the Faculty of Civil Engineering, DUT."
+              aria-label="Open larger image of the Wind Load research team holding project certificates"
+            >
+              <div class="awards-research-media">
+                <img
+                  class="awards-research-image--wind-load"
+                  src="assets/images/awards/research-wind-load.jpg"
+                  alt="Wind load research team holding project poster and certificates"
+                  width="707"
+                  height="905"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </button>
+            <figcaption class="awards-research-caption">
+              <strong>Third Prize — Faculty of Civil Engineering</strong>
+              <span>Wind-load research team with conference poster and award certificates.</span>
+              <span class="zoom-note">Select to inspect full image</span>
+            </figcaption>
           </figure>
           <div class="card-meta-row">
             <span class="award-no">02</span>
@@ -344,7 +502,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           </div>
           <h3 class="research-title">Calculation of Wind Load for Multi-Storey Buildings According to Vietnamese Standard TCVN 2737:2023 and Comparison with ASCE 7-16</h3>
           <p class="research-conference">Student Scientific Research Conference, The University of Danang – University of Science and Technology</p>
-          <p class="research-team">Academic Year 2024–2025 · Four-member research team</p>
+          <p class="research-team">Academic Year 2024–2025 · Four-member research team · Supervisor: Dr. Tran Thanh Binh</p>
           <div class="research-contribution">
             <span class="contribution-label">MY CONTRIBUTION</span>
             <p>Responsible for wind-load calculations, development of an Excel-based calculation tool, structural modeling, and research paper preparation.</p>
@@ -354,10 +512,14 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
     </div>
   </section>
 
-  <section class="awards-section scholarships-section">
+  <section class="awards-section scholarships-section" id="scholarships">
     <div class="container">
       <div class="award-section-head">
-        <p class="kicker">SCHOLARSHIPS &amp; RECOGNITION</p>
+        <p class="kicker section-label">
+          <span class="section-number">03</span>
+          <span class="section-divider" aria-hidden="true">/</span>
+          <span>SCHOLARSHIPS &amp; RECOGNITION</span>
+        </p>
         <h2 class="award-section-title">Academic and Sponsored Scholarships</h2>
       </div>
       <div class="scholarship-list">
@@ -366,7 +528,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           <h3 class="scholarship-title">Outstanding Academic Achievement Award</h3>
           <div class="scholarship-copy">
             <p class="scholarship-detail-line">Faculty-Level Recognition · <span class="scholarship-value">Scholarship Value: VND 4,000,000</span></p>
-            <p>Recognized by the Faculty for outstanding academic performance during the 2024–2025 academic year.</p>
+            <p>Recognized by the Faculty of Civil Engineering for outstanding academic standing and research participation during the 2024–2025 academic year.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
         </article>
@@ -374,8 +536,8 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           <div class="scholarship-meta"><span class="award-no">02</span><span class="award-year">SEPTEMBER 2024 – JUNE 2026</span></div>
           <h3 class="scholarship-title">Tuan Le Scholarship</h3>
           <div class="scholarship-copy">
-            <p class="scholarship-detail-line"><span class="scholarship-value">Scholarship Value: VND 1,000,000 per month</span></p>
-            <p>Received from September 2024 to June 2026, with a monthly scholarship value of VND 1,000,000.</p>
+            <p class="scholarship-detail-line">Multi-Year Sponsored Scholarship · <span class="scholarship-value">Scholarship Value: VND 1,000,000 per month</span></p>
+            <p>Sustained monthly sponsorship supporting academic studies and technical development across two consecutive academic years.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
         </article>
@@ -384,7 +546,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           <h3 class="scholarship-title">Academic Merit Scholarship</h3>
           <div class="scholarship-copy">
             <p class="scholarship-detail-line">The University of Danang – University of Science and Technology</p>
-            <p>Awarded for strong academic performance during Semester I of the 2024–2025 academic year.</p>
+            <p>University merit scholarship awarded for high semester GPA and conduct results in Semester I of the 2024–2025 academic year.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
         </article>
@@ -393,7 +555,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           <h3 class="scholarship-title">Academic Merit Scholarship</h3>
           <div class="scholarship-copy">
             <p class="scholarship-detail-line">The University of Danang – University of Science and Technology</p>
-            <p>Awarded for strong academic performance during Semester II of the 2023–2024 academic year.</p>
+            <p>University merit scholarship awarded for high semester GPA and conduct results in Semester II of the 2023–2024 academic year.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
         </article>
@@ -401,8 +563,8 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           <div class="scholarship-meta"><span class="award-no">05</span><span class="award-year">2022</span></div>
           <h3 class="scholarship-title">Thanh Quan Scholarship</h3>
           <div class="scholarship-copy">
-            <p class="scholarship-detail-line"><span class="scholarship-value">Scholarship Value: VND 5,000,000</span></p>
-            <p>Awarded after ranking third among incoming students in the Civil Engineering entrance cohort.</p>
+            <p class="scholarship-detail-line">Entrance Cohort Honor · <span class="scholarship-value">Scholarship Value: VND 5,000,000</span></p>
+            <p>Awarded upon university admission after ranking third among incoming students in the Civil Engineering entrance cohort.</p>
           </div>
           <span class="award-mark" aria-hidden="true">✦</span>
         </article>
@@ -413,18 +575,89 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
   <section class="scholarship-note">
     <div class="container note-grid">
       <div><p class="kicker">BEYOND THE AWARDS</p><h2 class="note-title">A Foundation for Future Growth</h2></div>
-      <p>These achievements reflect my commitment to continuous learning, technical development, and academic research. They have strengthened my goal of becoming a structural design engineer and researcher, with a long-term focus on safe, resilient, and durable civil infrastructure.</p>
+      <div class="note-copy">
+        <p>These achievements reflect my commitment to continuous learning, technical development, and academic research. They have strengthened my goal of becoming a structural design engineer and researcher, with a long-term focus on safe, resilient, and durable civil infrastructure.</p>
+        <div class="note-actions">
+          <a class="btn btn-primary" href="index.html#contact">Contact Me</a>
+          <a class="btn btn-outline" href="index.html#portfolio">← Back to Portfolio</a>
+        </div>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>© <span id="year"></span> Le Van Cuong · Civil Engineering Portfolio</footer>
+
+<dialog class="lightbox" id="lightbox" aria-labelledby="lightboxTitle" aria-describedby="lightboxCaption">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image viewer">×</button>
+  <figure>
+    <div class="lightbox-media"><img id="lightboxImage" src="assets/images/awards/mechanics-award.jpg" alt=""></div>
+    <figcaption><strong id="lightboxTitle">Award image</strong><span id="lightboxCaption"></span></figcaption>
+  </figure>
+</dialog>
+
 <script>
-const menuBtn=document.getElementById("menuBtn"),navLinks=document.getElementById("navLinks");
-const closeMenu=()=>{navLinks.classList.remove("open");menuBtn.setAttribute("aria-expanded","false");menuBtn.setAttribute("aria-label","Open navigation")};
-menuBtn.addEventListener("click",()=>{const open=navLinks.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open));menuBtn.setAttribute("aria-label",open?"Close navigation":"Open navigation")});
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+const desktopQuery=window.matchMedia("(min-width: 901px)");
+
+function closeMenu(){
+  navLinks.classList.remove("open");
+  menuBtn.setAttribute("aria-expanded","false");
+  menuBtn.setAttribute("aria-label","Open navigation");
+  menuBtn.textContent="☰";
+}
+
+menuBtn.addEventListener("click",event=>{
+  event.stopPropagation();
+  const open=navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded",String(open));
+  menuBtn.setAttribute("aria-label",open?"Close navigation":"Open navigation");
+  menuBtn.textContent=open?"×":"☰";
+});
+
+navLinks.addEventListener("click",event=>event.stopPropagation());
 document.querySelectorAll("#navLinks a").forEach(link=>link.addEventListener("click",closeMenu));
-document.addEventListener("keydown",event=>{if(event.key==="Escape")closeMenu()});
+document.addEventListener("click",()=>{if(navLinks.classList.contains("open"))closeMenu()});
+desktopQuery.addEventListener("change",event=>{if(event.matches)closeMenu()});
+
+const lightbox=document.getElementById("lightbox");
+const lightboxImage=document.getElementById("lightboxImage");
+const lightboxTitle=document.getElementById("lightboxTitle");
+const lightboxCaption=document.getElementById("lightboxCaption");
+const lightboxClose=document.getElementById("lightboxClose");
+let activeTrigger=null;
+
+document.querySelectorAll(".media-trigger").forEach(trigger=>{
+  trigger.addEventListener("click",()=>{
+    const preview=trigger.querySelector("img");
+    activeTrigger=trigger;
+    lightboxImage.src=trigger.dataset.full;
+    lightboxImage.alt=preview.alt;
+    lightboxTitle.textContent=trigger.dataset.title;
+    lightboxCaption.textContent=trigger.dataset.caption;
+    document.body.classList.add("lightbox-open");
+    lightbox.showModal();
+    lightboxClose.focus();
+  });
+});
+
+function closeLightbox(){if(lightbox.open)lightbox.close()}
+lightboxClose.addEventListener("click",closeLightbox);
+lightbox.addEventListener("click",event=>{if(event.target===lightbox)closeLightbox()});
+lightbox.addEventListener("close",()=>{
+  document.body.classList.remove("lightbox-open");
+  lightboxImage.alt="";
+  if(activeTrigger)activeTrigger.focus();
+});
+
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape"){
+    closeMenu();
+    closeLightbox();
+  }
+});
+
 document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
