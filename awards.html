@@ -29,13 +29,14 @@ body::before{
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--steel);outline-offset:5px}
 .container{width:min(1180px,calc(100% - 8vw));margin:auto}
-header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
 .nav{height:84px;display:flex;align-items:center;justify-content:space-between}
 .brand{text-decoration:none;font-size:.82rem;font-weight:700;letter-spacing:.32em}
 .links{display:flex;gap:clamp(22px,3vw,48px)}
 .links a{position:relative;text-decoration:none;font-size:.83rem}
 .links a::after{position:absolute;right:0;bottom:-8px;left:0;height:1px;content:"";background:var(--sage);transform:scaleX(0);transition:transform .2s ease}
-.links a:hover::after,.links a.active::after{transform:scaleX(1)}
+.links a:hover::after,.links a.active::after,.links a[aria-current="page"]::after{transform:scaleX(1)}
+.links .disabled-link{color:var(--muted);font-size:.83rem;cursor:not-allowed}
 .menu{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:1.25rem}
 .page-hero{position:relative;padding:82px 0 78px;border-bottom:1px solid var(--line);overflow:hidden}
 .page-hero::after{position:absolute;right:7vw;bottom:-150px;width:440px;height:440px;content:"";border:1px solid rgba(98,122,139,.28);border-radius:50%}
@@ -180,9 +181,9 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
     <button class="menu" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
     <nav class="links" id="navLinks" aria-label="Main navigation">
       <a href="index.html#about">About</a>
-      <a href="academic-projects.html">Projects</a>
-      <a href="research.html">Research</a>
-      <a class="active" href="awards.html">Awards</a>
+      <span class="disabled-link" aria-disabled="true" title="Coming soon">Projects</span>
+      <span class="disabled-link" aria-disabled="true" title="Coming soon">Research</span>
+      <a class="active" href="awards.html" aria-current="page">Awards</a>
       <a href="index.html#contact">Contact</a>
     </nav>
   </div>
