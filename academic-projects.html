@@ -74,7 +74,8 @@ header{
   position:absolute;right:0;bottom:-8px;left:0;height:1px;content:"";
   background:var(--sage);transform:scaleX(0);transition:transform .2s ease;
 }
-.links a:hover::after,.links a.active::after{transform:scaleX(1)}
+.links a:hover::after,.links a.active::after,.links a[aria-current="page"]::after{transform:scaleX(1)}
+.links .disabled-link{color:var(--muted);font-size:.875rem;cursor:not-allowed}
 .menu{
   display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--ink);
   font-size:1.2rem;line-height:1;cursor:pointer;
@@ -346,7 +347,7 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
     <nav class="links" id="navLinks" aria-label="Main navigation">
       <a href="index.html#about">About</a>
       <a class="active" href="academic-projects.html" aria-current="page">Projects</a>
-      <a href="research.html">Research</a>
+      <span class="disabled-link" aria-disabled="true" title="Coming soon">Research</span>
       <a href="awards.html">Awards</a>
       <a href="index.html#contact">Contact</a>
     </nav>
