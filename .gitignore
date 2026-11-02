@@ -1,0 +1,21 @@
+# ai-toolkit safety
+.dispatch/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# scratch / temp
+tmp/
