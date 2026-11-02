@@ -1,0 +1,4 @@
+interface:
+  display_name: "Portfolio Design System"
+  short_description: "Apply the Portfolio visual language to Slab Design."
+  default_prompt: "Apply the Portfolio design system to the Slab Design application."

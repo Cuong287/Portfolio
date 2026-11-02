@@ -1,0 +1,109 @@
+{
+  "fixture_version": "1.0.0",
+  "scope": "Excel-derived ULS flexural calculation for a reinforced-concrete slab strip; not an independently verified TCVN implementation.",
+  "source": {
+    "workbook": "Cemcons_SlabTCVN_Ver1.2.1_UnLockView.xlsm",
+    "sheet": "1.Tinh thep san",
+    "table": "Table1",
+    "direct_rows": [17, 18, 19, 20, 21, 22],
+    "extraction": "Cached values and formulas read in read-only mode. Direct cases retain workbook statuses exactly."
+  },
+  "units": { "moment": "kN·m", "length": "mm", "strength": "MPa", "area": "mm²", "ratio": "dimensionless" },
+  "material_defaults": {
+    "concrete_class": "B30",
+    "Rb": 17.0,
+    "steel_group": "CB300-V",
+    "Rs": 260.0,
+    "cover_cbv": 25.0,
+    "xR": 0.5833333333333334,
+    "rho_max": 0.038141025641025644,
+    "rho_min": 0.001,
+    "rho_opt_min": 0.006,
+    "rho_opt_max": 0.009
+  },
+  "tolerances": {
+    "exact_status": "Exact Unicode string equality: Thỏa or Không thỏa.",
+    "length_mm": { "absolute": 0.000001 },
+    "dimensionless": { "absolute": 0.000000001 },
+    "area_mm2": { "absolute": 0.0001 }
+  },
+  "effective_input_resolution": {
+    "purpose": "Make each direct workbook case self-contained for a test engine while preserving cached row values in input.",
+    "rule": "For slab and direction only, carry the latest non-null Table1 value downward within the displayed block: rows 17-19 resolve to S1/X; rows 20-22 resolve to S1/Y. This is fixture normalization, not an Excel formula.",
+    "numeric_fields": "No numeric field is filled or altered by this rule."
+  },
+  "formula_contract": {
+    "h0": "h - (cover_cbv + 0.5 * phi)",
+    "alpha_m": "abs(Mtt) * 1e6 / (Rb * b * h0^2)",
+    "xi": "1 - sqrt(1 - 2 * alpha_m)",
+    "As_required": "xi * Rb * b * h0 / Rs",
+    "rho_required": "As_required / (b * h0)",
+    "As_provided": "pi * phi^2 / 4 * (b / spacing)",
+    "rho_provided": "As_provided / (b * h0)"
+  },
+  "cases": [
+    {
+      "id": "s1_x_left_support_phi14",
+      "provenance": "direct_workbook_row_17",
+      "input": { "slab": "S1", "direction": "X", "position": "Goi trai", "Mtt": -21.56, "span": 8000, "b": 1000, "h": 150, "spacing": 200, "phi": 14 },
+      "effective_input": { "slab": "S1", "direction": "X", "position": "Goi trai", "Mtt": -21.56, "span": 8000, "b": 1000, "h": 150, "spacing": 200, "phi": 14 },
+      "expected": { "h0": 118, "alpha_m": 0.09108268415093702, "xi": 0.09565790118002027, "As_required": 738.0374991043102, "rho_required": 0.006254555077155171, "As_provided": 769.6902001294993, "rho_provided": 0.0065227983061821974, "rho_required_bounds": "Thỏa", "rho_required_optimum": "Thỏa", "area_provided": "Thỏa", "rho_provided_bounds": "Thỏa" }
+    },
+    {
+      "id": "x_span_positive_phi12",
+      "provenance": "direct_workbook_row_18",
+      "input": { "slab": null, "direction": null, "position": "Nhip", "Mtt": 10.15, "span": 10000, "b": 1000, "h": 150, "spacing": 100, "phi": 12 },
+      "effective_input": { "slab": "S1", "direction": "X", "position": "Nhip", "Mtt": 10.15, "span": 10000, "b": 1000, "h": 150, "spacing": 100, "phi": 12 },
+      "expected": { "h0": 119, "alpha_m": 0.04216219359716205, "xi": 0.0430905932087009, "As_required": 335.2779617738536, "rho_required": 0.0028174618636458283, "As_provided": 1130.9733552923256, "rho_provided": 0.009503977775565761, "rho_required_bounds": "Thỏa", "rho_required_optimum": "Không thỏa", "area_provided": "Thỏa", "rho_provided_bounds": "Thỏa" }
+    },
+    {
+      "id": "x_right_support_phi14_insufficient_area",
+      "provenance": "direct_workbook_row_19",
+      "input": { "slab": null, "direction": null, "position": "Goi phai", "Mtt": -23.54, "span": 4000, "b": 1000, "h": 150, "spacing": 200, "phi": 14 },
+      "effective_input": { "slab": "S1", "direction": "X", "position": "Goi phai", "Mtt": -23.54, "span": 4000, "b": 1000, "h": 150, "spacing": 200, "phi": 14 },
+      "expected": { "h0": 118, "alpha_m": 0.09944742045051287, "xi": 0.10495521950073683, "As_required": 809.7698858403003, "rho_required": 0.006862456659663562, "As_provided": 769.6902001294993, "rho_provided": 0.0065227983061821974, "rho_required_bounds": "Thỏa", "rho_required_optimum": "Thỏa", "area_provided": "Không thỏa", "rho_provided_bounds": "Thỏa" }
+    },
+    {
+      "id": "y_left_support_phi14_high_demand",
+      "provenance": "direct_workbook_row_20",
+      "input": { "slab": null, "direction": "Y", "position": "Goi trai", "Mtt": -59.6, "span": 5000, "b": 1000, "h": 150, "spacing": 200, "phi": 14 },
+      "effective_input": { "slab": "S1", "direction": "Y", "position": "Goi trai", "Mtt": -59.6, "span": 5000, "b": 1000, "h": 150, "spacing": 200, "phi": 14 },
+      "expected": { "h0": 118, "alpha_m": 0.2517870118458185, "xi": 0.2954249675809091, "As_required": 2279.317249874245, "rho_required": 0.019316247880290214, "As_provided": 769.6902001294993, "rho_provided": 0.0065227983061821974, "rho_required_bounds": "Thỏa", "rho_required_optimum": "Không thỏa", "area_provided": "Không thỏa", "rho_provided_bounds": "Thỏa" }
+    },
+    {
+      "id": "y_span_positive_phi12_high_demand",
+      "provenance": "direct_workbook_row_21",
+      "input": { "slab": null, "direction": null, "position": "Nhip", "Mtt": 50.0, "span": 5000, "b": 1000, "h": 150, "spacing": 100, "phi": 12 },
+      "effective_input": { "slab": "S1", "direction": "Y", "position": "Nhip", "Mtt": 50.0, "span": 5000, "b": 1000, "h": 150, "spacing": 100, "phi": 12 },
+      "expected": { "h0": 119, "alpha_m": 0.2076955349613894, "xi": 0.23540276610674216, "As_required": 1831.6145993613052, "rho_required": 0.01539171932236391, "As_provided": 1130.9733552923256, "rho_provided": 0.009503977775565761, "rho_required_bounds": "Thỏa", "rho_required_optimum": "Không thỏa", "area_provided": "Không thỏa", "rho_provided_bounds": "Thỏa" }
+    },
+    {
+      "id": "y_right_support_phi14_high_demand",
+      "provenance": "direct_workbook_row_22",
+      "input": { "slab": null, "direction": null, "position": "Goi phai", "Mtt": -84.32, "span": 5000, "b": 1000, "h": 150, "spacing": 200, "phi": 14 },
+      "effective_input": { "slab": "S1", "direction": "Y", "position": "Goi phai", "Mtt": -84.32, "span": 5000, "b": 1000, "h": 150, "spacing": 200, "phi": 14 },
+      "expected": { "h0": 118, "alpha_m": 0.35621947716173513, "xi": 0.46375281289639403, "As_required": 3578.0313179621785, "rho_required": 0.030322299304764225, "As_provided": 769.6902001294993, "rho_provided": 0.0065227983061821974, "rho_required_bounds": "Thỏa", "rho_required_optimum": "Không thỏa", "area_provided": "Không thỏa", "rho_provided_bounds": "Thỏa" }
+    }
+  ],
+  "phi_dependency_demonstration": {
+    "status": "formula_derived_not_direct_workbook_case",
+    "base_case_id": "s1_x_left_support_phi14",
+    "changed_input": { "phi_from": 14, "phi_to": 12 },
+    "method": "Hold every row-17 input and material default constant; recalculate using the Table1 formula contract. This demonstrates dependency only and is not a cached Excel regression baseline.",
+    "expected_at_phi12": {
+      "h0": 119,
+      "alpha_m": 0.08955831467535111,
+      "xi": 0.0939738576347271,
+      "As_required": 731.1888999809728,
+      "rho_required": 0.0061444445376552335,
+      "As_provided": 565.4866776461628,
+      "rho_provided": 0.004751988887782881,
+      "rho_required_bounds": "Thỏa",
+      "rho_required_optimum": "Thỏa",
+      "area_provided": "Không thỏa",
+      "rho_provided_bounds": "Thỏa"
+    },
+    "status_contract": "Recompute the four statuses with material_defaults and formula_contract. Compare numeric values using tolerances.dimensionless, tolerances.length_mm, or tolerances.area_mm2 as applicable; compare statuses with tolerances.exact_status.",
+    "direct_workbook_context": "Rows 17 and 18 both use h=150 and cover=25 but phi=14 and phi=12, yielding h0=118 and h0=119 respectively; their remaining inputs differ, so they are not an isolated phi comparison."
+  }
+}

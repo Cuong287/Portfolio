@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Công cụ thiết kế cốt thép sàn bê tông cốt thép theo TCVN 5574:2018.">
+  <meta name="description" content="Công cụ benchmark ULS uốn dải sàn 1 m theo workbook tham chiếu; các yêu cầu TCVN 5574:2018 còn cần xác minh.">
   <meta name="theme-color" content="#f3f0e8">
   <title>Slab Design | Le Van Cuong</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="calculator-refinement.css">
 </head>
 <body>
+  <a class="skip-link" href="#calculator">Bỏ qua đến công cụ tính</a>
   <header>
     <nav class="nav container" aria-label="Điều hướng chính">
       <a class="brand" href="../index.html">LE VAN CUONG</a>
@@ -31,7 +32,7 @@
       <div class="hero-layout">
         <div>
           <h1>Thiết kế<br><em>sàn BTCT.</em></h1>
-          <p class="lead">Nhập nội lực từ mô hình phân tích, chọn vật liệu và bố trí thép. Công cụ tính nhanh cốt thép chịu uốn trên dải sàn 1&nbsp;m theo TCVN&nbsp;5574:2018.</p>
+          <p class="lead">Nhập nội lực từ mô hình phân tích, chọn vật liệu và bố trí thép. V1 tái hiện benchmark Excel cho uốn dải sàn 1&nbsp;m; TCVN&nbsp;5574:2018 là chuẩn cần đối chiếu trước khi phát hành thiết kế.</p>
           <div class="hero-actions">
             <a class="button primary" href="#calculator">Bắt đầu tính <span>↘</span></a>
             <a class="text-link" href="#method">Phạm vi áp dụng</a>
@@ -52,15 +53,15 @@
 
     <section class="project-bar">
       <div class="container project-bar-inner">
-        <span>TCVN 5574:2018</span><span class="dot">·</span><span>TTGH I — Uốn</span><span class="dot">·</span><span>Beta 0.1</span>
-        <span class="project-note">Không thay thế hồ sơ thiết kế đã được kiểm tra.</span>
+        <span>TCVN 5574:2018</span><span class="dot">·</span><span>ULS uốn benchmark</span><span class="dot">·</span><span>Beta 0.1</span>
+        <span class="project-note">Công thức và ngưỡng đang chờ xác minh TCVN độc lập.</span>
       </div>
     </section>
 
     <section id="calculator" class="calculator container">
       <div class="section-head">
         <div class="section-label"><b>02</b><span>CALCULATOR</span></div>
-        <div><p class="section-kicker">SLAB REINFORCEMENT / TCVN 5574:2018</p><h2>Khởi tạo bài toán</h2><p>Thiết lập vật liệu và quy ước cấu tạo trước khi nhập các dải sàn. Đơn vị: MPa, mm, kN·m.</p></div>
+        <div><p class="section-kicker">ULS BENDING / EXCEL BENCHMARK</p><h2>Khởi tạo bài toán</h2><p>Thiết lập vật liệu và quy ước cấu tạo trước khi nhập các dải sàn. Giá trị bám workbook tham chiếu, chưa là xác nhận độc lập TCVN. Đơn vị: MPa, mm, kN·m.</p></div>
       </div>
 
       <form id="slab-form" novalidate>
@@ -77,9 +78,9 @@
             </fieldset>
             <fieldset class="detailing-fields" aria-label="Quy ước cấu tạo">
               <p class="group-title">Quy ước cấu tạo</p>
-              <label>Lớp bảo vệ c <small>mm · gợi ý a khi thêm dải</small><input id="cover" type="number" min="10" max="100" step="1" value="25"></label>
-              <label>ρ tối ưu thấp <small>%</small><input id="rho-min" type="number" min="0.1" max="5" step="0.1" value="0.6"></label>
-              <label>ρ tối ưu cao <small>%</small><input id="rho-max-opt" type="number" min="0.1" max="5" step="0.1" value="0.9"></label>
+              <label>Lớp bảo vệ c <small>mm · dùng trong h₀ = h − (c + 0.5Φ)</small><input id="cover" name="cover" type="number" inputmode="decimal" min="10" max="100" step="1" value="25"></label>
+              <label>ρ tối ưu thấp <small>%</small><input id="rho-min" name="rho-opt-min" autocomplete="off" type="number" inputmode="decimal" min="0.1" max="5" step="0.1" value="0.6"></label>
+              <label>ρ tối ưu cao <small>%</small><input id="rho-max-opt" name="rho-opt-max" autocomplete="off" type="number" inputmode="decimal" min="0.1" max="5" step="0.1" value="0.9"></label>
             </fieldset>
           </div>
           <section class="formula-card" aria-labelledby="material-stats-title">
@@ -89,13 +90,13 @@
         </div>
 
         <div class="table-toolbar">
-          <div><h3>Dải sàn</h3><p>Nhập mô-men thiết kế M<sub>Ed</sub> tại gối hoặc nhịp từ ETABS, SAFE hay phần mềm phân tích khác. a là khoảng cách từ mép bê tông đến tâm thanh thép.</p></div>
+          <div><h3>Dải sàn</h3><p>Nhập M<sub>Ed</sub> từ mô hình phân tích. c là lớp bảo vệ chung; Φ là đường kính thanh; s/a là khoảng cách thanh. L chỉ để nhận diện dải, chưa tham gia công thức ULS V1.</p></div>
           <div class="toolbar-actions"><button type="button" class="button secondary" id="load-example">Nạp ví dụ</button><button type="button" class="button primary" id="add-row">+ Thêm dải</button></div>
         </div>
 
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Dải</th><th>Phương</th><th>Vị trí</th><th>M<sub>Ed</sub><small>kN·m</small></th><th>L<small>mm</small></th><th>b<small>mm</small></th><th>h<small>mm</small></th><th>a<small>mm</small></th><th>Φ<small>mm</small></th><th>s<small>mm</small></th><th aria-label="Xóa"></th></tr></thead>
+            <thead><tr><th>Dải</th><th>Phương</th><th>Vị trí</th><th>M<sub>Ed</sub><small>kN·m</small></th><th>L<small>mm · thông tin</small></th><th>b<small>mm</small></th><th>h<small>mm</small></th><th>Φ<small>mm</small></th><th>s/a<small>mm · khoảng cách</small></th><th aria-label="Xóa"></th></tr></thead>
             <tbody id="strip-body"></tbody>
           </table>
         </div>
@@ -114,21 +115,37 @@
         <div class="table-wrap result-table-wrap">
           <table class="result-table">
             <thead><tr><th>Dải</th><th>Phương</th><th>Vị trí</th><th>h<sub>0</sub></th><th>α<sub>m</sub></th><th>ξ</th><th>A<sub>s,req</sub></th><th>A<sub>s,prov</sub></th><th>ρ<sub>req</sub></th><th>ρ<sub>prov</sub></th><th>Kiểm tra</th></tr></thead>
-            <tbody id="result-body"><tr><td colspan="11" class="empty">Nhập dải sàn và chọn “Tính cốt thép”.</td></tr></tbody>
+          <tbody id="result-body"><tr><td colspan="11" class="empty">Nhập dải sàn và chọn “Tính cốt thép”.</td></tr></tbody>
           </table>
         </div>
+        <section class="recommendations" aria-labelledby="recommendation-title">
+          <div>
+            <p class="section-kicker">ĐỀ XUẤT</p>
+            <h3 id="recommendation-title">Phương án bố trí khả dụng</h3>
+            <p>Đề xuất thử catalogue Excel-derived Φ6–Φ16 và s70–s250 từ `PhuLuc-Excel!A98:R107`. Mỗi tổ hợp tính lại h<sub>0</sub>, α<sub>m</sub>, ξ, A<sub>s,req</sub> và toàn bộ kiểm tra trước khi xếp hạng. Catalogue này chưa là xác nhận TCVN.</p>
+          </div>
+          <div>
+            <label class="recommendation-target-label" for="recommendation-target">Dải mục tiêu để đề xuất</label>
+            <div class="recommendation-controls">
+              <select id="recommendation-target" name="recommendation-target" disabled><option>Hãy tính trước</option></select>
+              <button id="recommendation-button" class="button primary" type="button" disabled>ĐỀ XUẤT</button>
+            </div>
+            <div id="recommendation-body" class="recommendation-body"><p class="empty">Tính một dải để xem phương án bố trí.</p></div>
+          </div>
+        </section>
       </section>
     </section>
 
     <section id="method" class="method">
       <div class="container method-grid">
         <div class="section-label"><b>04</b><span>METHOD</span></div>
-        <div><h2>Phạm vi bản beta</h2><p>Công cụ hiện thực tính cốt thép dọc chịu uốn tiết diện chữ nhật cho dải sàn rộng b, dùng R<sub>b</sub>, R<sub>s</sub>, h<sub>0</sub>, α<sub>m</sub> và ξ theo TCVN&nbsp;5574:2018. Kết quả bố trí thép được kiểm tra với A<sub>s,req</sub> và giới hạn hàm lượng.</p></div>
+        <div><h2>Phạm vi bản beta</h2><p>V1 tái hiện chuỗi tính uốn dải sàn rộng b của workbook: R<sub>b</sub>, R<sub>s</sub>, h<sub>0</sub>, α<sub>m</sub>, ξ và kiểm tra A<sub>s</sub>. Các mapping với TCVN&nbsp;5574:2018 vẫn cần reviewer đối chiếu văn bản tiêu chuẩn.</p></div>
         <div class="method-list"><p><b>Đã có</b> · Vật liệu B12.5–B60, CB240-T–CB500-V, dải gối/nhịp, kiểm tra α<sub>m</sub> và thép bố trí.</p><p><b>Đang phát triển</b> · TTGH II: nứt, bề rộng khe nứt và độ võng; xuất thuyết minh PDF; lưu và chia sẻ phương án.</p><p><b>Kiểm soát</b> · Luôn rà soát kết quả với mô hình phân tích, tải trọng, cấu tạo và người chịu trách nhiệm thiết kế.</p></div>
       </div>
     </section>
   </main>
   <footer class="container"><span>LE VAN CUONG — CALCULATION PRODUCTS</span><span>Slab Design / 2026</span></footer>
+  <script src="engine.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
