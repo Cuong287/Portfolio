@@ -120,7 +120,7 @@ header{position:sticky;top:0;z-index:10;background:rgba(243,240,232,.9);border-b
   display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;text-align:inherit;cursor:zoom-in;
 }
 .awards-moment-media,.awards-research-media{
-  position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--paper-deep);
+  display:block;position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--paper-deep);
 }
 .awards-moment-media img,.awards-research-media img{
   display:block;width:100%;height:100%;object-fit:cover;background:var(--paper-deep);font-size:0;transition:transform .28s ease;
@@ -292,7 +292,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
     <nav class="links" id="navLinks" aria-label="Main navigation">
       <a href="index.html#about">About</a>
       <a href="academic-projects.html">Projects</a>
-      <span class="disabled-link" aria-disabled="true" title="Coming soon">Research</span>
+      <span class="disabled-link" role="link" aria-disabled="true" title="Coming soon">Research</span>
       <a class="active" href="awards.html" aria-current="page">Awards</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -357,7 +357,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           </div>
           <h3 class="mechanics-title">Third Prize — University-Level Mechanics Olympiad</h3>
           <p class="award-category">Soil Mechanics Division</p>
-          <p class="award-description">University-wide selection round at The University of Danang – University of Science and Technology, qualifying for the 2025 national Olympiad delegation.</p>
+          <p class="award-description">University-wide selection round at The University of Danang – University of Science and Technology, qualifying for the 2025 National Mechanics Olympiad delegation.</p>
         </article>
         <article class="mechanics-card">
           <div class="card-meta-row">
@@ -377,7 +377,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
           </div>
           <h3 class="mechanics-title">Second Prize — University-Level Mechanics Olympiad</h3>
           <p class="award-category">Soil Mechanics Division</p>
-          <p class="award-description">Ranked among the top candidates in the university-level Soil Mechanics competition and selected for the 2024 national Olympiad team.</p>
+          <p class="award-description">Ranked among the top candidates in the university-level Soil Mechanics competition and selected for the 2024 National Mechanics Olympiad team.</p>
         </article>
       </div>
       <div class="awards-moments" aria-labelledby="selected-moments-label">
@@ -392,7 +392,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
               data-caption="Closing and awards ceremony of the 35th National Mechanics Olympiad at The University of Danang – University of Science and Technology (May 22, 2025)."
               aria-label="Open larger image of the 35th National Mechanics Olympiad award ceremony"
             >
-              <div class="awards-moment-media">
+              <span class="awards-moment-media">
                 <img
                   class="awards-moment-image--award"
                   src="assets/images/awards/mechanics-award.jpg"
@@ -402,7 +402,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
                   loading="lazy"
                   decoding="async"
                 >
-              </div>
+              </span>
             </button>
             <figcaption class="awards-moment-caption">
               <strong>35th National Mechanics Olympiad (2025)</strong>
@@ -419,7 +419,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
               data-caption="University delegation and faculty advisor at the opening ceremony of the 34th National Mechanics Olympiad — Central Region in Da Nang (May 5, 2024)."
               aria-label="Open larger image of the 34th National Mechanics Olympiad team"
             >
-              <div class="awards-moment-media">
+              <span class="awards-moment-media">
                 <img
                   class="awards-moment-image--team"
                   src="assets/images/awards/mechanics-team.jpg"
@@ -429,7 +429,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
                   loading="lazy"
                   decoding="async"
                 >
-              </div>
+              </span>
             </button>
             <figcaption class="awards-moment-caption">
               <strong>34th National Mechanics Olympiad Delegation (2024)</strong>
@@ -463,7 +463,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
               data-caption="Research team and faculty members at the Faculty of Civil Engineering, The University of Danang – University of Science and Technology."
               aria-label="Open larger image of the Second Prize student research team"
             >
-              <div class="awards-research-media">
+              <span class="awards-research-media">
                 <img
                   class="awards-research-image--carbonation"
                   src="assets/images/awards/research-carbonation.jpg"
@@ -473,7 +473,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
                   loading="lazy"
                   decoding="async"
                 >
-              </div>
+              </span>
             </button>
             <figcaption class="awards-research-caption">
               <strong>Second Prize — Faculty of Civil Engineering</strong>
@@ -501,20 +501,20 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
               type="button"
               data-full="assets/images/awards/research-wind-load.jpg"
               data-title="Third Prize — Student Scientific Research (2024–2025)"
-              data-caption="Wind-load research team holding the conference poster and Third Prize certificate at the Faculty of Civil Engineering, DUT."
-              aria-label="Open larger image of the Wind Load research team holding project certificates"
+              data-caption="Wind-load research team holding the conference poster and Third Prize certificate at the Faculty of Civil Engineering, The University of Danang – University of Science and Technology."
+              aria-label="Open larger image of the wind-load research team holding project certificates"
             >
-              <div class="awards-research-media">
+              <span class="awards-research-media">
                 <img
                   class="awards-research-image--wind-load"
                   src="assets/images/awards/research-wind-load.jpg"
-                  alt="Wind load research team holding project poster and certificates"
+                  alt="Wind-load research team holding project poster and certificates"
                   width="707"
                   height="905"
                   loading="lazy"
                   decoding="async"
                 >
-              </div>
+              </span>
             </button>
             <figcaption class="awards-research-caption">
               <strong>Third Prize — Faculty of Civil Engineering</strong>
@@ -618,7 +618,7 @@ footer{padding:30px;background:var(--dark);color:#aeb7b1;text-align:center;font-
 <dialog class="lightbox" id="lightbox" aria-labelledby="lightboxTitle" aria-describedby="lightboxCaption">
   <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image viewer">×</button>
   <figure>
-    <div class="lightbox-media"><img id="lightboxImage" src="assets/images/awards/mechanics-award.jpg" alt=""></div>
+    <div class="lightbox-media"><img id="lightboxImage" src="assets/images/awards/mechanics-award.jpg" alt="Le Van Cuong holding the certificate at the 35th National Mechanics Olympiad awards ceremony"></div>
     <figcaption><strong id="lightboxTitle">Award image</strong><span id="lightboxCaption"></span></figcaption>
   </figure>
 </dialog>
