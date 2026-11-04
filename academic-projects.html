@@ -141,7 +141,7 @@ h1{
 .case-grade strong{display:block;margin-top:4px;color:var(--ink);font-family:var(--sans);font-size:.98rem;font-weight:600;letter-spacing:-.015em;line-height:1.3;font-variant-numeric:tabular-nums}
 .case-hero,.etabs-visual{min-width:0;margin:0;border:1px solid rgba(72,100,119,.4);background:rgba(255,253,247,.62)}
 .media-trigger{display:block;width:100%;padding:0;border:0;background:transparent;color:inherit;text-align:inherit;cursor:zoom-in}
-.case-image-frame,.etabs-visual-frame{position:relative;overflow:hidden;background:var(--white);aspect-ratio:1.414/1;padding:6px}
+.case-image-frame,.etabs-visual-frame{display:block;position:relative;overflow:hidden;background:var(--white);aspect-ratio:1.414/1;padding:6px}
 .case-image-frame img,.etabs-visual-frame img{
   display:block;width:100%;height:100%;object-fit:contain;transform:scale(1);transition:transform .28s var(--ease-out);
 }
@@ -378,7 +378,7 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
     <nav class="links" id="navLinks" aria-label="Main navigation">
       <a href="index.html#about">About</a>
       <a class="active" href="academic-projects.html" aria-current="page">Projects</a>
-      <span class="disabled-link" aria-disabled="true" title="Coming soon">Research</span>
+      <span class="disabled-link" role="link" aria-disabled="true" title="Coming soon">Research</span>
       <a href="awards.html">Awards</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -430,19 +430,19 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
           </div>
           <figure class="case-hero">
             <button class="media-trigger" type="button" data-full="assets/images/projects/pbl5/structural-bim-kc07.png" data-title="3D BIM structural steel model (Sheet KC-07)" data-caption="Complete 23-bay (30 m × 149.5 m) Autodesk Revit 2025 structural steel model showing welded columns, tapered portal rafters, crane runway corbels, longitudinal roof monitor, cold-formed Z-purlins, and 3D spatial bracing." aria-label="Open larger 3D BIM structural steel model sheet">
-              <div class="case-image-frame"><img src="assets/images/projects/pbl5/structural-bim-kc07.png" alt="3D Autodesk Revit structural steel BIM model of the 23-bay 30m by 149.5m industrial factory (Sheet KC-07)" width="2600" height="1838" decoding="async"></div>
+              <span class="case-image-frame"><img src="assets/images/projects/pbl5/structural-bim-kc07.png" alt="3D Autodesk Revit structural steel BIM model of the 23-bay 30 m × 149.5 m industrial factory (Sheet KC-07)" width="2600" height="1838" decoding="async"></span>
             </button>
             <figcaption class="case-caption"><strong>3D BIM structural steel model (Sheet KC-07)</strong><span>Complete 23-bay, 30 m × 149.5 m portal frame model with crane corbels, roof monitor, Z-purlins, and 3D spatial bracing.</span><span class="zoom-note">Select to inspect full drawing</span></figcaption>
           </figure>
         </div>
 
         <details class="project-details project-details--featured" id="project-01-details" open>
-          <summary role="button" aria-expanded="true" aria-controls="project-01-content">Project details</summary>
+          <summary aria-expanded="true" aria-controls="project-01-content">Project details</summary>
           <div class="case-study-body" id="project-01-content">
           <div class="key-facts" aria-label="Key project facts">
             <div class="key-fact"><span>Plan footprint</span><strong>4,485 m² · 23 bays</strong></div>
             <div class="key-fact"><span>Clear span &amp; pitch</span><strong>30.0 m · i = 10%</strong></div>
-            <div class="key-fact"><span>Overhead cranes</span><strong>2 × 160 kN (16T)</strong></div>
+            <div class="key-fact"><span>Overhead cranes</span><strong>2 × 160 kN (16 tons)</strong></div>
             <div class="key-fact"><span>Primary steel</span><strong>201.4 Tons</strong></div>
           </div>
 
@@ -524,39 +524,39 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
               <div class="etabs-gallery">
                 <figure class="etabs-visual">
                   <button class="media-trigger" type="button" data-full="assets/images/projects/pbl5/arch-masterplan-kt01.png" data-title="Architectural masterplan &amp; 3D daytime perspective (Sheet KT-01)" data-caption="3D exterior aerial render and coordinated 30 m × 149.5 m (4,485 m²) ground-floor architectural plan across 24 grid axes (X1–X24)." aria-label="Open larger Sheet KT-01 architectural masterplan image">
-                    <div class="etabs-visual-frame"><img src="assets/images/projects/pbl5/arch-masterplan-kt01.png" alt="Sheet KT-01 architectural masterplan and 3D exterior perspective of the 30m by 149.5m industrial steel factory" width="2600" height="1838" loading="lazy" decoding="async"></div>
+                    <span class="etabs-visual-frame"><img src="assets/images/projects/pbl5/arch-masterplan-kt01.png" alt="Sheet KT-01 architectural masterplan and 3D exterior perspective of the 30 m × 149.5 m industrial steel factory" width="2600" height="1838" loading="lazy" decoding="async"></span>
                   </button>
                   <figcaption><strong>Architectural masterplan &amp; 3D render (KT-01)</strong><span>3D daytime aerial perspective and 30 m × 149.5 m (4,485 m²) ground-floor layout across 24 grid axes.</span><span class="zoom-note">Select to inspect</span></figcaption>
                 </figure>
                 <figure class="etabs-visual">
                   <button class="media-trigger" type="button" data-full="assets/images/projects/pbl5/interior-crane-kt02.png" data-title="160 kN overhead crane hall &amp; elevations (Sheet KT-02)" data-caption="3D interior perspective showing the two 160 kN (16-ton) ZLK double-girder bridge cranes operating at +7.000 m rail elevation, night exterior render, and longitudinal/gable elevations." aria-label="Open larger Sheet KT-02 interior crane hall and elevations image">
-                    <div class="etabs-visual-frame"><img src="assets/images/projects/pbl5/interior-crane-kt02.png" alt="Sheet KT-02 3D interior perspective with 160 kN overhead bridge crane, night perspective, and building elevations" width="2600" height="1838" loading="lazy" decoding="async"></div>
+                    <span class="etabs-visual-frame"><img src="assets/images/projects/pbl5/interior-crane-kt02.png" alt="Sheet KT-02 3D interior perspective with 160 kN overhead bridge crane, night perspective, and building elevations" width="2600" height="1838" loading="lazy" decoding="async"></span>
                   </button>
                   <figcaption><strong>160 kN crane bay &amp; elevations (KT-02)</strong><span>3D interior production hall with dual 16-ton ZLK bridge cranes at +7.00 m rail level and building elevations.</span><span class="zoom-note">Select to inspect</span></figcaption>
                 </figure>
                 <figure class="etabs-visual">
                   <button class="media-trigger" type="button" data-full="assets/images/projects/pbl5/bracing-plans-kc01.png" data-title="3D spatial bracing, purlin &amp; roof monitor plans (Sheet KC-01)" data-caption="Structural framing layouts detailing the 5 braced bays (X1–X2, X7–X8, X13–X14, X18–X19, X23–X24), two-tier column bracing (Ø24 + C24), roof X-bracing (Ø20), and cold-formed Z300×100×2.4 purlins." aria-label="Open larger Sheet KC-01 structural bracing and purlin plans image">
-                    <div class="etabs-visual-frame"><img src="assets/images/projects/pbl5/bracing-plans-kc01.png" alt="Sheet KC-01 structural roof and column bracing plans, purlin layout, and roof monitor framing" width="2600" height="1838" loading="lazy" decoding="async"></div>
+                    <span class="etabs-visual-frame"><img src="assets/images/projects/pbl5/bracing-plans-kc01.png" alt="Sheet KC-01 structural roof and column bracing plans, purlin layout, and roof monitor framing" width="2600" height="1838" loading="lazy" decoding="async"></span>
                   </button>
                   <figcaption><strong>Bracing &amp; purlin layouts (KC-01)</strong><span>Five-bay roof X-bracing (Ø20), two-tier column bracing (Ø24), Z300×100×2.4 purlins, and monitor framing.</span><span class="zoom-note">Select to inspect</span></figcaption>
                 </figure>
                 <figure class="etabs-visual">
-                  <button class="media-trigger" type="button" data-full="assets/images/projects/pbl5/portal-frame-kc02.png" data-title="Typical transverse portal frame X3 &amp; gable frame X24 (Sheet KC-02)" data-caption="Full structural cross-sections detailing built-up columns C1 (I-800×400×14×12), crane corbels (I-500×400×12×10), tapered haunched rafters D1 (I-800÷500×400×14×10), mid-span rafters D2 (I-500×400×14×10), and +12.778 m roof monitor." aria-label="Open larger Sheet KC-02 portal frame and gable frame cross-sections image">
-                    <div class="etabs-visual-frame"><img src="assets/images/projects/pbl5/portal-frame-kc02.png" alt="Sheet KC-02 structural cross-sections of typical portal frame X3 and gable wind frame X24" width="2600" height="1838" loading="lazy" decoding="async"></div>
+                  <button class="media-trigger" type="button" data-full="assets/images/projects/pbl5/portal-frame-kc02.png" data-title="Typical transverse portal frame X3 &amp; gable frame X24 (Sheet KC-02)" data-caption="Full structural cross-sections detailing built-up columns C1 (I-800×400×14×12), crane corbels (I-500×400×12×10), tapered haunched rafters D1 (I-(800–500)×400×14×10), mid-span rafters D2 (I-500×400×14×10), and +12.778 m roof monitor." aria-label="Open larger Sheet KC-02 portal frame and gable frame cross-sections image">
+                    <span class="etabs-visual-frame"><img src="assets/images/projects/pbl5/portal-frame-kc02.png" alt="Sheet KC-02 structural cross-sections of typical portal frame X3 and gable wind frame X24" width="2600" height="1838" loading="lazy" decoding="async"></span>
                   </button>
                   <figcaption><strong>Portal &amp; gable frame sections (KC-02)</strong><span>Transverse frame X3 and gable frame X24 with tapered rafters, crane corbels (+7.00 m), and ridge monitor (+12.78 m).</span><span class="zoom-note">Select to inspect</span></figcaption>
                 </figure>
                 <figure class="etabs-visual">
                   <button class="media-trigger" type="button" data-full="assets/images/projects/pbl5/connections-base-eave-kc04.png" data-title="Fixed column base CT1, eave moment connection CT2 &amp; column BOM (Sheet KC-04)" data-caption="2D and 3D fabrication details for the fixed column base (Plate 1040×450×55 mm, 10M42 16MnSi anchors, shear key) and eave end-plate connection (Plate 940×400×40 mm, 10M42 Grade 8.8), with automated Revit steel takeoff (80.15 tons columns)." aria-label="Open larger Sheet KC-04 column base and eave connection details image">
-                    <div class="etabs-visual-frame"><img src="assets/images/projects/pbl5/connections-base-eave-kc04.png" alt="Sheet KC-04 2D and 3D steel connection details for fixed column base CT1 and eave moment connection CT2 with BIM quantity schedules" width="2600" height="1838" loading="lazy" decoding="async"></div>
+                    <span class="etabs-visual-frame"><img src="assets/images/projects/pbl5/connections-base-eave-kc04.png" alt="Sheet KC-04 2D and 3D steel connection details for fixed column base CT1 and eave moment connection CT2 with BIM quantity schedules" width="2600" height="1838" loading="lazy" decoding="async"></span>
                   </button>
-                  <figcaption><strong>Base &amp; eave connections + BOM (KC-04)</strong><span>2D/3D details of fixed base CT1 (10M42 anchors) and eave splice CT2 (10M42 Class 8.8) with 80.15 T column schedule.</span><span class="zoom-note">Select to inspect</span></figcaption>
+                  <figcaption><strong>Base &amp; eave connections + BOM (KC-04)</strong><span>2D/3D details of fixed base CT1 (10M42 anchors) and eave splice CT2 (10M42 Grade 8.8) with 80.15 tons column schedule.</span><span class="zoom-note">Select to inspect</span></figcaption>
                 </figure>
                 <figure class="etabs-visual">
                   <button class="media-trigger" type="button" data-full="assets/images/projects/pbl5/connections-rafter-ridge-kc05.png" data-title="Rafter splice CT3, apex connection CT4, corbel &amp; rafter BOM (Sheet KC-05)" data-caption="2D and 3D fabrication details for the tapered-to-uniform rafter splice CT3 (Plate 700×400×20 mm), ridge moment splice CT4 (Plate 700×400×21 mm, 8M30 Grade 8.8), and crane corbel CT5, with Revit rafter takeoff (93.14 tons)." aria-label="Open larger Sheet KC-05 rafter splice, ridge connection, and crane corbel details image">
-                    <div class="etabs-visual-frame"><img src="assets/images/projects/pbl5/connections-rafter-ridge-kc05.png" alt="Sheet KC-05 2D and 3D steel connection details for rafter splice CT3, apex connection CT4, and crane corbel CT5 with BIM quantity schedules" width="2600" height="1838" loading="lazy" decoding="async"></div>
+                    <span class="etabs-visual-frame"><img src="assets/images/projects/pbl5/connections-rafter-ridge-kc05.png" alt="Sheet KC-05 2D and 3D steel connection details for rafter splice CT3, apex connection CT4, and crane corbel CT5 with BIM quantity schedules" width="2600" height="1838" loading="lazy" decoding="async"></span>
                   </button>
-                  <figcaption><strong>Rafter/apex splices &amp; corbel + BOM (KC-05)</strong><span>2D/3D details of rafter splice CT3, ridge connection CT4, and crane corbel CT5 with 93.14 T rafter schedule.</span><span class="zoom-note">Select to inspect</span></figcaption>
+                  <figcaption><strong>Rafter/apex splices &amp; corbel + BOM (KC-05)</strong><span>2D/3D details of rafter splice CT3, ridge connection CT4, and crane corbel CT5 with 93.14 tons rafter schedule.</span><span class="zoom-note">Select to inspect</span></figcaption>
                 </figure>
               </div>
             </div>
@@ -596,15 +596,15 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
         <article class="project secondary-project" id="foundation-pile-design">
           <div class="project-number"><strong>02</strong><span>2024</span></div>
           <div class="secondary-copy">
-            <p class="technical-label case-label">Geotechnical + reinforced-concrete design</p>
+            <p class="technical-label case-label">Geotechnical + reinforced concrete design</p>
             <h2 class="project-title">Foundation &amp; Pile Design</h2>
-            <p class="project-summary">Design and verification of isolated foundations and low pile caps, including soil-layer interpretation, axial pile capacity, load distribution, reinforced-concrete checks, anchorage, and construction detailing.</p>
+            <p class="project-summary">Design and verification of isolated foundations and low pile caps, including soil-layer interpretation, axial pile capacity, load distribution, reinforced concrete checks, anchorage, and construction detailing.</p>
             <div class="tags"><span>Soil mechanics</span><span>Drilled shaft</span><span>Low pile cap</span><span>TCVN 10304</span><span>TCVN 9393</span></div>
             <details class="project-details">
-              <summary role="button" aria-expanded="false" aria-controls="foundation-pile-design-scope">Project details</summary>
+              <summary aria-expanded="false" aria-controls="foundation-pile-design-scope">Project details</summary>
               <div class="project-details__body" id="foundation-pile-design-scope">
-                <h3>Verified project scope</h3>
-                <p>The current portfolio source documents a foundation-design workflow spanning ground interpretation, pile capacity, load transfer, reinforced-concrete verification, and detailing.</p>
+                <h3>Project scope</h3>
+                <p>This coursework project covers a complete foundation-design workflow spanning geotechnical ground interpretation, axial pile capacity evaluation, load transfer analysis, reinforced concrete verification, and structural detailing.</p>
                 <ul><li>Interpret soil layers for foundation selection.</li><li>Assess axial pile capacity and load distribution.</li><li>Check isolated foundations and low pile caps.</li><li>Address reinforcement, anchorage, and construction detailing.</li></ul>
               </div>
             </details>
@@ -623,9 +623,9 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
             <p class="project-summary">Comparative technical study of slip, climbing, flying, and horizontally movable formwork systems, with emphasis on load paths, temporary stability, constructability, work cycles, and job-site safety.</p>
             <div class="tags"><span>Slip form</span><span>Climbing form</span><span>Flying form</span><span>ACI 347</span><span>EN 12812</span></div>
             <details class="project-details">
-              <summary role="button" aria-expanded="false" aria-controls="modern-formwork-technology-scope">Project details</summary>
+              <summary aria-expanded="false" aria-controls="modern-formwork-technology-scope">Project details</summary>
               <div class="project-details__body" id="modern-formwork-technology-scope">
-                <h3>Verified project scope</h3>
+                <h3>Project scope</h3>
                 <p>The study compares four modern formwork approaches through structural behaviour and construction delivery considerations.</p>
                 <ul><li>Compare slip, climbing, flying, and horizontally movable systems.</li><li>Review load paths and temporary stability.</li><li>Consider constructability and work cycles.</li><li>Address job-site safety within the comparison.</li></ul>
               </div>
@@ -644,7 +644,7 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
     <div class="container spec-grid">
       <div><p class="kicker">Engineering toolkit</p><h2>From analysis to technical delivery.</h2></div>
       <div class="capabilities">
-        <div class="capability"><span>01</span><strong>Analysis</strong><p>ETABS · SAP2000 · Robot Structural Analysis · Plaxis</p></div>
+        <div class="capability"><span>01</span><strong>Analysis</strong><p>ETABS · SAP2000 · Robot Structural Analysis · PLAXIS</p></div>
         <div class="capability"><span>02</span><strong>BIM &amp; drawings</strong><p>Revit · AutoCAD · coordinated construction documentation</p></div>
         <div class="capability"><span>03</span><strong>Standards</strong><p>Vietnamese standards supported by selected ACI and EN references</p></div>
       </div>
@@ -657,7 +657,7 @@ footer{padding:30px;background:var(--dark);color:#c1c9c4;border-top:1px solid rg
 <dialog class="lightbox" id="lightbox" aria-labelledby="lightboxTitle" aria-describedby="lightboxCaption">
   <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image viewer">×</button>
   <figure>
-    <div class="lightbox-media"><img id="lightboxImage" src="assets/images/projects/pbl5/structural-bim-kc07.png" alt=""></div>
+    <div class="lightbox-media"><img id="lightboxImage" src="assets/images/projects/pbl5/structural-bim-kc07.png" alt="3D Autodesk Revit structural steel BIM model of the 23-bay 30 m × 149.5 m industrial factory (Sheet KC-07)"></div>
     <figcaption><strong id="lightboxTitle">Project image</strong><span id="lightboxCaption"></span></figcaption>
   </figure>
 </dialog>
