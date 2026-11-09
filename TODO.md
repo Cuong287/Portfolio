@@ -17,6 +17,7 @@ Chỉ orchestrator (Claude) được sửa file này. Cập nhật lần cuối:
 - [x] 02-T02 Xóa 4 ảnh pbl3/ không dùng + 2 screenshot "before" + thư mục pbl3/ rỗng | Codex | đã merge vào main
 - [x] 03-review Rà soát nội dung index/academic-projects/awards.html (chỉ đọc, không sửa) | Antigravity | đã duyệt, đã trình người dùng
 - [x] 04-content-fixes Sửa 21 mục (13 lỗi "chắc chắn" từ 03-review) | Codex | đã merge vào main
-- [x] 05-style-fixes Nhóm B (chính tả Anh-Anh, bỏ "Verified", thống nhất tons/Grade 8.8, bỏ tên file .xlsm) | Claude sửa trực tiếp | đã commit + push
+- [x] 05-style-fixes Nhóm B (chính tả Anh-Anh, bỏ "Verified", thống nhất tons/Grade 8.8, bỏ tên file .xlsm) | Claude sửa trực tiếp | đã commit
 - [x] 05-tmp Xóa `tmp/pdf-recrop/` (và `tmp/` rỗng) theo quyết định người dùng
-- [x] 06-white-bg Đổi nền 4 trang portfolio từ kem (#f3f0e8) sang trắng; dải phụ --paper-deep → xám trung tính #f4f4f2 (slab-design giữ nguyên) | Claude | đã commit + push
+- [x] 06-white-bg Đổi nền 4 trang portfolio từ kem (#f3f0e8) sang trắng; dải phụ --paper-deep → xám trung tính #f4f4f2 (slab-design giữ nguyên) | Claude | đã commit
+- [x] 07-gbc-palette Đổi bảng màu theo gbc-engineers.com: nhấn cobalt #0019B3 (biến --accent), chữ #292929, xám trung tính thay xám ngả xanh lá, khối Contact nền cobalt, nút chính cobalt; giữ bố cục + phông | Claude | đã commit
