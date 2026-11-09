@@ -16,8 +16,8 @@
   --paper-deep:#f6f6f6;
   --ink:#292929;
   --muted:#707070;
-  --sage:var(--accent);
-  --steel:var(--accent);
+  --sage:#737373;
+  --steel:#4d4d4d;
   --line:#d9d9d9;
   --white:#ffffff;
   --dark:#181818;
@@ -84,7 +84,7 @@ header{
   left:0;
   height:1px;
   content:"";
-  background:var(--sage);
+  background:var(--accent);
   transform:scaleX(0);
   transform-origin:left;
   transition:transform .2s ease;
@@ -116,9 +116,9 @@ header{
   top:64px;
   bottom:62px;
   left:max(2vw,24px);
-  width:4px;
+  width:3px;
   content:"";
-  background:var(--sage);
+  background:var(--accent);
 }
 .hero-section-label{
   position:absolute;
@@ -237,8 +237,8 @@ h1{
   border:1px solid rgba(41,41,41,.72);
   border-radius:50%;
   background:
-    linear-gradient(rgba(0,25,179,.08) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,25,179,.08) 1px,transparent 1px),
+    linear-gradient(rgba(41,41,41,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(41,41,41,.08) 1px,transparent 1px),
     rgba(214,214,214,.36);
   background-size:38px 38px;
   box-shadow:0 26px 78px rgba(48,48,48,.09);
@@ -247,10 +247,10 @@ h1{
   position:absolute;
   z-index:-1;
   content:"";
-  border:1px solid rgba(0,25,179,.26);
+  border:1px solid rgba(41,41,41,.26);
 }
-.portrait::before{width:134%;height:28px;right:-23%;bottom:21%;background:rgba(0,25,179,.05)}
-.portrait::after{width:58px;height:82%;right:8%;bottom:-34%;background:rgba(0,25,179,.05)}
+.portrait::before{width:134%;height:28px;right:-23%;bottom:21%;background:rgba(41,41,41,.05)}
+.portrait::after{width:58px;height:82%;right:8%;bottom:-34%;background:rgba(41,41,41,.05)}
 .portrait-frame{
   position:relative;
   width:100%;
@@ -341,8 +341,8 @@ section{padding:108px 0}
 
 .portfolio-section{
   background:
-    linear-gradient(rgba(0,25,179,.055) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(0,25,179,.055) 1px,transparent 1px),
+    linear-gradient(rgba(41,41,41,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(41,41,41,.055) 1px,transparent 1px),
     var(--paper-deep);
   background-size:64px 64px;
   border-top:1px solid var(--line);
@@ -364,7 +364,7 @@ section{padding:108px 0}
   border:0;
   border-right:1px solid var(--line);
   border-radius:0;
-  background:rgba(255,255,255,.48);
+  background:var(--white);
   box-shadow:none;
   transition:background .22s ease,transform .22s ease;
 }
@@ -376,7 +376,7 @@ section{padding:108px 0}
   width:180px;
   height:180px;
   content:"";
-  border:1px solid rgba(0,25,179,.3);
+  border:1px solid rgba(41,41,41,.3);
   border-radius:50%;
   transition:transform .35s ease;
 }
@@ -387,8 +387,9 @@ section{padding:108px 0}
   width:72px;
   height:100px;
   content:"";
-  border:1px solid rgba(0,25,179,.35);
-  background:rgba(0,25,179,.06);
+  border:1px solid #cfcfcf;
+  border-top:3px solid var(--accent);
+  background:var(--white);
 }
 .card:hover{z-index:2;background:var(--white);transform:translateY(-6px)}
 .card:hover::before{transform:scale(1.08)}

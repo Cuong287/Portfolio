@@ -21,3 +21,4 @@ Chỉ orchestrator (Claude) được sửa file này. Cập nhật lần cuối:
 - [x] 05-tmp Xóa `tmp/pdf-recrop/` (và `tmp/` rỗng) theo quyết định người dùng
 - [x] 06-white-bg Đổi nền 4 trang portfolio từ kem (#f3f0e8) sang trắng; dải phụ --paper-deep → xám trung tính #f4f4f2 (slab-design giữ nguyên) | Claude | đã commit
 - [x] 07-gbc-palette Đổi bảng màu theo gbc-engineers.com: nhấn cobalt #0019B3 (biến --accent), chữ #292929, xám trung tính thay xám ngả xanh lá, khối Contact nền cobalt, nút chính cobalt; giữ bố cục + phông | Claude | đã commit
+- [x] 08-accent-restraint Phương án A sau đánh giá của agent: cobalt chỉ làm tín hiệu (số mục, nút, gạch nav, vạch hero, viền trên ô trang trí, khối Contact); bỏ mọi tint cobalt nhạt (ngả tím) → xám trung tính; nhãn #737373, nhấn phụ #4d4d4d; thẻ nền trắng đặc | Claude | đã commit
