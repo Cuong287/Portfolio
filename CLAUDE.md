@@ -17,7 +17,7 @@ sàn bê tông theo TCVN 5574:2018 (HTML/CSS/JS thuần, có test engine riêng)
   - `slab-design/` — app con tính cốt thép sàn (TCVN 5574:2018): `index.html`, `app.js`, `engine.js`,
     `styles.css`, `calculator-refinement.css`, `docs/` (spec + verification register), `tests/`
     (regression test bằng Node `assert`, không dùng framework test).
-  - `tmp/pdf-recrop/` — thư mục scratch tạm (không tracked).
+  - `tmp/` — thư mục scratch tạm (gitignored; `tmp/pdf-recrop/` đã xóa 2026-11-10).
 - Quy ước đặt tên/định dạng: tên file kebab-case; `slab-design/` có `AGENTS.md` riêng quy định
   ranh giới (không sửa code ngoài `slab-design/**` khi làm việc trong app này, giữ nguyên
   kiến trúc HTML/CSS/JS thuần, không đổi công thức kỹ thuật để "cho qua" test).
