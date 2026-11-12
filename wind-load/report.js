@@ -137,7 +137,7 @@ const TM = (() => {
     C: 'bị che chắn mạnh, có nhiều vật cản sát nhau cao từ 10 m trở lên (trong thành phố, vùng rừng rậm...)',
   };
 
-  function build(inp, R, meta) {
+  function build(inp, R, meta, CB) {
     const W = WIND, B = [];
     const T = d => W.TERRAIN[R.dirs[d].terrain];
     const same = inp.terrainX === inp.terrainY;
@@ -307,7 +307,36 @@ const TM = (() => {
       ['Mô men lật tính toán tại chân (kN·m)', fmt(X.Mtt, 0), fmt(Y.Mtt, 0)],
     ], { widths: [50, 25, 25], align: ['l', 'c', 'c'] });
 
-    h1('8. GHI CHÚ');
+    if (CB) {
+      const P = CB.params, cfg = CB.cfg, CO = COMBO;
+      const f2 = v => fmt(v, 2), fc = v => { const r = CO.round(v), t = String(+Math.abs(r).toFixed(4)).replace('.', ','); return (r < 0 ? '–' : '') + t; };
+      h1('8. TỔ HỢP TẢI TRỌNG');
+      p('Tổ hợp tải trọng lập theo mục 6 [1]: tổ hợp cơ bản theo công thức (1), tổ hợp đặc biệt theo công thức (2)', cfg.eq ? '; tổ hợp có tải trọng động đất theo TCVN 9386:2012 [3]' : '', '. Hệ số trong bảng là hệ số nhân với giá trị của từng trường hợp tải khai báo trong mô hình.');
+      eq('C_m = γ_n·\\(∑γ_{f,i}·G_{k,i} + ∑γ_{f,j}·ψ_{L,j}·Q_{k,L,j} + ∑γ_{f,m}·ψ_{t,m}·Q_{k,t,m}\\)', '(1)');
+      if (cfg.xcc) eq('C_a = ∑γ_{f,i}·G_{k,i} + ∑γ_{f,j}·ψ_{L,j}·Q_{k,L,j} + ∑γ_{f,m}·ψ_{t,m}·Q_{k,t,m} + A_d', '(2)');
+      const caseRows = CO.CASES.filter(k => CB.used.includes(k)).map(k => [CO.nameOf(cfg, k), CO.CASE_DESC[k],
+        k === 'WX' || k === 'WY' ? 'Giá trị tiêu chuẩn Wtc (mục 7)' : k === 'XCC' ? 'Giá trị tính toán qd (8.6.2)' : k === 'EX' || k === 'EY' ? 'Tác động thiết kế (TCVN 9386)' : 'Giá trị tiêu chuẩn']);
+      tbl('Bảng 10. Các trường hợp tải', ['Tên', 'Trường hợp tải', 'Giá trị khai báo'], caseRows, { widths: [16, 40, 44], align: ['l', 'l', 'l'] });
+      const gfr = (lab, k) => [lab, f2(P.b[k]), cfg.xcc ? f2(P.a[k]) : '—', '1,00'];
+      tbl('Bảng 11. Hệ số dùng lập tổ hợp', ['Hệ số', 'Tổ hợp cơ bản', 'Tổ hợp đặc biệt', 'TTGH2'], [
+        ['Hệ số tầm quan trọng γn (Bảng H.1, H.3)', f2(P.gn), '—', '1,00'],
+        gfr('γf bản thân kết cấu DL (Bảng 1)', 'DL'), gfr('γf hoàn thiện SDL (Bảng 1)', 'SDL'), gfr('γf tường WALL (Bảng 1)', 'WALL'), gfr('γf hoạt tải LL (8.3.5)', 'LL'),
+        ['γf tải trọng gió (10.1.6)', f2(P.gfWind), cfg.xcc ? f2(P.gfWind) : '—', '1,00'],
+        ['ψt tải ngắn hạn chủ đạo / thứ hai (6.4, 6.5)', `${f2(P.psiB[0])} / ${f2(P.psiB[1])}`, cfg.xcc ? `${f2(P.psiA[0])} / ${f2(P.psiA[1])}` : '—', `${f2(P.psiB[0])} / ${f2(P.psiB[1])}`],
+        ...(cfg.eq ? [['ψ2 hoạt tải trong tổ hợp động đất (' + P.catText + ')', fmt(P.psi2, 1), '—', '—']] : []),
+        ['Hệ số giảm hoạt tải (giá trị tiêu chuẩn giảm, 8.3.3)', '—', '—', f2(P.llRed)],
+      ], { widths: [52, 16, 16, 16], align: ['l', 'c', 'c', 'c'] });
+      const cols = CB.used, hd = ['Tổ hợp', ...cols.map(k => CO.nameOf(cfg, k))];
+      const rowOf = r => [r.name, ...cols.map(k => r.f[k] == null ? '' : fc(r.f[k]))];
+      tbl(`Bảng 12. Tổ hợp tải trọng TTGH1 (${CB.uls.length} tổ hợp)`, hd, CB.uls.map(rowOf), { align: ['l', ...cols.map(() => 'c')], small: true });
+      tbl(`Bảng 13. Tổ hợp tải trọng TTGH2 (${CB.sls.length} tổ hợp)`, hd, CB.sls.map(rowOf), { align: ['l', ...cols.map(() => 'c')], small: true });
+      const grpTxt = { 'co-ban': 'tổ hợp cơ bản', 'dong-dat': 'tổ hợp có động đất', 'dac-biet': 'tổ hợp đặc biệt có xe chữa cháy' };
+      const ranges = [];
+      for (const r of CB.uls) { const L = ranges[ranges.length - 1]; if (L && L.g === r.group) L.b = r.name; else ranges.push({ g: r.group, a: r.name, b: r.name }); }
+      p('Trong Bảng 12: ', ranges.map(x => `${x.a.replace('Combo-TTGH1-', '')}–${x.b.replace('Combo-TTGH1-', '')}: ${grpTxt[x.g]}`).join('; '), '. Tổ hợp TTGH2 cuối cùng dùng giá trị tiêu chuẩn giảm của hoạt tải (8.3.3 [1]).');
+    }
+
+    h1(CB ? '9. GHI CHÚ' : '8. GHI CHÚ');
     const notes = [...R.warn, ...R.note];
     for (const D of ['X', 'Y']) if (R.dirs[D].gfE) notes.push(`Gió ${DIRNAME[D]}: Gf tính sơ bộ theo Phụ lục E.1 [1] = ${fmt(R.dirs[D].gfE, 3)} (chỉ để đối chiếu; kết quả dùng Gf = ${fmt(R.dirs[D].gust.Gf, 4)} theo công thức (13)).`);
     notes.push('Lực gió đặt tại tâm hình học của sàn; mô men xoắn WMz (10.2.1, phương án hai) chưa được xét trong thuyết minh này.');
@@ -318,6 +347,7 @@ const TM = (() => {
     h1('TÀI LIỆU THAM KHẢO');
     p('[1] TCVN 2737:2023 Tải trọng và tác động.');
     p('[2] QCVN 02:2022/BXD Quy chuẩn kỹ thuật quốc gia về Số liệu điều kiện tự nhiên dùng trong xây dựng.');
+    if (CB && CB.cfg.eq) p('[3] TCVN 9386:2012 Thiết kế công trình chịu động đất.');
     return B;
   }
 

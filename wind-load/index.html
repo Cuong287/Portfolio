@@ -119,11 +119,23 @@
       <button role="tab" aria-selected="true" data-tab="tLoad" type="button">Tải trọng tầng</button>
       <button role="tab" aria-selected="false" data-tab="tGf" type="button">Hệ số Gf</button>
       <button role="tab" aria-selected="false" data-tab="tAero" type="button">Hệ số khí động</button>
+      <button role="tab" aria-selected="false" data-tab="tCombo" type="button">Tổ hợp tải trọng</button>
       <button role="tab" aria-selected="false" data-tab="tTM" type="button">Thuyết minh</button>
     </div>
     <div class="pane" id="tLoad"></div>
     <div class="pane" id="tGf" hidden></div>
     <div class="pane" id="tAero" hidden></div>
+    <div class="pane" id="tCombo" hidden>
+      <div class="cbform" id="cbForm"></div>
+      <div class="alert n cbnote" id="cbNote"></div>
+      <div id="cbTables"></div>
+      <div class="row cbexp">
+        <button class="btn" id="bCbCsv" type="button">Tải bảng tổ hợp cho ETABS (.csv)</button>
+        <button class="btn" id="bCbCopy" type="button">Sao chép để dán vào ETABS</button>
+      </div>
+      <p class="hint">Bảng xuất theo mẫu “Load Combination Definitions” của ETABS (Name, Type, Is Auto, Load Name, SF), mỗi dòng một trường hợp tải. Tên trường hợp tải phải trùng tên trong mô hình. Sau khi nhập, kiểm tra lại số tổ hợp và hệ số trong ETABS.</p>
+      <div class="status" id="cbMsg" role="status"></div>
+    </div>
     <div class="pane" id="tTM" hidden><div class="paper tm" id="tmPrev"></div></div>
   </section>
   <section class="card">
@@ -155,6 +167,7 @@
 </main>
 
 <script src="engine.js"></script>
+<script src="combos.js"></script>
 <script src="report.js"></script>
 <script src="view3d.js"></script>
 <script src="data/qcvn02-2022-bang-5-1.js"></script>

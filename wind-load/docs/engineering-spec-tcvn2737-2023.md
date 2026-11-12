@@ -11,11 +11,12 @@ Nguồn gốc: chuyển từ bảng tính Cemcons_Wind_TCVN_2737-2023_Ver4.8.xls
 | `engine.js` | phần tính: ze, k(ze), Gf, F.4/F.16, lực tầng, mặt đất tự nhiên (`WIND`) |
 | `report.js` | thuyết minh: dựng nội dung, xuất .docx (OMML) và bản in .html (`TM`) |
 | `view3d.js` | mô hình 3D tự vẽ trên canvas (`View3D`) |
+| `combos.js` | tổ hợp tải trọng TTGH1/TTGH2 cho ETABS (`COMBO`) |
 | `app.js` | điều khiển giao diện, sơ đồ mặt đứng, mặt bằng chia vùng, xuất file, lưu hồ sơ |
 | `data/qcvn02-2022-bang-5-1.js` | QCVN 02:2022/BXD Bảng 5.1 (`QC`) |
 | `tests/` | regression test bằng Node `assert` |
 
-Tiêu chuẩn tham chiếu: TCVN 2737:2023 (mục 10, Phụ lục E, F); QCVN 02:2022/BXD (mục 5.2–5.3, Bảng 5.1, 5.2).
+Tiêu chuẩn tham chiếu: TCVN 2737:2023 (mục 6, 7, 8, 10, Phụ lục E, F, H); QCVN 02:2022/BXD (mục 5.2–5.3, Bảng 5.1, 5.2); TCVN 9386:2012 (tổ hợp động đất).
 
 ## Quyết định đã chốt (10/11/2026)
 1. Hình F.22 tại d/b = 1: lấy theo Excel (đường thẳng log, cx∞ ≈ 2,15), không lấy nhãn 2,1.
@@ -53,6 +54,19 @@ Tiêu chuẩn tham chiếu: TCVN 2737:2023 (mục 10, Phụ lục E, F); QCVN 02
 - Xuất: thuyết minh .docx, bản in .html, CSV lực tầng cho ETABS (có cột cao độ và chiều cao trên MĐTN), hồ sơ .json; lưu hồ sơ trong tài khoản.
 - Trực quan (tab Tải trọng tầng): sơ đồ mặt đứng lực tại sàn / áp lực Wk (cùng tỉ lệ hai phương, rê chuột xem chi tiết); mô hình 3D tự vẽ (xoay, phóng to, góc nhìn có sẵn) với lớp lực tầng và lớp vùng ce F.4.
 - Tab Hệ số khí động: mặt bằng chia vùng A, B, C, D, E theo Hình F.5a cho từng phương (khi h/d ≤ 5).
+
+## Tổ hợp tải trọng (tab "Tổ hợp tải trọng", 12/11/2026)
+Nguồn: Cemcons.vn_THTT_TCVN_2737-2023._VER3.xlsx. Quyết định của người dùng: giữ nguyên cách lập của Excel (kể cả các điểm lệch nêu dưới); γf cho chọn theo tiêu chuẩn; không thêm tổ hợp 0,9·DL + gió.
+- Trường hợp tải: DL, SDL, WALL, LL, WX, WY, EX, EY, XCC (đổi tên được cho khớp mô hình ETABS).
+- TTGH1 cơ bản (13, công thức 1): γn·γf·ψt; ψt = 1,0 chủ đạo / 0,9 thứ hai (6.4); gió γf = 2,1 (10.1.6). γn theo Bảng H.1 (0,87 / 1,00 / 1,15; ≥ 1,2 cho nhà > 250 m, mái nhịp > 120 m).
+- TTGH1 động đất (16, TCVN 9386): 1,0·(DL+SDL+WALL) ± EX ± 0,3EY và ngược lại; 8 tổ hợp không hoạt tải + 8 tổ hợp có ψ₂·LL. ψ₂ theo loại sàn A–H (0,3/0,3/0,6/0,6/0,8/0,6/0,3/0).
+- TTGH1 đặc biệt có xe chữa cháy (13, công thức 2, không nhân γn): ψt = 0,5 / 0,3 (6.5); XCC hệ số 1 (khai báo giá trị tính toán 8.6.2).
+- TTGH2 (14): γf = 1 (4.2 b), γn = 1 (H.3); tổ hợp cuối dùng 0,35·LL (giá trị tiêu chuẩn giảm, 8.3.3).
+- γf chọn được: hằng tải theo Bảng 1 (1,05 / 1,1 / 1,2 / 1,3 / đất 1,1 / 1,15); hoạt tải 1,3 (8.3.5 a) hoặc 1,2 (bãi đỗ xe 8.5.5; kho, xe bốc xếp Bảng 3). Mặc định như Excel: cơ bản DL 1,1, SDL 1,2, WALL 1,1, LL 1,3; đặc biệt DL 1,1, SDL 1,2, WALL 1,3, LL 1,3.
+- Gió trong ETABS khai báo giá trị tiêu chuẩn (cột FX_tc, FY_tc), vì hệ số tổ hợp đã gồm 2,1.
+- Đã đối chiếu trực tiếp bản PDF TCVN 2737:2023 (trang 11–17, 21–23, 88) ngày 12/11/2026.
+- Điểm lệch so với tiêu chuẩn đã báo người dùng, giữ theo Excel: (1) tổ hợp 35–38 hoạt tải lấy ψ = 0,5 cùng lúc với gió chủ đạo (6.5 chỉ một tải chủ đạo, phần còn lại 0,3); (2) WALL 1,3 ở nhóm xe chữa cháy, 1,1 ở nhóm cơ bản (Bảng 1: khối xây 1,1; tường ngăn tạm thời là tải tạm thời dài hạn theo 5.4 a, nhưng khi là tải dài hạn duy nhất thì ψL,1 = 1 (6.3) nên hệ số tổ hợp không đổi so với coi là thường xuyên); (3) công thức TTGH2 của SDL/WALL tham chiếu nhầm ô trong Excel – không ảnh hưởng vì mọi hệ số bằng 1; (4) chưa có tổ hợp 0,9·DL + gió (7.3).
+- Xuất: bảng Load Combination Definitions (Name, Type, Is Auto, Load Name, SF) dạng .csv hoặc sao chép; mục 8 trong thuyết minh (Bảng 10–13), tắt được.
 
 ## Chưa làm / giới hạn
 - Chưa xét mô men xoắn WMz, kích động xoáy, mái/tường chắn mái, Phụ lục C (mốc chuẩn mặt đất dốc), kiểm tra chuyển vị Bảng G.5.

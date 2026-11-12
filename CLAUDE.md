@@ -22,7 +22,8 @@ TCVN 2737:2023 (HTML/CSS/JS thuần, có test engine riêng), được gắn lin
     (regression test bằng Node `assert`, không dùng framework test).
   - `wind-load/` — app con tính tải trọng gió (TCVN 2737:2023, chuyển từ Excel Cemcons Wind v4.8):
     `index.html`, `styles.css`, `engine.js` (tính toán), `report.js` (thuyết minh .docx/bản in),
-    `view3d.js` (mô hình 3D), `app.js`, `data/qcvn02-2022-bang-5-1.js` (QCVN 02:2022 Bảng 5.1),
+    `view3d.js` (mô hình 3D), `combos.js` (tổ hợp tải trọng cho ETABS), `app.js`,
+    `data/qcvn02-2022-bang-5-1.js` (QCVN 02:2022 Bảng 5.1),
     `docs/` (spec + verification register), `tests/` (regression test bằng Node `assert`).
   - `tmp/` — thư mục scratch tạm (gitignored; `tmp/pdf-recrop/` đã xóa 2026-11-10).
 - Quy ước đặt tên/định dạng: tên file kebab-case; `slab-design/` có `AGENTS.md` riêng quy định
@@ -31,7 +32,8 @@ TCVN 2737:2023 (HTML/CSS/JS thuần, có test engine riêng), được gắn lin
 
 ## Lệnh kiểm chứng
 - Test: `node slab-design/tests/engine-regression.test.js` (regression test cho engine tính
-  cốt thép) và `node wind-load/tests/engine-regression.test.js` (engine tải trọng gió);
+  cốt thép), `node wind-load/tests/engine-regression.test.js` (engine tải trọng gió) và
+  `node wind-load/tests/combos.test.js` (tổ hợp tải trọng);
   trang portfolio chính chưa có test tự động.
 - Lint/typecheck: chưa có.
 - Build: không cần build (site tĩnh, mở trực tiếp file HTML hoặc serve qua static server).
@@ -46,6 +48,8 @@ TCVN 2737:2023 (HTML/CSS/JS thuần, có test engine riêng), được gắn lin
 - Code (JS trong `wind-load/`): chạy `node wind-load/tests/engine-regression.test.js`, kiểm tra
   7 nhóm `PASS`. Thay đổi công thức phải đối chiếu `wind-load/docs/engineering-spec-tcvn2737-2023.md`,
   TCVN 2737:2023 và file Excel benchmark `Cemcons_Wind_TCVN_2737-2023_Ver4.8.xlsm`.
+  Tổ hợp tải trọng (`combos.js`): chạy `node wind-load/tests/combos.test.js` (7 nhóm `PASS`),
+  đối chiếu mục 6 TCVN 2737:2023 và Excel `Cemcons.vn_THTT_TCVN_2737-2023._VER3.xlsx`.
 - Web: mở thử trang trong browser (desktop + mobile viewport), kiểm tra console không lỗi,
   kiểm tra luồng chính: điều hướng giữa các trang, lightbox ảnh, scroll-spy nav.
 - Tài liệu/nội dung: đối chiếu số liệu/giải thưởng/dự án với nguồn gốc (hồ sơ cá nhân),

@@ -14,7 +14,7 @@
       meta: { project: 'Nhà văn phòng 7 tầng (ví dụ)', item: 'Khối nhà chính', address: 'Huyện Thường Tín, TP Hà Nội', author: '', checker: '', date: new Date().toLocaleDateString('vi-VN'), periodSource: 'ETABS' },
       site: { prov: hn, row, manual: false, zone: 'II', W0: 95, V3s50: 44, source: '' },
       B: 30, L: 21, Tx: 2.312, Ty: 1.929, terrainX: 'B', terrainY: 'B', terrainSplit: false, struct: 'rc', gRef: '', gRel: 'eq', gVal: 0,
-      gen: { n: 7, h: 4.2, h1: 4.5 }, stories,
+      gen: { n: 7, h: 4.2, h1: 4.5 }, stories, combo: COMBO.defaults(),
     };
   }
   function blank() {
@@ -34,6 +34,7 @@
     delete s.zGround;
     if (s.gRel == null) { const c = +s.cotDat || 0; s.gRef = s.lv0 || ''; s.gRel = Math.abs(c) < 5e-4 ? 'eq' : c < 0 ? 'below' : 'above'; s.gVal = Math.abs(c); } // bản dùng cốt ±0.000
     delete s.lv0; delete s.cotDat;
+    s.combo = COMBO.normalize(s.combo); // hồ sơ trước khi có tab tổ hợp: lấy mặc định như bảng tính gốc
     return s;
   };
   migrate(S);
@@ -91,7 +92,7 @@
     $('iTerX').value = S.terrainX; $('iTerY').value = S.terrainY; $('iStruct').value = S.struct;
     $('chkTerSplit').checked = !!S.terrainSplit; terMode();
     $('gN').value = S.gen.n; $('gH').value = S.gen.h; $('gH1').value = S.gen.h1;
-    siteMode(); renderStories();
+    siteMode(); renderStories(); renderComboForm();
   }
   function fillRows() {
     const p = QC[S.site.prov];
@@ -464,8 +465,91 @@
       <svg viewBox="0 0 ${W} ${Hh}" role="img" aria-label="Mặt bằng chia vùng áp lực gió phương ${D}">${g}</svg>
       <p class="hint" style="margin:2px 0 0">e = min(b; 2h) = ${F(a.e, 2)} m (${a.cas}). Dải cam: áp lực đẩy vào tường; dải xanh: hút ra. Độ dày dải tỉ lệ với |c<sub>e</sub>|. Dùng tính lực tầng: c = |c<sub>D</sub>| + |c<sub>E</sub>| = ${F(d.c, 3)}${d.method === 'F4' ? '' : ' (phương này đang dùng F.16)'}.</p></div>`;
   }
-  function tmBlocks() { return TM.build(lastInp, R, S.meta); }
+  function tmBlocks() { return TM.build(lastInp, R, S.meta, S.combo.inTM ? COMBO.build(S.combo) : null); }
   function renderTM() { if (R) $('tmPrev').innerHTML = TM.html(tmBlocks()); }
+
+
+  // ---------- tổ hợp tải trọng (TCVN 2737:2023 mục 6; TCVN 9386:2012) ----------
+  const C = COMBO;
+  const fc = v => { const r = C.round(v); const t = String(+Math.abs(r).toFixed(4)).replace('.', ','); return (r < 0 ? '−' : '') + t; };
+  const opts = (tbl, cur, fmtv) => Object.entries(tbl).map(([k, o]) => `<option value="${k}"${k === cur ? ' selected' : ''}>${fmtv(o.v)} – ${esc(o.t)}</option>`).join('');
+  function renderComboForm() {
+    const c = S.combo;
+    const gfRow = (k, lab) => {
+      const tbl = k === 'LL' ? C.GF_LIVE : C.GF_PERM;
+      return `<tr><td>${esc(lab)}</td>${['b', 'a'].map(g => `<td><select data-cg="${g}" data-ck="${k}" aria-label="γf ${k} – ${g === 'b' ? 'tổ hợp cơ bản' : 'tổ hợp đặc biệt'}">${opts(tbl, c[g][k], v => F(v, 2))}</select></td>`).join('')}</tr>`;
+    };
+    $('cbForm').innerHTML = `
+      <div class="grid2">
+        <label class="field"><span>Cấp hậu quả công trình – hệ số tầm quan trọng γ<sub>n</sub> (Bảng H.1)</span><select id="cGn">${opts(C.GN, c.gn, v => 'γn = ' + F(v, 2))}</select></label>
+        <label class="field"><span>Loại sàn – hệ số ψ<sub>2</sub> cho tổ hợp động đất</span><select id="cCat">${opts(C.PSI2, c.cat, v => 'ψ₂ = ' + F(v, 1))}</select></label>
+      </div>
+      <div class="row cbchk">
+        <label class="check"><input type="checkbox" id="cEq"${c.eq ? ' checked' : ''}>Tổ hợp có động đất (EX, EY – TCVN 9386)</label>
+        <label class="check"><input type="checkbox" id="cXcc"${c.xcc ? ' checked' : ''}>Tổ hợp đặc biệt có xe chữa cháy (XCC – 8.6)</label>
+        <label class="check"><input type="checkbox" id="cInTM"${c.inTM ? ' checked' : ''}>Đưa vào thuyết minh</label>
+      </div>
+      <details class="cbdet"><summary>Hệ số độ tin cậy về tải trọng γ<sub>f</sub> (TTGH1)</summary>
+        <div class="tw"><table class="res cbgf"><thead><tr><th>Trường hợp tải</th><th>Tổ hợp cơ bản – công thức (1)</th><th>Tổ hợp đặc biệt (XCC) – công thức (2)</th></tr></thead><tbody>
+          ${gfRow('DL', 'DL – Bản thân kết cấu')}${gfRow('SDL', 'SDL – Hoàn thiện')}${gfRow('WALL', 'WALL – Tường')}${gfRow('LL', 'LL – Hoạt tải')}
+          <tr><td>WX, WY – Gió</td><td class="fx">2,1 (10.1.6)</td><td class="fx">2,1 (10.1.6)</td></tr>
+        </tbody></table></div>
+        <p class="hint">Giá trị theo Bảng 1 (hằng tải); 8.3.5, 8.5.5 và Bảng 3 (hoạt tải). Mặc định như bảng tính gốc. Hệ số tổ hợp ψ<sub>t</sub>: tổ hợp cơ bản 1,0 / 0,9 (6.4); tổ hợp đặc biệt 0,5 / 0,3 (6.5). TTGH2: γ<sub>f</sub> = 1,0 (4.2 b), γ<sub>n</sub> = 1,0 (H.3).</p>
+      </details>
+      <details class="cbdet"><summary>Tên trường hợp tải trong mô hình ETABS</summary>
+        <div class="cbnames">${C.CASES.map(k => `<label class="field"><span>${k} – ${esc(C.CASE_DESC[k])}</span><input type="text" data-cn="${k}" value="${esc(c.names[k])}" spellcheck="false"></label>`).join('')}</div>
+      </details>`;
+    renderComboTables();
+  }
+  function renderComboTables() {
+    const res = C.build(S.combo), c = res.cfg, P = res.params;
+    const cols = res.used;
+    const head = `<tr><th>Tổ hợp</th>${cols.map(k => `<th>${esc(C.nameOf(c, k))}${C.nameOf(c, k) !== k ? `<small>${k}</small>` : ''}</th>`).join('')}<th>Diễn giải</th></tr>`;
+    const row = r => `<tr><td class="nm">${r.name}</td>${cols.map(k => r.f[k] == null ? '<td class="z">·</td>' : `<td${r.f[k] < 0 ? ' class="neg"' : ''}>${fc(r.f[k])}</td>`).join('')}<td class="ds">${esc(r.desc)}</td></tr>`;
+    const grp = t => `<tr class="grp"><td colspan="${cols.length + 2}">${t}</td></tr>`;
+    const GT = {
+      'co-ban': `Tổ hợp cơ bản – công thức (1), γ<sub>n</sub> = ${F(P.gn, 2)}`,
+      'dong-dat': `Tổ hợp có động đất – TCVN 9386, ψ<sub>2</sub> = ${F(P.psi2, 1)} (${esc(P.catText)})`,
+      'dac-biet': 'Tổ hợp đặc biệt có xe chữa cháy – công thức (2), không nhân γ<sub>n</sub>',
+    };
+    let b1 = '', last = '';
+    for (const r of res.uls) { if (r.group !== last) { b1 += grp(GT[r.group]); last = r.group; } b1 += row(r); }
+    $('cbTables').innerHTML = `
+      <div class="cbt"><h3 class="sub">TTGH1 – trạng thái giới hạn thứ nhất<span class="chip">${res.uls.length} tổ hợp</span></h3>
+        <div class="tw"><table class="res cbm"><thead>${head}</thead><tbody>${b1}</tbody></table></div></div>
+      <div class="cbt"><h3 class="sub">TTGH2 – trạng thái giới hạn thứ hai<span class="chip">${res.sls.length} tổ hợp</span></h3>
+        <div class="tw"><table class="res cbm"><thead>${head}</thead><tbody>${grp('γ<sub>f</sub> = 1,0; γ<sub>n</sub> = 1,0; ψ<sub>t</sub> = 1,0 / 0,9')}${res.sls.map(row).join('')}</tbody></table></div></div>`;
+    const nm = k => `<b>${esc(C.nameOf(c, k))}</b>`;
+    $('cbNote').innerHTML = `<b>Khi khai báo tải trong ETABS</b><ul>
+      <li>${nm('WX')}, ${nm('WY')}: nhập giá trị <b>tiêu chuẩn</b> (cột FX_tc, FY_tc của “Bảng lực cho ETABS”), vì hệ số tổ hợp đã gồm γ<sub>f</sub> = 2,1. Nhập cột FX_tt, FY_tt sẽ nhân 2,1 hai lần.</li>
+      ${c.xcc ? `<li>${nm('XCC')}: nhập giá trị <b>tính toán</b> q<sub>d</sub> = γ<sub>f</sub>·μ·q<sub>k</sub> (8.6.2), vì tổ hợp lấy hệ số 1. Khi không có thông số xe: 1,2 × 1,4 × 15 = 25,2 kN/m².</li>` : ''}
+      ${c.eq ? `<li>${nm('EX')}, ${nm('EY')}: tác động động đất thiết kế theo TCVN 9386 (đã gồm hệ số tầm quan trọng γ<sub>I</sub>).</li>` : ''}</ul>`;
+  }
+  function comboCsv(sep) {
+    const res = C.build(S.combo);
+    const q = v => typeof v === 'number' ? String(C.round(v)) : (sep === ',' && /[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v);
+    return [['Name', 'Type', 'Is Auto', 'Load Name', 'SF'], ...C.etabsRows(res)].map(r => r.map(q).join(sep)).join('\r\n') + '\r\n';
+  }
+  function comboChanged() { edited(); renderComboTables(); persist(); }
+  $('cbForm').addEventListener('change', e => {
+    const t = e.target, c = S.combo;
+    if (t.id === 'cGn') c.gn = t.value; else if (t.id === 'cCat') c.cat = t.value;
+    else if (t.id === 'cEq') c.eq = t.checked; else if (t.id === 'cXcc') c.xcc = t.checked; else if (t.id === 'cInTM') c.inTM = t.checked;
+    else if (t.dataset.cg) c[t.dataset.cg][t.dataset.ck] = t.value;
+    else return;
+    comboChanged();
+  });
+  $('cbForm').addEventListener('input', e => { const k = e.target.dataset.cn; if (!k) return; S.combo.names[k] = e.target.value; comboChanged(); });
+  $('bCbCsv').addEventListener('click', () => saveFile(`To-hop-ETABS-${slug()}.csv`, '﻿' + comboCsv(','), 'cbMsg'));
+  $('bCbCopy').addEventListener('click', async () => {
+    const txt = comboCsv('\t'), msg = $('cbMsg');
+    let ok = false;
+    try { await navigator.clipboard.writeText(txt); ok = true; } catch (e) {
+      try { const ta = document.createElement('textarea'); ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); ok = document.execCommand('copy'); ta.remove(); } catch (e2) { ok = false; }
+    }
+    msg.className = ok ? 'status ok' : 'status err';
+    msg.textContent = ok ? `Đã sao chép ${txt.split('\r\n').length - 2} dòng (kèm dòng tiêu đề). Dán vào bảng Load Combination Definitions trong ETABS hoặc vào Excel.` : 'Trình duyệt chặn sao chép. Dùng nút tải file .csv.';
+  });
 
   // ---------- lưu file ----------
   let dlP = null;
@@ -621,7 +705,7 @@
   });
   document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
     document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
-    ['tLoad', 'tGf', 'tAero', 'tTM'].forEach(id => $(id).hidden = id !== b.dataset.tab);
+    ['tLoad', 'tGf', 'tAero', 'tCombo', 'tTM'].forEach(id => $(id).hidden = id !== b.dataset.tab);
     if (b.dataset.tab === 'tTM') renderTM();
     try { localStorage.setItem(LS_KEY + '-tab', b.dataset.tab); } catch (e) { }
   }));

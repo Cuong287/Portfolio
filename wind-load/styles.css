@@ -155,6 +155,34 @@ input:disabled{opacity:.5}
 .two>*{min-width:0}
 #tAero table.res td:first-child{white-space:normal}
 @media (max-width:700px){.two{grid-template-columns:1fr}.grid2{grid-template-columns:1fr 1fr}.sitecard{grid-template-columns:1fr 1fr}}
+/* tab tổ hợp tải trọng */
+.cbform{display:flex;flex-direction:column;gap:10px}
+.cbchk{gap:6px 18px}
+.cbdet{border:1px solid var(--line);border-radius:var(--r);padding:0 12px}
+.cbdet>summary{cursor:pointer;font-size:13px;font-weight:600;padding:9px 0}
+.cbdet[open]>summary{border-bottom:1px solid var(--line);margin-bottom:10px}
+.cbdet>.hint{margin:8px 0 10px}
+table.cbgf td{white-space:normal;vertical-align:middle}
+table.cbgf td:first-child{font-family:var(--f-ui);font-size:13px;min-width:120px}
+table.cbgf td select{font-size:12.5px;padding:4px 6px}
+table.cbgf td.fx{font-family:var(--f-num);text-align:left;color:var(--muted)}
+.cbnames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 10px;margin-bottom:12px}
+.cbnames input{font-family:var(--f-num);padding:4px 6px}
+.cbnote{flex-direction:column;gap:4px;margin:12px 0;color:var(--ink)}
+.cbnote ul{margin:0;padding-left:18px}
+.cbnote li{margin:2px 0}
+.cbt{margin-top:14px}
+.cbt h3.sub{margin-bottom:6px}
+table.cbm td,table.cbm th{text-align:center}
+table.cbm td.nm{font-family:var(--f-num);white-space:nowrap}
+table.cbm td.ds,table.cbm th:last-child{font-family:var(--f-ui);font-size:12px;color:var(--muted);white-space:nowrap;text-align:left}
+table.cbm td.nm,table.cbm th:first-child{position:sticky;left:0;background:var(--panel);z-index:1}
+table.cbm td.neg{color:var(--suct)}
+table.cbm td.z{color:var(--line)}
+table.cbm tr.grp td{background:var(--sunk);font-family:var(--f-ui);font-size:12.5px;font-weight:600;text-align:left;color:var(--ink);white-space:normal}
+table.cbm th small{display:block;font-size:10.5px;color:var(--muted);font-weight:400}
+.cbexp{margin-top:14px}
+@media (max-width:700px){.cbnames{grid-template-columns:1fr 1fr}.cbform .grid2{grid-template-columns:1fr}}
 h3.sub{font-size:13px;font-weight:600;margin:4px 0 8px;display:flex;gap:8px;align-items:center}
 .export{display:flex;flex-direction:column;gap:10px;padding:14px}
 .export .row .btn{flex:1 1 200px;justify-content:center}
