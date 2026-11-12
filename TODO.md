@@ -1,6 +1,6 @@
 # TODO - Portfolio
 
-Chỉ orchestrator (Claude) được sửa file này. Cập nhật lần cuối: 2026-11-10
+Chỉ orchestrator (Claude) được sửa file này. Cập nhật lần cuối: 2026-11-12
 
 ## Đang làm
 <!-- Mẫu: - [ ] T1 Tên việc | Codex | nhánh task/T1 | trạng thái (đã giao / chờ duyệt / đang sửa) -->
@@ -23,3 +23,4 @@ Chỉ orchestrator (Claude) được sửa file này. Cập nhật lần cuối:
 - [x] 07-gbc-palette Đổi bảng màu theo gbc-engineers.com: nhấn cobalt #0019B3 (biến --accent), chữ #292929, xám trung tính thay xám ngả xanh lá, khối Contact nền cobalt, nút chính cobalt; giữ bố cục + phông | Claude | đã commit
 - [x] 08-accent-restraint Phương án A sau đánh giá của agent: cobalt chỉ làm tín hiệu (số mục, nút, gạch nav, vạch hero, viền trên ô trang trí, khối Contact); bỏ mọi tint cobalt nhạt (ngả tím) → xám trung tính; nhãn #737373, nhấn phụ #4d4d4d; thẻ nền trắng đặc | Claude | đã commit
 - [x] 09-text-tiers Thống nhất màu chữ 3 bậc (#292929 / #4d4d4d / #666666), nhãn trên dải tối #a3a3a3; sửa 5 chỗ dưới chuẩn tương phản (min 1.84 → 5.15) | subagent làm trên bản sao, Claude duyệt + đo lại | đã commit
+- [x] 10-wind-load Thêm app con `wind-load/`: tính tải trọng gió TCVN 2737:2023 (chuyển từ Excel Cemcons Wind v4.8 + sửa lỗi, tra QCVN 02:2022, sơ đồ mặt đứng, mô hình 3D, vùng ce F.4, mặt đất tự nhiên, xuất thuyết minh .docx/CSV ETABS); test `node wind-load/tests/engine-regression.test.js` 7/7 PASS | Claude | CHƯA commit, chưa gắn link vào trang portfolio

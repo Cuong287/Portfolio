@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gió TCVN 2737:2023</title>
+<meta name="description" content="Tính tải trọng gió nhà cao tầng theo TCVN 2737:2023: tra địa danh QCVN 02:2022, hệ số Gf, hệ số khí động, lực gió từng tầng, mô hình 3D, xuất thuyết minh Word và bảng lực cho ETABS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand"><h1>Tải trọng gió</h1><span class="std">TCVN 2737:2023</span><span class="proj" id="hdrProj"></span></div>
+  <span class="example" id="exBadge" hidden>Số liệu ví dụ</span>
+  <button class="btn primary" id="bDocx" type="button">Xuất thuyết minh Word</button>
+</div></header>
+
+<main class="wrap">
+<div class="col" id="inputs">
+
+  <details class="card" open id="cMeta"><summary><span class="num">1</span>Hồ sơ công trình<span class="sum" id="sMeta"></span></summary>
+    <div class="body">
+      <label class="field"><span>Tên công trình</span><input id="mProject" type="text"></label>
+      <div class="grid2">
+        <label class="field"><span>Hạng mục</span><input id="mItem" type="text"></label>
+        <label class="field"><span>Địa điểm xây dựng</span><input id="mAddress" type="text"></label>
+        <label class="field"><span>Người tính</span><input id="mAuthor" type="text"></label>
+        <label class="field"><span>Người kiểm tra</span><input id="mChecker" type="text"></label>
+        <label class="field"><span>Ngày</span><input id="mDate" type="text"></label>
+        <label class="field"><span>Nguồn chu kỳ dao động</span><input id="mPeriod" type="text"></label>
+      </div>
+    </div>
+  </details>
+
+  <details class="card" open id="cSite"><summary><span class="num">2</span>Số liệu gió tại địa điểm<span class="sum" id="sSite"></span></summary>
+    <div class="body">
+      <div id="siteAuto" class="body" style="padding:0">
+        <label class="field"><span>Tỉnh / thành phố (QCVN 02:2022/BXD, Bảng 5.1)</span><select id="selProv"></select></label>
+        <label class="field"><span>Địa danh</span><select id="selRow"></select></label>
+      </div>
+      <div class="sitecard" id="siteCard"></div>
+      <label class="check"><input type="checkbox" id="chkManual">Nhập tay số liệu gió (địa hình phức tạp, số liệu riêng)</label>
+      <div id="siteManual" class="body" style="padding:0" hidden>
+        <div class="grid2">
+          <label class="field"><span>Vùng áp lực gió</span><select id="mZone"><option>I</option><option>II</option><option>III</option><option>IV</option><option>V</option></select></label>
+          <label class="field"><span><i>W</i>₀ (daN/m²)</span><input id="mW0" type="number" step="any" min="0"></label>
+          <label class="field"><span><i>V</i>₃ₛ,₅₀ (m/s)</span><input id="mV" type="number" step="any" min="0"></label>
+          <label class="field"><span>Tính <i>W</i>₀ từ <i>V</i>₀ (m/s) — công thức (11)</span><input id="mV0" type="number" step="any" min="0" placeholder="W₀ = 0,0613·V₀²"></label>
+        </div>
+        <label class="field"><span>Nguồn số liệu (ghi vào thuyết minh)</span><input id="mSource" type="text" placeholder="VD: số liệu Viện KTTV cung cấp"></label>
+      </div>
+      <p class="hint">Địa danh theo QCVN 02:2022/BXD, dùng tên đơn vị hành chính trước đợt sắp xếp năm 2025.</p>
+    </div>
+  </details>
+
+  <details class="card" open id="cBld"><summary><span class="num">3</span>Công trình<span class="sum" id="sBld"></span></summary>
+    <div class="body">
+      <div class="grid2">
+        <label class="field"><span>Chiều rộng <i>B</i> – theo phương Y (m)</span><input id="iB" type="number" step="any" min="0"></label>
+        <label class="field"><span>Chiều dài <i>L</i> – theo phương X (m)</span><input id="iL" type="number" step="any" min="0"></label>
+        <label class="field"><span>Chu kỳ <i>T</i>₁ phương X (s)</span><input id="iTx" type="number" step="any" min="0"></label>
+        <label class="field"><span>Chu kỳ <i>T</i>₁ phương Y (s)</span><input id="iTy" type="number" step="any" min="0"></label>
+      </div>
+      <fieldset class="gbox">
+        <legend>Mặt đất tự nhiên</legend>
+        <div class="gform">
+          <label class="field"><span>Sàn so sánh</span><select id="gRef"></select></label>
+          <label class="field"><span>Mặt đất</span><select id="gRel"><option value="below">thấp hơn</option><option value="eq">ngang</option><option value="above">cao hơn</option></select></label>
+          <label class="field"><span>Khoảng cách (m)</span><input id="gVal" type="number" step="any" min="0"></label>
+        </div>
+        <div class="gsk" id="gSketch"></div>
+        <p class="hint" id="zgInfo" style="margin:0;color:var(--ink)"></p>
+        <p class="hint" style="margin:0">Gió chỉ tính cho phần công trình nằm trên mặt đất. Thường chọn sàn tầng 1 trên bản vẽ; “Đáy công trình” là chân tầng thấp nhất trong bảng tầng; nhà không có hầm, mặt đất ngang chân công trình thì giữ “Đáy công trình” – “ngang”.</p>
+      </fieldset>
+      <label class="field"><span id="terLab">Dạng địa hình (Bảng 8)</span><select id="iTerX"><option value="A">A – trống trải</option><option value="B">B – tương đối trống trải</option><option value="C">C – che chắn mạnh</option></select></label>
+      <label class="check"><input type="checkbox" id="chkTerSplit">Địa hình khác nhau theo hướng gió</label>
+      <div id="terYBox" class="body" style="padding:0" hidden>
+        <label class="field"><span>Dạng địa hình – gió phương Y</span><select id="iTerY"><option value="A">A – trống trải</option><option value="B">B – tương đối trống trải</option><option value="C">C – che chắn mạnh</option></select></label>
+        <p class="hint">Theo Chú thích 2, Bảng 9 TCVN 2737:2023: dạng địa hình có thể khác nhau theo hướng gió. Ô phía trên dùng cho gió phương X.</p>
+      </div>
+      <label class="field"><span>Loại kết cấu (độ cản <i>β</i>)</span><select id="iStruct"><option value="rc">Bê tông cốt thép – β = 0,02</option><option value="comp">Liên hợp thép – bê tông – β = 0,015</option><option value="steel">Thép – β = 0,01</option></select></label>
+      <p class="hint"> Chu kỳ lấy từ phân tích dao động (ETABS…); <i>T</i>₁ ≤ 1 s thì <i>G</i><sub>f</sub> = 0,85.</p>
+    </div>
+  </details>
+
+  <details class="card" open id="cSt"><summary><span class="num">4</span>Bảng tầng<span class="sum" id="sSt"></span></summary>
+    <div class="body">
+      <div class="grid2" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <label class="field"><span>Số tầng</span><input id="gN" type="number" step="1" min="1"></label>
+        <label class="field"><span>Cao tầng điển hình (m)</span><input id="gH" type="number" step="any" min="0"></label>
+        <label class="field"><span>Cao tầng 1 (m)</span><input id="gH1" type="number" step="any" min="0"></label>
+      </div>
+      <div class="row">
+        <button class="btn small" id="bGen" type="button">Tạo lại bảng tầng</button>
+        <span class="confirm" id="genConfirm" hidden>Bảng hiện tại sẽ bị thay thế. <button class="btn small" id="bGenYes" type="button">Thay thế</button><button class="btn small ghost" id="bGenNo" type="button">Huỷ</button></span>
+        <button class="btn small" id="bPasteT" type="button">Dán từ ETABS</button>
+      </div>
+      <div id="pasteBox" hidden class="body" style="padding:0">
+        <label class="field"><span>Dán bảng Story Definitions (cột Tên tầng và Chiều cao, tầng trên cùng ở đầu)</span><textarea id="pasteTxt" placeholder="Story7	4.4&#10;Story6	4.2&#10;…&#10;Story1	4.5"></textarea></label>
+        <div class="row"><button class="btn small" id="bPasteApply" type="button">Dùng bảng này</button><span class="status" id="pasteMsg"></span></div>
+      </div>
+      <div class="tw"><table class="st" id="tblSt"><thead><tr><th>Tầng</th><th>Cao tầng (m)</th><th>Cao trên mặt đất (m)</th><th>b phương X (m)</th><th>b phương Y (m)</th><th>Cao đón gió (m)</th><th></th></tr></thead><tbody></tbody></table></div>
+      <div class="row"><button class="btn small" id="bAddTop" type="button">Thêm tầng trên cùng</button></div>
+      <p class="hint">Ô để trống lấy mặc định: bề rộng đón gió phương X = <i>B</i>, phương Y = <i>L</i>; cao đón gió = ½ tầng đó + ½ tầng trên (tầng mái: ½ tầng mái), bỏ phần nằm dưới mặt đất tự nhiên. Tầng mờ là tầng nằm hẳn dưới mặt đất.</p>
+    </div>
+  </details>
+
+</div>
+
+<div class="col" id="results">
+  <div class="kpis" id="kpis"></div>
+  <div class="alerts" id="alerts"></div>
+  <section class="card">
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="tLoad" type="button">Tải trọng tầng</button>
+      <button role="tab" aria-selected="false" data-tab="tGf" type="button">Hệ số Gf</button>
+      <button role="tab" aria-selected="false" data-tab="tAero" type="button">Hệ số khí động</button>
+      <button role="tab" aria-selected="false" data-tab="tTM" type="button">Thuyết minh</button>
+    </div>
+    <div class="pane" id="tLoad"></div>
+    <div class="pane" id="tGf" hidden></div>
+    <div class="pane" id="tAero" hidden></div>
+    <div class="pane" id="tTM" hidden><div class="paper tm" id="tmPrev"></div></div>
+  </section>
+  <section class="card">
+    <div class="export">
+      <h3 class="sub">Xuất kết quả</h3>
+      <div class="row">
+        <button class="btn primary" id="bDocx2" type="button">Thuyết minh Word (.docx)</button>
+        <button class="btn" id="bPrint" type="button">Bản in để lưu PDF (.html)</button>
+        <button class="btn" id="bCsv" type="button">Bảng lực cho ETABS (.csv)</button>
+      </div>
+      <p class="hint">File Word sửa được trong Word, công thức là phương trình Word. Muốn ra PDF: mở file Word rồi chọn Lưu thành PDF, hoặc mở bản in .html trong trình duyệt và bấm “In / Lưu PDF”.</p>
+      <div class="status" id="expMsg" role="status"></div>
+    </div>
+  </section>
+  <section class="card">
+    <div class="export">
+      <h3 class="sub">Hồ sơ đã lưu</h3>
+      <div class="row">
+        <button class="btn" id="bSave" type="button">Lưu hồ sơ hiện tại</button>
+        <button class="btn" id="bJson" type="button">Tải hồ sơ (.json)</button>
+        <label class="btn" for="fJson">Mở hồ sơ (.json)</label><input id="fJson" type="file" accept=".json,application/json" hidden>
+        <button class="btn ghost" id="bNew" type="button">Hồ sơ mới</button>
+      </div>
+      <div class="saved" id="savedList"></div>
+      <div class="status" id="saveMsg" role="status"></div>
+    </div>
+  </section>
+</div>
+</main>
+
+<script src="engine.js"></script>
+<script src="report.js"></script>
+<script src="view3d.js"></script>
+<script src="data/qcvn02-2022-bang-5-1.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
