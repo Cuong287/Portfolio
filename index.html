@@ -370,9 +370,10 @@ section{padding:108px 0}
 }
 .card:last-child{border-right:0}
 .card:nth-child(3){border-right:0}
-.card--wide{grid-column:1/-1;min-height:250px;border-top:1px solid var(--line)}
-.card--wide h3{margin-top:30px}
-.card--wide p{max-width:620px}
+.card.card--wide{grid-column:1/-1;min-height:250px;border-top:1px solid var(--line)}
+.card.card--wide h3{margin-top:30px}
+.card.card--wide p{max-width:620px}
+@media(max-width:900px){.card.card--wide{border-top:0}}
 .card::before{
   position:absolute;
   right:-30px;
