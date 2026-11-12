@@ -650,6 +650,21 @@
   });
 
   try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => View3D.draw()); new MutationObserver(() => View3D.draw()).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] }); } catch (e) { }
+  // ---------- nút nền sáng / tối (mặc định sáng; lưu lựa chọn trên máy người xem) ----------
+  const THEME_KEY = 'gio-tcvn2737-theme';
+  const setThemeBtn = () => {
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const lbl = dark ? 'Chuyển sang nền sáng' : 'Chuyển sang nền tối';
+    $('bTheme').setAttribute('aria-label', lbl); $('bTheme').title = lbl;
+    $('bTheme').setAttribute('aria-pressed', dark ? 'true' : 'false');
+  };
+  $('bTheme').addEventListener('click', () => {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem(THEME_KEY, next); } catch (e) { }
+    setThemeBtn();
+  });
+  setThemeBtn();
   // ---------- khởi động ----------
   fillInputs();
   try { const tab = localStorage.getItem(LS_KEY + '-tab'); if (tab) document.querySelector(`.tabs [data-tab="${tab}"]`)?.click(); } catch (e) { }

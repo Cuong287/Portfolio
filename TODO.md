@@ -27,3 +27,4 @@ Chỉ orchestrator (Claude) được sửa file này. Cập nhật lần cuối:
 - [x] 11-wind-load-link Gắn link `wind-load/index.html`: thẻ rộng "04 / ENGINEERING TOOL – Wind Load Calculator" dưới 3 thẻ mục Works (index.html, CSS `.card--wide`); nút "← Portfolio" trong app; cập nhật CLAUDE.md (cấu trúc + lệnh test) | Claude | CHƯA commit
 - [x] 12-wind-load-standalone Bỏ nút "← Portfolio" trong `wind-load/` để gửi riêng link công cụ không dẫn về portfolio (theo yêu cầu người dùng); link một chiều từ thẻ 04 ở index vẫn giữ | Claude | CHƯA commit
 - [x] 13-wind-load-light Cố định giao diện sáng cho `wind-load/` (`data-theme="light"` trên thẻ html) để đồng bộ portfolio; trước đó trang theo chế độ tối của máy nên hiện nền đen | Claude | CHƯA commit
+- [x] 14-wind-load-theme Thêm nút chuyển nền sáng/tối ở thanh đầu `wind-load/` (mặc định sáng, nhớ lựa chọn bằng localStorage `gio-tcvn2737-theme`, mô hình 3D tự vẽ lại theo màu) | Claude | CHƯA commit

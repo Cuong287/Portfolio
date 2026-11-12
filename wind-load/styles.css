@@ -36,6 +36,11 @@ header.top .wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding
 .btn.primary:hover{filter:brightness(1.07)}
 .btn.small{padding:4px 9px;font-size:13px}
 .btn.ghost{border-color:transparent;background:transparent;color:var(--muted)}
+.themebtn{padding:6px;width:36px;height:36px;justify-content:center}
+.themebtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.themebtn .i-sun{display:none}
+:root[data-theme="dark"] .themebtn .i-sun{display:block}
+:root[data-theme="dark"] .themebtn .i-moon{display:none}
 .btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 main.wrap{max-width:1500px;margin:0 auto;padding-block:16px 40px;display:grid;grid-template-columns:minmax(330px,420px) minmax(0,1fr);gap:18px;align-items:start}
 @media (max-width:980px){main.wrap{grid-template-columns:minmax(0,1fr)}}
