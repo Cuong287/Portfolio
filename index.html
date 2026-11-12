@@ -369,6 +369,10 @@ section{padding:108px 0}
   transition:background .22s ease,transform .22s ease;
 }
 .card:last-child{border-right:0}
+.card:nth-child(3){border-right:0}
+.card--wide{grid-column:1/-1;min-height:250px;border-top:1px solid var(--line)}
+.card--wide h3{margin-top:30px}
+.card--wide p{max-width:620px}
 .card::before{
   position:absolute;
   right:-30px;
@@ -661,6 +665,12 @@ footer{
           <h3>Scientific Research</h3>
           <p>Current research on climate-change impacts on carbonation and chloride-induced deterioration of reinforced concrete structures.</p>
           <span class="disabled-link" role="link" aria-disabled="true">Coming soon</span>
+        </article>
+        <article class="card card--wide">
+          <div class="num">04 / ENGINEERING TOOL</div>
+          <h3>Wind Load Calculator</h3>
+          <p>A web tool for wind loads on multi-storey buildings to TCVN 2737:2023: QCVN 02:2022 site lookup, gust factor, pressure zones, storey forces for ETABS, a 3D view, and editable Word calculation reports. Interface in Vietnamese.</p>
+          <a href="wind-load/index.html">Open Calculator</a>
         </article>
       </div>
     </div>

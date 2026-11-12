@@ -7,6 +7,9 @@ Trang portfolio cá nhân (Lê Văn Cường) host trên GitHub Pages: các tran
 (index, academic-projects, awards, research) giới thiệu dự án, giải thưởng, nghiên cứu.
 Trong thư mục `slab-design/` có một ứng dụng con độc lập: công cụ tính toán cốt thép
 sàn bê tông theo TCVN 5574:2018 (HTML/CSS/JS thuần, có test engine riêng).
+Thư mục `wind-load/` là ứng dụng con thứ hai: tính tải trọng gió nhà cao tầng theo
+TCVN 2737:2023 (HTML/CSS/JS thuần, có test engine riêng), được gắn link từ thẻ
+"04 / ENGINEERING TOOL" trong mục Works của `index.html`.
 
 ## Công nghệ và cấu trúc
 - Ngôn ngữ/framework: HTML/CSS/JavaScript thuần (vanilla), không build tool, không framework,
@@ -17,6 +20,10 @@ sàn bê tông theo TCVN 5574:2018 (HTML/CSS/JS thuần, có test engine riêng)
   - `slab-design/` — app con tính cốt thép sàn (TCVN 5574:2018): `index.html`, `app.js`, `engine.js`,
     `styles.css`, `calculator-refinement.css`, `docs/` (spec + verification register), `tests/`
     (regression test bằng Node `assert`, không dùng framework test).
+  - `wind-load/` — app con tính tải trọng gió (TCVN 2737:2023, chuyển từ Excel Cemcons Wind v4.8):
+    `index.html`, `styles.css`, `engine.js` (tính toán), `report.js` (thuyết minh .docx/bản in),
+    `view3d.js` (mô hình 3D), `app.js`, `data/qcvn02-2022-bang-5-1.js` (QCVN 02:2022 Bảng 5.1),
+    `docs/` (spec + verification register), `tests/` (regression test bằng Node `assert`).
   - `tmp/` — thư mục scratch tạm (gitignored; `tmp/pdf-recrop/` đã xóa 2026-11-10).
 - Quy ước đặt tên/định dạng: tên file kebab-case; `slab-design/` có `AGENTS.md` riêng quy định
   ranh giới (không sửa code ngoài `slab-design/**` khi làm việc trong app này, giữ nguyên
@@ -24,7 +31,8 @@ sàn bê tông theo TCVN 5574:2018 (HTML/CSS/JS thuần, có test engine riêng)
 
 ## Lệnh kiểm chứng
 - Test: `node slab-design/tests/engine-regression.test.js` (regression test cho engine tính
-  cốt thép; trang portfolio chính chưa có test tự động).
+  cốt thép) và `node wind-load/tests/engine-regression.test.js` (engine tải trọng gió);
+  trang portfolio chính chưa có test tự động.
 - Lint/typecheck: chưa có.
 - Build: không cần build (site tĩnh, mở trực tiếp file HTML hoặc serve qua static server).
 - Chạy thử: mở trực tiếp `index.html`/`slab-design/index.html` bằng trình duyệt, hoặc
@@ -35,6 +43,9 @@ sàn bê tông theo TCVN 5574:2018 (HTML/CSS/JS thuần, có test engine riêng)
   kiểm tra output `PASS`. Thay đổi công thức kỹ thuật phải đối chiếu với
   `slab-design/docs/engineering-spec-tcvn5574-2018.md` và file Excel benchmark
   `Cemcons_SlabTCVN_Ver1.2.1_UnLockView.xlsm`.
+- Code (JS trong `wind-load/`): chạy `node wind-load/tests/engine-regression.test.js`, kiểm tra
+  7 nhóm `PASS`. Thay đổi công thức phải đối chiếu `wind-load/docs/engineering-spec-tcvn2737-2023.md`,
+  TCVN 2737:2023 và file Excel benchmark `Cemcons_Wind_TCVN_2737-2023_Ver4.8.xlsm`.
 - Web: mở thử trang trong browser (desktop + mobile viewport), kiểm tra console không lỗi,
   kiểm tra luồng chính: điều hướng giữa các trang, lightbox ảnh, scroll-spy nav.
 - Tài liệu/nội dung: đối chiếu số liệu/giải thưởng/dự án với nguồn gốc (hồ sơ cá nhân),
